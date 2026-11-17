@@ -28,6 +28,8 @@ Ultimo aggiornamento: 2026-11-17 (primo blocco 3D prodotto: episodi 01-05)
 
 - Verifica pubblicazione automatica (2026-11-17): API ufficiale TikTok in modalita' bozza (scope video.upload) richiede un'app registrata e approvata; le linee guida di revisione escludono app per uso privato/personale, quindi un'app propria per solo uso personale rischia il rifiuto. Strada piu' realistica: servizio terzo gia' approvato da TikTok (Postiz, Buffer, Metricool, Publer, ecc.) collegato al profilo in modalita' bozza/inbox. Da verificare costi e supporto prima di scegliere.
 
+- Confronto piani gratuiti scheduler (2026-11-17): fabbisogno ~13 post/mese, coda max ~3 settimane. Buffer Free (3 canali, 10 post in coda per canale, TikTok personale ok, pubblicazione via notifica, 1 chiave API gratis), Metricool Free (20 post/mese, TikTok personale ok, notifica o auto-publish, API solo a pagamento), Publer Free (10 post in coda per account, TikTok personale ok, notifica o diretta). Postiz non adatto (hosted a pagamento, self-host richiede app propria approvata). Per la musica serve la modalita' notifica/bozza. Proposta: Buffer Free; scelta e prova da fare con Daniele.
+
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
 - Nessuna voce, musica da decidere; account personale TikTok.
