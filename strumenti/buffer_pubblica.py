@@ -11,6 +11,8 @@ Parametri (nessun valore fisso nel codice):
   --canale ID      id del canale TikTok (oppure variabile d'ambiente BUFFER_CANALE)
   --episodio ID    un episodio preciso (es. 01-variabili-costanti-cpp)
   --prossimi N     i prossimi N episodi "pronto" con data futura
+  --modo M         notification (default, per la musica) oppure automatic
+  --escludi EP     salta un episodio gia' programmato (ripetibile)
   --invia          senza questo flag e' sempre un'anteprima
 
 La chiave non viene mai stampata. Solo libreria standard di Python 3.9+.
@@ -105,6 +107,8 @@ def episodi_pronti(args):
         if r["stato"] != "pronto" or not r["episodio"]:
             continue
         quando = datetime.fromisoformat(f'{r["data"]}T{r["ora"]}').replace(tzinfo=TZ)
+        if r["episodio"] in args.escludi:
+            continue
         if args.episodio:
             if r["episodio"] == args.episodio:
                 out.append((r, quando))
@@ -131,6 +135,9 @@ def main():
     a.add_argument("--episodio")
     a.add_argument("--prossimi", type=int, default=1)
     a.add_argument("--canali", action="store_true")
+    a.add_argument("--modo", choices=["notification", "automatic"], default="notification",
+                   help="notification = promemoria sul telefono (serve per la musica); automatic = Buffer pubblica da solo")
+    a.add_argument("--escludi", action="append", default=[], help="episodio gia' programmato da saltare (ripetibile)")
     a.add_argument("--invia", action="store_true")
     args = a.parse_args()
     chiave = leggi_chiave(args.chiave)
@@ -155,7 +162,7 @@ def main():
             continue
         if avvisi:
             print("   saltato (correggi la descrizione)"); continue
-        inp = {"text": testo, "channelId": args.canale, "schedulingType": "automatic",
+        inp = {"text": testo, "channelId": args.canale, "schedulingType": args.modo,
                "mode": "customScheduled",
                "dueAt": quando.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z"),
                "assets": {"video": {"url": url}}}
