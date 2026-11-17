@@ -1,0 +1,88 @@
+{
+  "id": "13-eccezioni-try-catch-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Main.java",
+  "theme": {},
+  "viz_index": true,
+  "viz_title": "array  ·  v",
+  "hook": [
+    "v[5] in un array di 3.",
+    "Il programma si ferma?",
+    "Non con try e catch."
+  ],
+  "code": "public class Main {\n    public static void main(String[] args) {\n        int[] v = {1, 2, 3};\n        try {\n            System.out.println(v[5]);\n        } catch (ArrayIndexOutOfBoundsException e) {\n            System.out.println(\"Indice errato\");\n        }\n        System.out.println(\"Fine\");\n    }\n}\n",
+  "steps": [
+    {
+      "after_line": 3,
+      "caption": "1 · v ha 3 elementi: indici 0, 1, 2",
+      "viz": {
+        "op": "init",
+        "values": [
+          1,
+          2,
+          3
+        ]
+      },
+      "highlight_lines": [
+        3
+      ]
+    },
+    {
+      "after_line": 5,
+      "caption": "2 · v[5] non esiste: eccezione",
+      "viz": {
+        "op": "label",
+        "text": "ArrayIndexOutOfBounds"
+      },
+      "highlight_lines": [
+        4,
+        5
+      ]
+    },
+    {
+      "after_line": 8,
+      "caption": "3 · catch la gestisce",
+      "viz": {
+        "op": "label",
+        "text": "gestita: si prosegue"
+      },
+      "highlight_lines": [
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "run_caption": "4 · Il programma arriva a Fine",
+  "outro": {
+    "caption": "Prossimo episodio: trova l'errore",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Le eccezioni in Java: try e catch.",
+    "theory": [
+      "Un'eccezione è un errore che si verifica durante l'esecuzione.",
+      "Il codice a rischio si mette nel blocco try.",
+      "Il blocco catch gestisce il tipo di eccezione indicato e il programma prosegue.",
+      "Senza catch l'eccezione ferma il programma."
+    ],
+    "caption_en": "Exceptions in Java: try and catch.",
+    "theory_en": [
+      "An exception is an error that happens at run time.",
+      "Risky code goes in the try block.",
+      "The catch block handles the given exception type and the program carries on.",
+      "Without catch the exception stops the program."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

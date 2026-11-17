@@ -1,0 +1,18 @@
+Trova l'errore in Java: NumberFormatException.
+
+Richiamo teorico:
+- Integer.parseInt converte una String in int.
+- Se il testo non è un numero valido lancia NumberFormatException.
+- L'errore non è di compilazione: compare solo a runtime e ferma il programma.
+- Si risolve passando un testo valido o gestendo l'eccezione con try e catch.
+
+English:
+Find the bug in Java: NumberFormatException.
+
+Theory recap:
+- Integer.parseInt converts a String to an int.
+- If the text is not a valid number it throws NumberFormatException.
+- It is not a compile error: it appears only at run time and stops the program.
+- Fix it by passing a valid text or by handling the exception with try and catch.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

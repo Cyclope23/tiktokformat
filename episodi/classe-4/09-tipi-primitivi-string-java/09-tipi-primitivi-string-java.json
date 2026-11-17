@@ -1,0 +1,112 @@
+{
+  "id": "09-tipi-primitivi-string-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Main.java",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "variabile  ·  valore",
+  "hook": [
+    "Quanti tipi di dato?",
+    "Otto primitivi.",
+    "Più String."
+  ],
+  "code": "public class Main {\n    public static void main(String[] args) {\n        int eta = 16;\n        double altezza = 1.75;\n        boolean attivo = true;\n        char voto = 'A';\n        String nome = \"Java\";\n        System.out.println(nome + \" \" + eta);\n    }\n}\n",
+  "steps": [
+    {
+      "after_line": 3,
+      "caption": "1 · int: numeri interi",
+      "viz": {
+        "op": "init",
+        "values": [
+          16
+        ],
+        "names": [
+          "eta"
+        ]
+      },
+      "highlight_lines": [
+        3
+      ]
+    },
+    {
+      "after_line": 4,
+      "caption": "2 · double: numeri decimali",
+      "viz": {
+        "op": "push",
+        "value": 1.75,
+        "name": "altezza"
+      },
+      "highlight_lines": [
+        4
+      ]
+    },
+    {
+      "after_line": 5,
+      "caption": "3 · boolean: true o false",
+      "viz": {
+        "op": "push",
+        "value": "true",
+        "name": "attivo"
+      },
+      "highlight_lines": [
+        5
+      ]
+    },
+    {
+      "after_line": 6,
+      "caption": "4 · char: un carattere",
+      "viz": {
+        "op": "push",
+        "value": "A",
+        "name": "voto"
+      },
+      "highlight_lines": [
+        6
+      ]
+    },
+    {
+      "after_line": 7,
+      "caption": "5 · String: testo (è una classe)",
+      "viz": {
+        "op": "push",
+        "value": "Java",
+        "name": "nome"
+      },
+      "highlight_lines": [
+        7
+      ]
+    }
+  ],
+  "run_caption": "6 · Output: Java 16",
+  "outro": {
+    "caption": "Prossimo episodio: il casting",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Tipi primitivi e String in Java.",
+    "theory": [
+      "I tipi primitivi principali sono int, double, boolean e char (più byte, short, long, float).",
+      "int memorizza interi, double decimali, boolean true o false, char un carattere tra apici singoli.",
+      "String non è un tipo primitivo: è una classe e il testo va tra apici doppi.",
+      "Il tipo decide quanta memoria occupa la variabile e quali operazioni sono valide."
+    ],
+    "caption_en": "Primitive types and String in Java.",
+    "theory_en": [
+      "The main primitive types are int, double, boolean and char (plus byte, short, long, float).",
+      "int stores integers, double decimals, boolean true or false, char a single character in single quotes.",
+      "String is not a primitive type: it is a class and text goes in double quotes.",
+      "The type decides how much memory the variable uses and which operations are valid."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

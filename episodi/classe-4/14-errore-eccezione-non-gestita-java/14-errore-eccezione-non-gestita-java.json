@@ -1,0 +1,69 @@
+{
+  "id": "14-errore-eccezione-non-gestita-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Main.java",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "variabile  ·  valore",
+  "hook": [
+    "Il codice compila.",
+    "Ma si ferma con un errore.",
+    "Trova l'errore."
+  ],
+  "code": "public class Main {\n    public static void main(String[] args) {\n        String testo = \"12a\";\n        int n = Integer.parseInt(testo);\n        System.out.println(n * 2);\n    }\n}\n",
+  "steps": [
+    {
+      "after_line": 3,
+      "caption": "1 · testo vale \"12a\"",
+      "viz": {
+        "op": "push",
+        "value": "12a",
+        "name": "testo"
+      },
+      "highlight_lines": [
+        3
+      ]
+    }
+  ],
+  "run_caption": "",
+  "outro": {
+    "caption": "Prossimo episodio: classi e oggetti",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Trova l'errore in Java: NumberFormatException.",
+    "theory": [
+      "Integer.parseInt converte una String in int.",
+      "Se il testo non è un numero valido lancia NumberFormatException.",
+      "L'errore non è di compilazione: compare solo a runtime e ferma il programma.",
+      "Si risolve passando un testo valido o gestendo l'eccezione con try e catch."
+    ],
+    "caption_en": "Find the bug in Java: NumberFormatException.",
+    "theory_en": [
+      "Integer.parseInt converts a String to an int.",
+      "If the text is not a valid number it throws NumberFormatException.",
+      "It is not a compile error: it appears only at run time and stops the program.",
+      "Fix it by passing a valid text or by handling the exception with try and catch."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  },
+  "fix": {
+    "line": 3,
+    "new": "        String testo = \"12\";",
+    "seconds": 3.0,
+    "find_caption": "Trova l'errore",
+    "bug_caption": "Si ferma: NumberFormatException",
+    "fix_caption": "Il testo deve essere un numero",
+    "run2_caption": "Ora funziona: 24"
+  }
+}

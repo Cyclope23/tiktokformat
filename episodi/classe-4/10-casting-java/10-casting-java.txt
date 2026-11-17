@@ -1,0 +1,18 @@
+Il casting in Java: da double a int e viceversa.
+
+Richiamo teorico:
+- Il casting converte un valore da un tipo a un altro.
+- Dal tipo più piccolo al più grande (int in double) è automatico: ampliamento.
+- Dal più grande al più piccolo serve il cast esplicito (int) e si perde la parte decimale: restringimento.
+- (int) 3.9 vale 3: la parte decimale è troncata, non arrotondata.
+
+English:
+Casting in Java: from double to int and back.
+
+Theory recap:
+- Casting converts a value from one type to another.
+- From a smaller to a larger type (int to double) it is automatic: widening.
+- From larger to smaller an explicit (int) cast is needed and the decimal part is lost: narrowing.
+- (int) 3.9 is 3: the decimal part is truncated, not rounded.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

@@ -125,7 +125,8 @@ def compile_and_run_java(code, filename, files=None, main_class="Main"):
                            encoding="utf-8", timeout=20)
         out = r.stdout
         if r.returncode != 0:
-            ex = [l for l in r.stderr.splitlines() if l.startswith("Exception") or l.startswith("Error")]
+            ex = [l.replace('Exception in thread "main" ', "").replace("java.lang.", "")
+                  for l in r.stderr.splitlines() if l.startswith("Exception") or l.startswith("Error")]
             out += "\n".join(ex[:2]) + "\n"
         return out, None
 

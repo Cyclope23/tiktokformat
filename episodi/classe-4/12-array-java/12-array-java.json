@@ -1,0 +1,77 @@
+{
+  "id": "12-array-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Main.java",
+  "theme": {},
+  "viz_index": true,
+  "viz_title": "array  ·  v",
+  "hook": [
+    "Quattro numeri.",
+    "Un solo nome.",
+    "Si chiama array."
+  ],
+  "code": "public class Main {\n    public static void main(String[] args) {\n        int[] v = {4, 8, 15, 16};\n        int somma = 0;\n        for (int x : v) {\n            somma += x;\n        }\n        System.out.println(somma);\n    }\n}\n",
+  "steps": [
+    {
+      "after_line": 3,
+      "caption": "1 · Array: 4 caselle, indici da 0",
+      "viz": {
+        "op": "init",
+        "values": [
+          4,
+          8,
+          15,
+          16
+        ]
+      },
+      "highlight_lines": [
+        3
+      ]
+    },
+    {
+      "after_line": 7,
+      "caption": "2 · Il for visita ogni elemento",
+      "viz": {
+        "op": "label",
+        "text": "somma = 43"
+      },
+      "highlight_lines": [
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "run_caption": "3 · Output: 43",
+  "outro": {
+    "caption": "Prossimo episodio: le eccezioni",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Gli array in Java: dichiarazione, length e scorrimento.",
+    "theory": [
+      "Un array contiene più valori dello stesso tipo, in caselle numerate da 0.",
+      "La dimensione si legge con v.length (senza parentesi).",
+      "Il for each (for (int x : v)) visita tutti gli elementi in ordine.",
+      "L'indice valido va da 0 a v.length - 1."
+    ],
+    "caption_en": "Arrays in Java: declaration, length and traversal.",
+    "theory_en": [
+      "An array holds several values of the same type, in boxes numbered from 0.",
+      "The size is read with v.length (no parentheses).",
+      "The for each loop (for (int x : v)) visits all elements in order.",
+      "The valid index goes from 0 to v.length - 1."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

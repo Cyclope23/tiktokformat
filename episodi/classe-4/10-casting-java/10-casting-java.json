@@ -1,0 +1,89 @@
+{
+  "id": "10-casting-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Main.java",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "variabile  ·  valore",
+  "hook": [
+    "3.9 diventa 3?",
+    "Sì, con il casting.",
+    "Ma solo in un verso."
+  ],
+  "code": "public class Main {\n    public static void main(String[] args) {\n        double d = 3.9;\n        int a = (int) d;\n        int b = 5;\n        double c = b;\n        System.out.println(a + \" \" + c);\n    }\n}\n",
+  "steps": [
+    {
+      "after_line": 3,
+      "caption": "1 · d è un double: 3.9",
+      "viz": {
+        "op": "init",
+        "values": [
+          3.9
+        ],
+        "names": [
+          "d"
+        ]
+      },
+      "highlight_lines": [
+        3
+      ]
+    },
+    {
+      "after_line": 4,
+      "caption": "2 · (int) tronca: 3.9 diventa 3",
+      "viz": {
+        "op": "push",
+        "value": 3,
+        "name": "a"
+      },
+      "highlight_lines": [
+        4
+      ]
+    },
+    {
+      "after_line": 6,
+      "caption": "3 · int in double: automatico",
+      "viz": {
+        "op": "push",
+        "value": 5.0,
+        "name": "c"
+      },
+      "highlight_lines": [
+        5,
+        6
+      ]
+    }
+  ],
+  "run_caption": "4 · Output: 3 5.0",
+  "outro": {
+    "caption": "Prossimo episodio: gli operatori",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Il casting in Java: da double a int e viceversa.",
+    "theory": [
+      "Il casting converte un valore da un tipo a un altro.",
+      "Dal tipo più piccolo al più grande (int in double) è automatico: ampliamento.",
+      "Dal più grande al più piccolo serve il cast esplicito (int) e si perde la parte decimale: restringimento.",
+      "(int) 3.9 vale 3: la parte decimale è troncata, non arrotondata."
+    ],
+    "caption_en": "Casting in Java: from double to int and back.",
+    "theory_en": [
+      "Casting converts a value from one type to another.",
+      "From a smaller to a larger type (int to double) it is automatic: widening.",
+      "From larger to smaller an explicit (int) cast is needed and the decimal part is lost: narrowing.",
+      "(int) 3.9 is 3: the decimal part is truncated, not rounded."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+Gli array in Java: dichiarazione, length e scorrimento.
+
+Richiamo teorico:
+- Un array contiene più valori dello stesso tipo, in caselle numerate da 0.
+- La dimensione si legge con v.length (senza parentesi).
+- Il for each (for (int x : v)) visita tutti gli elementi in ordine.
+- L'indice valido va da 0 a v.length - 1.
+
+English:
+Arrays in Java: declaration, length and traversal.
+
+Theory recap:
+- An array holds several values of the same type, in boxes numbered from 0.
+- The size is read with v.length (no parentheses).
+- The for each loop (for (int x : v)) visits all elements in order.
+- The valid index goes from 0 to v.length - 1.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

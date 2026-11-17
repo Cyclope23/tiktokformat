@@ -1,0 +1,18 @@
+Le eccezioni in Java: try e catch.
+
+Richiamo teorico:
+- Un'eccezione è un errore che si verifica durante l'esecuzione.
+- Il codice a rischio si mette nel blocco try.
+- Il blocco catch gestisce il tipo di eccezione indicato e il programma prosegue.
+- Senza catch l'eccezione ferma il programma.
+
+English:
+Exceptions in Java: try and catch.
+
+Theory recap:
+- An exception is an error that happens at run time.
+- Risky code goes in the try block.
+- The catch block handles the given exception type and the program carries on.
+- Without catch the exception stops the program.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

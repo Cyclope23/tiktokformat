@@ -72,7 +72,7 @@ def main():
     done = [r for c in cfg["classi"] for r in leggi_piano(c) if r["fatto"]]
     attive = [c for c in cfg["classi"]
               if any(set(r["req"]) <= disp for r in code[c])]
-    pronti = sorted(done, key=lambda r: (r["classe"], r["episodio"]))   # gia' prodotti: vanno per primi
+    pronti = list(done)   # gia' prodotti: vanno per primi
     bloccati = {}                       # data -> episodio gia' programmato altrove (Buffer): resta su quella data
     for dt, nome in cfg.get("bloccati", {}).items():
         ep = next((r for r in pronti if r["episodio"] == nome), None)

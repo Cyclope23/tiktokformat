@@ -20,13 +20,13 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 |---|------|--------|----------------|-------|
 | B1 | C | Struttura di un programma Java | `class`, `main`, `System.out.println` | fatto (01) |
 | B2 | C | Variabili e costanti | `final` e inferenza `var` | fatto (02) |
-| B3 | C | Tipi primitivi e `String` | `int`, `double`, `boolean`, `char` | da fare |
-| B4 | C | Il casting | `(int) 3.9`, ampliamento e restringimento | da fare |
+| B3 | C | Tipi primitivi e `String` | `int`, `double`, `boolean`, `char` | fatto (09) |
+| B4 | C | Il casting | `(int) 3.9`, ampliamento e restringimento | fatto (10) |
 | B5 | I | Indovina l'output: divisione tra interi | `5 / 2` e `5 / 2.0` | fatto (03) |
-| B6 | C | Gli operatori | `++`, `+=`, precedenza | da fare |
-| B7 | C | Array in Java | Dichiarazione, `length`, scorrimento | da fare |
-| B8 | C | Le eccezioni: try e catch | `ArrayIndexOutOfBoundsException` gestita | da fare |
-| B9 | E | Trova l'errore: eccezione non gestita | `NumberFormatException` sulla conversione | da fare |
+| B6 | C | Gli operatori | `++`, `+=`, precedenza | fatto (11) |
+| B7 | C | Array in Java | Dichiarazione, `length`, scorrimento | fatto (12) |
+| B8 | C | Le eccezioni: try e catch | `ArrayIndexOutOfBoundsException` gestita | fatto (13) |
+| B9 | E | Trova l'errore: eccezione non gestita | `NumberFormatException` sulla conversione | fatto (14) |
 
 **Blocco C - Classi e oggetti** (convenzione della serie: ogni classe in un file separato; il `Main` serve solo a lanciare e a usare le istanze)
 

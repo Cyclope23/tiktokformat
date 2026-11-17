@@ -1,0 +1,18 @@
+Tipi primitivi e String in Java.
+
+Richiamo teorico:
+- I tipi primitivi principali sono int, double, boolean e char (più byte, short, long, float).
+- int memorizza interi, double decimali, boolean true o false, char un carattere tra apici singoli.
+- String non è un tipo primitivo: è una classe e il testo va tra apici doppi.
+- Il tipo decide quanta memoria occupa la variabile e quali operazioni sono valide.
+
+English:
+Primitive types and String in Java.
+
+Theory recap:
+- The main primitive types are int, double, boolean and char (plus byte, short, long, float).
+- int stores integers, double decimals, boolean true or false, char a single character in single quotes.
+- String is not a primitive type: it is a class and text goes in double quotes.
+- The type decides how much memory the variable uses and which operations are valid.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

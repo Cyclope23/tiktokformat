@@ -1,0 +1,100 @@
+{
+  "id": "11-operatori-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Main.java",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "variabile  ·  valore",
+  "hook": [
+    "x += 5 cosa fa?",
+    "E x++ ?",
+    "E la precedenza?"
+  ],
+  "code": "public class Main {\n    public static void main(String[] args) {\n        int x = 10;\n        x += 5;\n        x++;\n        int y = x % 4 + 2 * 3;\n        System.out.println(x + \" \" + y);\n    }\n}\n",
+  "steps": [
+    {
+      "after_line": 3,
+      "caption": "1 · x parte da 10",
+      "viz": {
+        "op": "init",
+        "values": [
+          10
+        ],
+        "names": [
+          "x"
+        ]
+      },
+      "highlight_lines": [
+        3
+      ]
+    },
+    {
+      "after_line": 4,
+      "caption": "2 · x += 5 vale x = x + 5",
+      "viz": {
+        "op": "set",
+        "index": 0,
+        "value": 15
+      },
+      "highlight_lines": [
+        4
+      ]
+    },
+    {
+      "after_line": 5,
+      "caption": "3 · x++ aggiunge 1",
+      "viz": {
+        "op": "set",
+        "index": 0,
+        "value": 16
+      },
+      "highlight_lines": [
+        5
+      ]
+    },
+    {
+      "after_line": 6,
+      "caption": "4 · * e % prima di +",
+      "viz": {
+        "op": "push",
+        "value": 6,
+        "name": "y"
+      },
+      "highlight_lines": [
+        6
+      ]
+    }
+  ],
+  "run_caption": "5 · Output: 16 6",
+  "outro": {
+    "caption": "Prossimo episodio: gli array",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Gli operatori in Java: +=, ++ e la precedenza.",
+    "theory": [
+      "x += 5 è la forma abbreviata di x = x + 5.",
+      "x++ incrementa x di 1.",
+      "Moltiplicazione, divisione e resto (*, /, %) hanno la precedenza su somma e sottrazione.",
+      "Le parentesi permettono di cambiare l'ordine di valutazione."
+    ],
+    "caption_en": "Operators in Java: +=, ++ and precedence.",
+    "theory_en": [
+      "x += 5 is the short form of x = x + 5.",
+      "x++ increments x by 1.",
+      "Multiplication, division and remainder (*, /, %) take precedence over addition and subtraction.",
+      "Parentheses change the order of evaluation."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

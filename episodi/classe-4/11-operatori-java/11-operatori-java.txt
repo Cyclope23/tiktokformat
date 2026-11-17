@@ -1,0 +1,18 @@
+Gli operatori in Java: +=, ++ e la precedenza.
+
+Richiamo teorico:
+- x += 5 è la forma abbreviata di x = x + 5.
+- x++ incrementa x di 1.
+- Moltiplicazione, divisione e resto (*, /, %) hanno la precedenza su somma e sottrazione.
+- Le parentesi permettono di cambiare l'ordine di valutazione.
+
+English:
+Operators in Java: +=, ++ and precedence.
+
+Theory recap:
+- x += 5 is the short form of x = x + 5.
+- x++ increments x by 1.
+- Multiplication, division and remainder (*, /, %) take precedence over addition and subtraction.
+- Parentheses change the order of evaluation.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode
