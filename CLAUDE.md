@@ -28,6 +28,8 @@ Aggiorna STATO.md e fai push nella stessa sessione, cosi' repo e OneDrive restan
 - piano-editoriale/ -> piano episodi per classe (da creare dalla programmazione didattica)
 - musica/ -> brani scelti per la serie
 - strumenti/render.py -> renderer; strumenti/episodio-modello.json -> modello da copiare
+- piano-editoriale/PIANO-PUBBLICAZIONE.md + pubblicazione.json + calendario.csv -> slot di pubblicazione;
+  strumenti/pianifica.py rigenera il calendario (da rilanciare a ogni episodio prodotto o funzione del renderer aggiunta)
 
 Nomi: tutto minuscolo, trattini, nessun underscore, numero progressivo per classe
 (numero = ordine di produzione nella classe; la 3ª riparte da 01 dopo l'azzeramento del 2026-11-17). Le cartelle episodio contengono sempre i tre file.

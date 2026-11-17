@@ -1,0 +1,17 @@
+{
+  "fuso": "Europe/Rome",
+  "inizio": "2026-11-19",
+  "slot_settimanali": [
+    {"giorno": "mar", "ora": "15:30"},
+    {"giorno": "gio", "ora": "15:30"},
+    {"giorno": "dom", "ora": "20:00"}
+  ],
+  "slot_di_prova": [
+    {"settimana": 2, "da": "mar 15:30", "a": "lun 13:00"},
+    {"settimana": 3, "da": "gio 15:30", "a": "mer 19:30"},
+    {"settimana": 4, "da": "dom 20:00", "a": "dom 09:00"}
+  ],
+  "classi": ["3D", "4D", "5D"],
+  "funzioni_disponibili": ["cpp", "C", "I", "E"],
+  "settimane": 30
+}
