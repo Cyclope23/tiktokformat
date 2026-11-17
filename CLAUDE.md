@@ -80,8 +80,11 @@ Formato E (trova l'errore): "fix": {"line": N, "new": "riga corretta", "find_cap
 (o mostrato l'errore reale del compilatore), poi la riga e' riscritta in verde e il programma rieseguito.
 
 ## Descrizione del post (file .txt)
-Riga di apertura + "Richiamo teorico" (3-4 punti brevi, corretti) + hashtag.
-Hashtag base: #cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok
+Sempre bilingue, italiano poi inglese: riga di apertura + "Richiamo teorico" (3-4 punti brevi, corretti),
+poi "English:" con la stessa apertura e "Theory recap:" con gli stessi punti, poi gli hashtag.
+Nel JSON: post.caption, post.theory (IT), post.caption_en, post.theory_en (EN).
+Rigenera solo il testo senza rifare il video: python3 strumenti/render.py <ep>.json --solo-testo
+Hashtag base: #cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode
 (adattare per Java, SQL, Sistemi e Reti).
 
 ## Regole

@@ -6,4 +6,13 @@ Richiamo teorico:
 - Per avere 3.5 scrivi (double)a / b oppure usa 7.0 / 2.
 - Il tipo della variabile che riceve non cambia il modo in cui si calcola l'espressione.
 
-#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok
+English:
+Quiz: what does this C++ code print? Answer in the comments!
+
+Theory recap:
+- a / b with two ints is integer division: 7 / 2 = 3.
+- The result is converted to double only afterwards: 3.0, printed as 3.
+- To get 3.5 write (double)a / b or use 7.0 / 2.
+- The receiving variable's type does not change how the expression is computed.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

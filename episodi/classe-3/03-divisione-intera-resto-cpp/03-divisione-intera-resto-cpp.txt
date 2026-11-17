@@ -6,4 +6,13 @@ Richiamo teorico:
 - Vale sempre: a == (a / b) * b + a % b.
 - Per ottenere decimali almeno un operando deve essere double.
 
-#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok
+English:
+Integer division and remainder in C++: / and % compared.
+
+Theory recap:
+- If both operands are int, / returns an int: the decimal part is discarded.
+- The % operator returns the remainder of integer division.
+- It always holds that a == (a / b) * b + a % b.
+- To get decimals, at least one operand must be a double.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

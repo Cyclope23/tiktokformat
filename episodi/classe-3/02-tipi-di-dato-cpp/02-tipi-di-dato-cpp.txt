@@ -6,4 +6,13 @@ Richiamo teorico:
 - I caratteri si scrivono tra apici singoli: 'A'.
 - cout stampa true come 1 e false come 0.
 
-#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok
+English:
+The 4 basic C++ data types in 30 seconds.
+
+Theory recap:
+- int stores integers, double real numbers, char a single character, bool true/false.
+- The type decides how much memory a variable uses and which operations are valid.
+- Characters are written in single quotes: 'A'.
+- cout prints true as 1 and false as 0.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

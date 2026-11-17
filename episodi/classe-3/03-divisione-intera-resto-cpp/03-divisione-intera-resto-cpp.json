@@ -77,7 +77,15 @@
       "#imparareacodare",
       "#informatica",
       "#scuola",
-      "#learnontiktok"
+      "#learnontiktok",
+      "#learntocode"
+    ],
+    "caption_en": "Integer division and remainder in C++: / and % compared.",
+    "theory_en": [
+      "If both operands are int, / returns an int: the decimal part is discarded.",
+      "The % operator returns the remainder of integer division.",
+      "It always holds that a == (a / b) * b + a % b.",
+      "To get decimals, at least one operand must be a double."
     ]
   }
 }

@@ -23,6 +23,9 @@ Ultimo aggiornamento: 2026-11-17 (primo blocco 3D prodotto: episodi 01-05)
 
 - Ricerca orari di pubblicazione (2026-11-17): gli studi (Sprout, Buffer, Hootsuite) non concordano; proposta di piano a slot di test (mar/gio 15:30, dom 20:00 + 2 slot di prova) da verificare con TikTok Studio dopo 4 settimane. Piano scritto: piano-editoriale/PIANO-PUBBLICAZIONE.md, pubblicazione.json, calendario.csv (89 slot dal 2026-11-19, generato da strumenti/pianifica.py). Da validare con l'utente; automazione (promemoria/bozze TikTok) da fare.
 
+- Descrizioni dei post bilingui IT + EN (2026-11-17): campi post.caption_en/theory_en, hashtag + #learntocode, render.py --solo-testo rigenera solo il .txt; aggiornati i 5 episodi 3D e il modello.
+- Test pubblicazione (2026-11-17): TikTok Studio funziona sul profilo di Daniele; l'upload del file non e' automatizzabile da Claude (lo fa Daniele), descrizione e impostazioni si compilano da Chrome; Pubblica/Programma solo con ok esplicito. Episodio 01 caricato in Studio, esito da annotare.
+
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
 - Nessuna voce, musica da decidere; account personale TikTok.

@@ -74,7 +74,15 @@
       "#imparareacodare",
       "#informatica",
       "#scuola",
-      "#learnontiktok"
+      "#learnontiktok",
+      "#learntocode"
+    ],
+    "caption_en": "Quiz: what does this C++ code print? Answer in the comments!",
+    "theory_en": [
+      "a / b with two ints is integer division: 7 / 2 = 3.",
+      "The result is converted to double only afterwards: 3.0, printed as 3.",
+      "To get 3.5 write (double)a / b or use 7.0 / 2.",
+      "The receiving variable's type does not change how the expression is computed."
     ]
   }
 }

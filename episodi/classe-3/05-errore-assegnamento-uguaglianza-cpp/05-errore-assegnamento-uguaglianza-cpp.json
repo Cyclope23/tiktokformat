@@ -56,7 +56,15 @@
       "#imparareacodare",
       "#informatica",
       "#scuola",
-      "#learnontiktok"
+      "#learnontiktok",
+      "#learntocode"
+    ],
+    "caption_en": "Spot the bug: = or == inside an if? It happens to everyone.",
+    "theory_en": [
+      "= assigns a value, == compares two values.",
+      "if (voto = 6) assigns 6 to voto and the condition becomes true (6 is non-zero).",
+      "The compiler gives no error: it is a logic bug, only -Wall shows a warning.",
+      "To compare, always write ==."
     ]
   }
 }

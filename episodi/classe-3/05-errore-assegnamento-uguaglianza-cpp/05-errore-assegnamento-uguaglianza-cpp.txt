@@ -6,4 +6,13 @@ Richiamo teorico:
 - Il compilatore non dà errore: è un bug logico, solo con -Wall un avviso.
 - Per confrontare si scrive sempre ==.
 
-#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok
+English:
+Spot the bug: = or == inside an if? It happens to everyone.
+
+Theory recap:
+- = assigns a value, == compares two values.
+- if (voto = 6) assigns 6 to voto and the condition becomes true (6 is non-zero).
+- The compiler gives no error: it is a logic bug, only -Wall shows a warning.
+- To compare, always write ==.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

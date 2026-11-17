@@ -3,20 +3,69 @@
   "series": "C++ in 30 secondi",
   "class": "3D INF",
   "filename": "main.cpp",
-  "theme": {"code_font": 32},
+  "theme": {
+    "code_font": 32
+  },
   "viz_title": "nome  ·  tipo",
   "viz_index": true,
-  "hook": ["Problema in una riga.", "Perche' e' un problema?", "Soluzione in 3 parole"],
+  "hook": [
+    "Problema in una riga.",
+    "Perche' e' un problema?",
+    "Soluzione in 3 parole"
+  ],
   "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Ciao\";\n}\n",
   "steps": [
-    {"after_line": 4, "caption": "1 · Primo passo", "viz": {"op": "init", "values": [1, 2, 3]}, "highlight_lines": [4]},
-    {"after_line": 5, "caption": "2 · Secondo passo", "viz": {"op": "label", "text": "risultato"}}
+    {
+      "after_line": 4,
+      "caption": "1 · Primo passo",
+      "viz": {
+        "op": "init",
+        "values": [
+          1,
+          2,
+          3
+        ]
+      },
+      "highlight_lines": [
+        4
+      ]
+    },
+    {
+      "after_line": 5,
+      "caption": "2 · Secondo passo",
+      "viz": {
+        "op": "label",
+        "text": "risultato"
+      }
+    }
   ],
   "run_caption": "3 · Compila ed esegui",
-  "outro": {"caption": "Prossimo episodio: ...", "cta": "Segui per la serie C++"},
+  "outro": {
+    "caption": "Prossimo episodio: ...",
+    "cta": "Segui per la serie C++"
+  },
   "post": {
     "caption": "Riga di apertura del post.",
-    "theory": ["Punto teorico 1.", "Punto teorico 2.", "Punto teorico 3."],
-    "hashtags": ["#cpp", "#programmazione", "#coding", "#imparareacodare", "#informatica", "#scuola", "#learnontiktok"]
+    "theory": [
+      "Punto teorico 1.",
+      "Punto teorico 2.",
+      "Punto teorico 3."
+    ],
+    "hashtags": [
+      "#cpp",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ],
+    "caption_en": "Opening line of the post in English.",
+    "theory_en": [
+      "Theory point 1.",
+      "Theory point 2.",
+      "Theory point 3."
+    ]
   }
 }

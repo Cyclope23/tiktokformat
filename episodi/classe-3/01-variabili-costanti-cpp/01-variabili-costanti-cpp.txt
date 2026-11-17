@@ -6,4 +6,13 @@ Richiamo teorico:
 - const dichiara una costante: il compilatore vieta di modificarla.
 - L'assegnamento = copia il valore a destra nella variabile a sinistra.
 
-#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok
+English:
+Variables and constants in C++: what changes and what doesn't.
+
+Theory recap:
+- A variable is a named memory location with a type.
+- A variable's value can change while the program runs.
+- const declares a constant: the compiler forbids changing it.
+- The = operator copies the value on the right into the variable on the left.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

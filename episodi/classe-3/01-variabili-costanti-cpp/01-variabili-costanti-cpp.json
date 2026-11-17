@@ -71,7 +71,15 @@
       "#imparareacodare",
       "#informatica",
       "#scuola",
-      "#learnontiktok"
+      "#learnontiktok",
+      "#learntocode"
+    ],
+    "caption_en": "Variables and constants in C++: what changes and what doesn't.",
+    "theory_en": [
+      "A variable is a named memory location with a type.",
+      "A variable's value can change while the program runs.",
+      "const declares a constant: the compiler forbids changing it.",
+      "The = operator copies the value on the right into the variable on the left."
     ]
   }
 }

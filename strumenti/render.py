@@ -625,9 +625,26 @@ def encode_cmd(th, total, music, out):
     return cmd
 
 
+def write_post(ep, out):
+    """Scrive il .txt del post: italiano, poi inglese (se presente), poi hashtag."""
+    post = ep.get("post")
+    if not post:
+        return
+    parts = [post["caption"]]
+    if post.get("theory"):
+        parts.append("Richiamo teorico:\n" + "\n".join("- " + x for x in post["theory"]))
+    if post.get("caption_en"):
+        parts.append("English:\n" + post["caption_en"])
+        if post.get("theory_en"):
+            parts.append("Theory recap:\n" + "\n".join("- " + x for x in post["theory_en"]))
+    parts.append(" ".join(post["hashtags"]))
+    Path(out).with_suffix(".txt").write_text("\n\n".join(parts) + "\n", encoding="utf-8")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("episode", nargs="?")
+    ap.add_argument("--solo-testo", action="store_true", help="rigenera solo il .txt del post (senza video)")
     ap.add_argument("--check", action="store_true", help="verifica ambiente (ffmpeg, compilatore, font)")
     ap.add_argument("-o", "--out", default=None)
     ap.add_argument("--music", default=None, help="file audio opzionale (mp3/wav/m4a)")
@@ -644,6 +661,10 @@ def main():
         sys.exit("ffmpeg non trovato. Esegui: python3 render.py --check")
 
     ep = json.loads(Path(args.episode).read_text(encoding="utf-8"))
+    if args.solo_testo:
+        write_post(ep, args.out or str(Path(args.episode).with_suffix(".mp4")))
+        print("Testo del post rigenerato.")
+        return
     th = build_theme(ep, args.set)
     fix = ep.get("fix")
     runs = []
@@ -686,13 +707,7 @@ def main():
     p.stdin.close()
     if p.wait() != 0:
         sys.exit("ffmpeg ha fallito")
-    post = ep.get("post")
-    if post:
-        parts = [post["caption"]]
-        if post.get("theory"):
-            parts.append("Richiamo teorico:\n" + "\n".join("- " + x for x in post["theory"]))
-        parts.append(" ".join(post["hashtags"]))
-        Path(out).with_suffix(".txt").write_text("\n\n".join(parts) + "\n", encoding="utf-8")
+    write_post(ep, out)
     print("OK ->", out)
 
 

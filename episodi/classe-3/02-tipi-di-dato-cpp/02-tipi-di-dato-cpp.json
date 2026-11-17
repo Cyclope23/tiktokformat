@@ -82,7 +82,15 @@
       "#imparareacodare",
       "#informatica",
       "#scuola",
-      "#learnontiktok"
+      "#learnontiktok",
+      "#learntocode"
+    ],
+    "caption_en": "The 4 basic C++ data types in 30 seconds.",
+    "theory_en": [
+      "int stores integers, double real numbers, char a single character, bool true/false.",
+      "The type decides how much memory a variable uses and which operations are valid.",
+      "Characters are written in single quotes: 'A'.",
+      "cout prints true as 1 and false as 0."
     ]
   }
 }
