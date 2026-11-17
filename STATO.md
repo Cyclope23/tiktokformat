@@ -1,6 +1,6 @@
 # Stato del progetto (aggiornare a fine sessione)
 
-Ultimo aggiornamento: 2026-11-17 (README di progetto aggiunto)
+Ultimo aggiornamento: 2026-11-17 (ricevuto programma svolto 3D)
 
 ## Fatto
 - Pipeline di rendering funzionante (strumenti/render.py), stile della serie approvato dall'utente.
@@ -10,6 +10,8 @@ Ultimo aggiornamento: 2026-11-17 (README di progetto aggiunto)
 - README di progetto scritto.
 - Struttura cartelle creata su OneDrive e pubblicata nella repo GitHub Cyclope23/tiktokformat (sede principale).
 - Compatibilita' multi-dispositivo: render.py portabile (font inclusi, compilatore e ffmpeg rilevati, --check).
+
+- Ricevuto il programma svolto 3D INF 2025/26 (piano-editoriale/3DINF/): in analisi per il piano episodi.
 
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
