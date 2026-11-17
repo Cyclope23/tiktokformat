@@ -1,6 +1,6 @@
 # Stato del progetto (aggiornare a fine sessione)
 
-Ultimo aggiornamento: 2026-11-17 (codice e terminale ingranditi)
+Ultimo aggiornamento: 2026-11-17 (sincronizzazione OneDrive in sospeso)
 
 ## Fatto
 - Pipeline di rendering funzionante (strumenti/render.py), stile della serie approvato dall'utente.
@@ -15,6 +15,8 @@ Ultimo aggiornamento: 2026-11-17 (codice e terminale ingranditi)
 - Piani dettagliati per classe scritti: 3D 35 episodi (4 fatti), 4D 28, 5D 27, con formati C/I/E/S (piano-editoriale/PIANO.md). Da validare con l'utente: scelta e ordine degli episodi.
 
 - Layout: codice e terminale adattati automaticamente (piu' grandi); i 4 episodi 3D rigenerati.
+
+- DA SINCRONIZZARE su OneDrive (Mac non raggiungibile il 2026-11-17): i 4 .mp4 e .json rigenerati (episodi/classe-3/), strumenti/render.py, CLAUDE.md, STATO.md. Fonte aggiornata: repo GitHub.
 
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
