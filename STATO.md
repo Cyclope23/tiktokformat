@@ -14,11 +14,10 @@ Ultimo aggiornamento: 2026-11-17 (primo blocco 3D prodotto: episodi 01-05)
 
 - Layout: codice e terminale adattati automaticamente (piu' grandi); i 4 episodi 3D rigenerati.
 
-- DA SINCRONIZZARE su OneDrive (Mac non raggiungibile il 2026-11-17): strumenti/render.py, CLAUDE.md, STATO.md, piani, episodi/classe-3/ (svuotata). Fonte aggiornata: repo GitHub.
+- OneDrive sincronizzata il 2026-11-17 (PC fisso-daniele): renderer, CLAUDE.md, STATO.md, piani, episodi 01-05.
 
 - Renderer esteso (2026-11-17): nomi sotto le caselle viz, formato I (quiz con conto alla rovescia), formato E (bug evidenziato, doppia esecuzione, errori reali del compilatore).
 - Prodotto il primo blocco 3D (episodi/classe-3/): 01 variabili e costanti (B2), 02 tipi di dato (B3), 03 divisione intera e resto (B5), 04 quiz divisione (B7), 05 errore = / == (B8). Ognuno con .json, .mp4, .txt; fotogrammi controllati. Da pubblicare a mano (musica da scegliere in TikTok).
-- Anche i nuovi episodi e CLAUDE.md vanno riportati su OneDrive (vedi nota sopra).
 
 - Qualita' video alzata (2026-11-17): x264 preset slow, CRF 14, colori bt709 con conversione corretta, audio 192k; i 5 episodi 3D rigenerati (~0,7 MB ciascuno). Opzione futura: 60 fps.
 
