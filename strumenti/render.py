@@ -36,7 +36,7 @@ def find_font(name):
 DEFAULTS = dict(
     width=1080, height=1920, fps=30,
     # ritmo
-    cps=20.0, term_cps=30.0, step_pause=1.1, read_per_line=0.3, hook_seconds=3.0, iter_per_item=0.45,
+    cps=20.0, term_cps=30.0, step_pause=1.1, read_per_line=0.3, min_file_view=3.2, hook_seconds=3.0, iter_per_item=0.45,
     out_line_delay=0.4, outro_seconds=2.6, xfade=0.4,
     # tipografia
     code_font="auto", line_h=44, caption_font=54, term_font="auto",
@@ -252,7 +252,8 @@ class Timeline:
                 if ci >= indent:
                     t += 1.0 / th["cps"]
                 self.char_times.append(t)
-            if k < len(self.lines):
+            last_of_file = bool(self.tabs) and (k == len(self.lines) or self.file_of[k] != self.file_of[k - 1])
+            if k < len(self.lines) and not last_of_file:
                 t += 0.12
                 self.char_times.append(t)
             if k in by_line:
@@ -272,17 +273,19 @@ class Timeline:
                 ev["n_items"] = vals
                 self.events.append(ev)
                 t += pause
-            last_of_file = self.tabs and (k == len(self.lines) or self.file_of[k] != self.file_of[k - 1])
-            if last_of_file:   # il file e' finito: resta visibile il tempo di leggerlo
+            if last_of_file:   # il file e' finito: resta visibile il tempo di leggerlo, poi si cambia scheda
                 nf = sum(1 for x in self.file_of if x == self.file_of[k - 1])
-                t += th["read_per_line"] * nf + 0.6
+                t += max(th["min_file_view"], th["read_per_line"] * nf + 1.0)
+                if k < len(self.lines):
+                    t += 0.12
+                    self.char_times.append(t)
         self.code_end = t
         t += 0.6
         self.views = []   # (t0, t1, file): rilettura di ogni file prima dell'esecuzione
         if self.tabs:
             for fi in range(len(self.tabs)):
                 nf = sum(1 for x in self.file_of if x == fi)
-                d_ = th["read_per_line"] * nf + 0.8
+                d_ = max(th["min_file_view"], th["read_per_line"] * nf + 1.0)
                 self.views.append((t, t + d_, fi))
                 t += d_
         else:
@@ -338,7 +341,7 @@ class Timeline:
                 if self.active_file(t)[0] == fi:
                     seen += 0.1
                 t += 0.1
-            need = th["read_per_line"] * rows + 0.5
+            need = max(th["min_file_view"] - 0.5, th["read_per_line"] * rows + 0.5)
             if seen < need:
                 problems.append((fi, rows, round(seen, 1), round(need, 1)))
         return problems
