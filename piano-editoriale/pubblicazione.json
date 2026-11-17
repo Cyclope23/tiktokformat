@@ -63,9 +63,14 @@
   "settimane": 30,
   "bloccati": {
     "2026-11-19": "01-variabili-costanti-cpp",
+    "2026-11-20": "04-classe-oggetto-java",
+    "2026-11-21": "05-attributi-privati-java",
     "2026-11-22": "02-tipi-di-dato-cpp",
     "2026-11-23": "03-divisione-intera-resto-cpp",
+    "2026-11-24": "06-getter-setter-java",
+    "2026-11-25": "07-costruttore-java",
     "2026-11-26": "04-quiz-indovina-output-divisione-cpp",
+    "2026-11-27": "08-tostring-java",
     "2026-11-29": "05-errore-assegnamento-uguaglianza-cpp"
   }
 }
