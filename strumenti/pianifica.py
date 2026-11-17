@@ -99,11 +99,14 @@ def main():
                          ep["classe"] if ep else "", ep["codice"] if ep else "",
                          ep["tipo"] if ep else "", ep["titolo"] if ep else "(slot libero: serve il renderer Java/SQL o nuovi episodi)",
                          "", "da produrre" if ep else "libero"])
+    RAW = "https://raw.githubusercontent.com/Cyclope23/tiktokformat/main/episodi"
+    for r in rows:                      # r[9] = episodio, r[5] = classe (es. "3D")
+        r.append(f"{RAW}/classe-{r[5][0]}/{r[9]}/{r[9]}.mp4" if r[9] else "")
     out = PE / "calendario.csv"
     with out.open("w", newline="", encoding="utf-8") as f:
         w_ = csv.writer(f)
         w_.writerow(["data", "ora", "giorno", "slot", "settimana", "classe", "codice", "formato",
-                     "titolo", "episodio", "stato"])
+                     "titolo", "episodio", "stato", "video_url"])
         w_.writerows(rows)
     print(f"{len(rows)} slot -> {out}")
     print("Episodi gia' prodotti:", len(done), "| classi attive:", attive)

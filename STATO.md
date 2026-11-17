@@ -31,6 +31,7 @@ Ultimo aggiornamento: 2026-11-17 (primo blocco 3D prodotto: episodi 01-05)
 - Confronto piani gratuiti scheduler (2026-11-17): fabbisogno ~13 post/mese, coda max ~3 settimane. Buffer Free (3 canali, 10 post in coda per canale, TikTok personale ok, pubblicazione via notifica, 1 chiave API gratis), Metricool Free (20 post/mese, TikTok personale ok, notifica o auto-publish, API solo a pagamento), Publer Free (10 post in coda per account, TikTok personale ok, notifica o diretta). Postiz non adatto (hosted a pagamento, self-host richiede app propria approvata). Per la musica serve la modalita' notifica/bozza. Proposta: Buffer Free; scelta e prova da fare con Daniele.
 
 - Verifica API Buffer (2026-11-17): chiave API personale gratuita (1 chiave, 3.000 richieste/30 giorni), GraphQL in beta, niente OAuth di terzi; createPost accetta video solo da URL pubblico (nessun upload di file) che deve restare raggiungibile fino alla pubblicazione. Da verificare: modalita' notifica via API per TikTok. Ipotesi: ospitare gli mp4 in una repo pubblica separata (solo video, nessun dato di studenti). Prossimo passo: Daniele crea l'account Buffer Free, collega TikTok e genera la chiave (da non incollare in chat).
+- Hosting video per Buffer (2026-11-17): Daniele ha reso pubblica la repo Cyclope23/tiktokformat (niente repo -media separata) e ha collegato TikTok a Buffer. Gli mp4 sono scaricabili da raw.githubusercontent.com/Cyclope23/tiktokformat/main/episodi/... (verificato: 5 su 5 con HTTP 200). calendario.csv ha ora la colonna video_url (generata da pianifica.py). Dal container api.buffer.com e' bloccato dal proxy: le chiamate Buffer vanno fatte dal PC (device_bash). Attenzione: con la repo pubblica sono visibili a tutti anche .json/.txt/piano e musica/; nessun dato di studenti, ma i video sono online prima della pubblicazione TikTok.
 
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
@@ -40,6 +41,7 @@ Ultimo aggiornamento: 2026-11-17 (primo blocco 3D prodotto: episodi 01-05)
   L'account e' personale: la programmazione nativa di TikTok Studio non e' disponibile.
 
 ## Da fare
+0a. Buffer: Daniele genera la chiave API in Buffer e la salva in un file locale sul PC (mai in chat); poi prova createPost per l'episodio 01 (slot 2026-11-19 15:30) dal PC e verifica la modalita' notifica per TikTok.
 0. Validare il piano di pubblicazione; produrre in anticipo gli episodi dei prossimi slot (3D B1, B6, C1...).
 1. Validare i piani con l'utente e scegliere il primo blocco di episodi da produrre per classe.
 2. Estendere il renderer: formato S, input simulato (cin), Java (4D), SQL con SQLite (5D), grafiche nuove (diagrammi a blocchi, UML, E/R). Vedi PIANO.md.
