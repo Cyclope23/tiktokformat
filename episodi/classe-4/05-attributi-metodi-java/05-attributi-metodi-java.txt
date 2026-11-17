@@ -1,0 +1,18 @@
+Attributi e metodi in Java: lo stato e il comportamento di un oggetto.
+
+Richiamo teorico:
+- Gli attributi sono le variabili dell'oggetto: ne descrivono lo stato.
+- I metodi sono le azioni che l'oggetto può eseguire: ne descrivono il comportamento.
+- Un metodo può leggere e modificare gli attributi dell'oggetto su cui è chiamato.
+- Si chiama con l'operatore punto: c.versa(50).
+
+English:
+Attributes and methods in Java: an object's state and behaviour.
+
+Theory recap:
+- Attributes are the object's variables: they describe its state.
+- Methods are the actions the object can perform: they describe its behaviour.
+- A method can read and change the attributes of the object it is called on.
+- It is called with the dot operator: c.versa(50).
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

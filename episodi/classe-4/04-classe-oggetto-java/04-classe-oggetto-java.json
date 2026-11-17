@@ -1,0 +1,91 @@
+{
+  "id": "04-classe-oggetto-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Main.java",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "oggetti  ·  attributi",
+  "hook": [
+    "Una classe è uno stampo.",
+    "Un oggetto è una copia.",
+    "Si crea con new."
+  ],
+  "code": "public class Main {\n    static class Cane {\n        String nome;\n    }\n\n    public static void main(String[] args) {\n        Cane a = new Cane();\n        a.nome = \"Rex\";\n        Cane b = new Cane();\n        b.nome = \"Luna\";\n        System.out.println(a.nome + \" \" + b.nome);\n    }\n}\n",
+  "steps": [
+    {
+      "after_line": 4,
+      "caption": "1 · class Cane è lo stampo",
+      "viz": {
+        "op": "label",
+        "text": "stampo: Cane { nome }"
+      },
+      "highlight_lines": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "after_line": 8,
+      "caption": "2 · new crea l'oggetto a",
+      "viz": {
+        "op": "init",
+        "values": [
+          "Rex"
+        ],
+        "names": [
+          "a.nome"
+        ]
+      },
+      "highlight_lines": [
+        7,
+        8
+      ]
+    },
+    {
+      "after_line": 10,
+      "caption": "3 · un altro new: oggetto b",
+      "viz": {
+        "op": "push",
+        "value": "Luna",
+        "name": "b.nome"
+      },
+      "highlight_lines": [
+        9,
+        10
+      ]
+    }
+  ],
+  "run_caption": "4 · Due oggetti, due nomi",
+  "outro": {
+    "caption": "Prossimo episodio: attributi e metodi",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Classe e oggetto in Java: lo stampo e le sue istanze.",
+    "theory": [
+      "Una classe descrive la struttura: quali attributi e quali metodi avranno gli oggetti.",
+      "Un oggetto (istanza) si crea con new NomeClasse().",
+      "Da una sola classe si possono creare tanti oggetti, ognuno con i propri valori.",
+      "Si accede agli attributi di un oggetto con l'operatore punto: a.nome."
+    ],
+    "caption_en": "Class and object in Java: the template and its instances.",
+    "theory_en": [
+      "A class describes the structure: which attributes and methods its objects will have.",
+      "An object (instance) is created with new ClassName().",
+      "Many objects can be created from one class, each with its own values.",
+      "Attributes of an object are accessed with the dot operator: a.nome."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

@@ -32,8 +32,8 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 
 | # | Tipo | Titolo | Esempio / idea | Stato |
 |---|------|--------|----------------|-------|
-| C1 | C | Classe e oggetto | Stampo e oggetti `new` | da fare |
-| C2 | C | Attributi e metodi | `Conto` con `saldo` e `versa()` | da fare |
+| C1 | C | Classe e oggetto | Stampo e oggetti `new` | fatto |
+| C2 | C | Attributi e metodi | `Conto` con `saldo` e `versa()` | fatto |
 | C3 | C | Il costruttore | Stesso oggetto creato con e senza costruttore | da fare |
 | C4 | C | Riferimenti: due variabili, un oggetto | `b = a` e modifica visibile da entrambe | da fare |
 | C5 | C | Incapsulamento | `private` con getter e setter | da fare |

@@ -1,0 +1,100 @@
+{
+  "id": "05-attributi-metodi-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Main.java",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "oggetto  ·  stato",
+  "hook": [
+    "Un oggetto ha dati.",
+    "E sa fare cose.",
+    "Attributi e metodi."
+  ],
+  "code": "public class Main {\n    static class Conto {\n        int saldo = 100;\n        void versa(int x) {\n            saldo = saldo + x;\n        }\n    }\n    public static void main(String[] args) {\n        Conto c = new Conto();\n        c.versa(50);\n        System.out.println(c.saldo);\n    }\n}\n",
+  "steps": [
+    {
+      "after_line": 3,
+      "caption": "1 · Attributo: saldo parte da 100",
+      "viz": {
+        "op": "init",
+        "values": [
+          100
+        ],
+        "names": [
+          "c.saldo"
+        ]
+      },
+      "highlight_lines": [
+        3
+      ]
+    },
+    {
+      "after_line": 6,
+      "caption": "2 · versa aggiunge x al saldo",
+      "viz": {
+        "op": "label",
+        "text": "metodo versa(x)"
+      },
+      "highlight_lines": [
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "after_line": 9,
+      "caption": "3 · new Conto(): nasce l'oggetto c",
+      "viz": {
+        "op": "label",
+        "text": "oggetto c creato"
+      },
+      "highlight_lines": [
+        9
+      ]
+    },
+    {
+      "after_line": 10,
+      "caption": "4 · c.versa(50): saldo = 150",
+      "viz": {
+        "op": "set",
+        "index": 0,
+        "value": 150
+      },
+      "highlight_lines": [
+        10
+      ]
+    }
+  ],
+  "run_caption": "5 · Output: 150",
+  "outro": {
+    "caption": "Prossimo episodio: il costruttore",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Attributi e metodi in Java: lo stato e il comportamento di un oggetto.",
+    "theory": [
+      "Gli attributi sono le variabili dell'oggetto: ne descrivono lo stato.",
+      "I metodi sono le azioni che l'oggetto può eseguire: ne descrivono il comportamento.",
+      "Un metodo può leggere e modificare gli attributi dell'oggetto su cui è chiamato.",
+      "Si chiama con l'operatore punto: c.versa(50)."
+    ],
+    "caption_en": "Attributes and methods in Java: an object's state and behaviour.",
+    "theory_en": [
+      "Attributes are the object's variables: they describe its state.",
+      "Methods are the actions the object can perform: they describe its behaviour.",
+      "A method can read and change the attributes of the object it is called on.",
+      "It is called with the dot operator: c.versa(50)."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

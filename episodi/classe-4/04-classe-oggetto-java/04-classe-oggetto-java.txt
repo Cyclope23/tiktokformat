@@ -1,0 +1,18 @@
+Classe e oggetto in Java: lo stampo e le sue istanze.
+
+Richiamo teorico:
+- Una classe descrive la struttura: quali attributi e quali metodi avranno gli oggetti.
+- Un oggetto (istanza) si crea con new NomeClasse().
+- Da una sola classe si possono creare tanti oggetti, ognuno con i propri valori.
+- Si accede agli attributi di un oggetto con l'operatore punto: a.nome.
+
+English:
+Class and object in Java: the template and its instances.
+
+Theory recap:
+- A class describes the structure: which attributes and methods its objects will have.
+- An object (instance) is created with new ClassName().
+- Many objects can be created from one class, each with its own values.
+- Attributes of an object are accessed with the dot operator: a.nome.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode
