@@ -2,16 +2,70 @@
   "fuso": "Europe/Rome",
   "inizio": "2026-11-19",
   "slot_settimanali": [
-    {"giorno": "mar", "ora": "15:30"},
-    {"giorno": "gio", "ora": "15:30"},
-    {"giorno": "dom", "ora": "20:00"}
+    {
+      "giorno": "lun",
+      "ora": "15:30"
+    },
+    {
+      "giorno": "mar",
+      "ora": "15:30"
+    },
+    {
+      "giorno": "mer",
+      "ora": "15:30"
+    },
+    {
+      "giorno": "gio",
+      "ora": "15:30"
+    },
+    {
+      "giorno": "ven",
+      "ora": "15:30"
+    },
+    {
+      "giorno": "sab",
+      "ora": "11:00"
+    },
+    {
+      "giorno": "dom",
+      "ora": "20:00"
+    }
   ],
   "slot_di_prova": [
-    {"settimana": 2, "da": "mar 15:30", "a": "lun 13:00"},
-    {"settimana": 3, "da": "gio 15:30", "a": "mer 19:30"},
-    {"settimana": 4, "da": "dom 20:00", "a": "dom 09:00"}
+    {
+      "settimana": 2,
+      "da": "lun 15:30",
+      "a": "lun 13:00"
+    },
+    {
+      "settimana": 3,
+      "da": "mer 15:30",
+      "a": "mer 19:30"
+    },
+    {
+      "settimana": 4,
+      "da": "dom 20:00",
+      "a": "dom 09:00"
+    }
   ],
-  "classi": ["3D", "4D", "5D"],
-  "funzioni_disponibili": ["cpp", "C", "I", "E"],
-  "settimane": 30
+  "classi": [
+    "3D",
+    "4D",
+    "5D"
+  ],
+  "funzioni_disponibili": [
+    "cpp",
+    "java",
+    "C",
+    "I",
+    "E"
+  ],
+  "settimane": 30,
+  "bloccati": {
+    "2026-11-19": "01-variabili-costanti-cpp",
+    "2026-11-22": "02-tipi-di-dato-cpp",
+    "2026-11-23": "03-divisione-intera-resto-cpp",
+    "2026-11-26": "04-quiz-indovina-output-divisione-cpp",
+    "2026-11-29": "05-errore-assegnamento-uguaglianza-cpp"
+  }
 }

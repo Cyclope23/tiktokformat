@@ -18,11 +18,11 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 
 | # | Tipo | Titolo | Esempio / idea | Stato |
 |---|------|--------|----------------|-------|
-| B1 | C | Struttura di un programma Java | `class`, `main`, `System.out.println` | fatto |
-| B2 | C | Variabili e costanti | `final` e inferenza `var` | fatto |
+| B1 | C | Struttura di un programma Java | `class`, `main`, `System.out.println` | fatto (01) |
+| B2 | C | Variabili e costanti | `final` e inferenza `var` | fatto (02) |
 | B3 | C | Tipi primitivi e `String` | `int`, `double`, `boolean`, `char` | da fare |
 | B4 | C | Il casting | `(int) 3.9`, ampliamento e restringimento | da fare |
-| B5 | I | Indovina l'output: divisione tra interi | `5 / 2` e `5 / 2.0` | fatto |
+| B5 | I | Indovina l'output: divisione tra interi | `5 / 2` e `5 / 2.0` | fatto (03) |
 | B6 | C | Gli operatori | `++`, `+=`, precedenza | da fare |
 | B7 | C | Array in Java | Dichiarazione, `length`, scorrimento | da fare |
 | B8 | C | Le eccezioni: try e catch | `ArrayIndexOutOfBoundsException` gestita | da fare |
@@ -32,9 +32,9 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 
 | # | Tipo | Titolo | Esempio / idea | Stato |
 |---|------|--------|----------------|-------|
-| C1 | C | Classe e oggetto | Stampo e oggetti `new` | fatto |
-| C2 | C | Attributi e metodi | `Conto` con `saldo` e `versa()` | fatto |
-| C3 | C | Il costruttore | Stesso oggetto creato con e senza costruttore | da fare |
+| C1 | C | Classe e oggetto | Stampo e oggetti `new` | fatto (04) |
+| C2 | C | Attributi e metodi | `Conto` con `saldo` e `versa()` | fatto (05) |
+| C3 | C | Il costruttore | Stesso oggetto creato con e senza costruttore | fatto (06) |
 | C4 | C | Riferimenti: due variabili, un oggetto | `b = a` e modifica visibile da entrambe | da fare |
 | C5 | C | Incapsulamento | `private` con getter e setter | da fare |
 | C6 | I | Indovina l'output: riferimenti | Modifica tramite un alias | da fare |
