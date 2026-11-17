@@ -101,19 +101,24 @@ def find_compiler():
     sys.exit("Nessun compilatore C++ trovato (g++ / clang++). Esegui: python3 render.py --check")
 
 
-def compile_and_run_java(code, filename):
-    """Java: javac + java. Gli errori di compilazione e le eccezioni sono quelli reali."""
-    stem = Path(filename).stem
+def compile_and_run_java(code, filename, files=None, main_class="Main"):
+    """Java: javac + java. Gli errori di compilazione e le eccezioni sono quelli reali.
+    files = [{"name": "Conto.java", "code": ...}, ...] per piu' classi in file separati."""
+    stem = main_class if files else Path(filename).stem
     with tempfile.TemporaryDirectory() as d:
-        src = Path(d) / filename
-        src.write_text(code, encoding="utf-8")
-        c = subprocess.run(["javac", "-encoding", "UTF-8", "-Xlint:none", str(src)],
+        srcs = []
+        for fl in (files or [{"name": filename, "code": code}]):
+            src = Path(d) / fl["name"]
+            src.write_text(fl["code"], encoding="utf-8")
+            srcs.append(str(src))
+        src = Path(d) / (files[0]["name"] if files else filename)
+        c = subprocess.run(["javac", "-encoding", "UTF-8", "-Xlint:none"] + srcs,
                            capture_output=True, text=True, encoding="utf-8")
         if c.returncode != 0:
             errs = []
             for ln in c.stderr.splitlines():
                 if "error:" in ln:
-                    ln = ln.replace(str(src), filename)
+                    ln = ln.replace(d + os.sep, "").replace(d + "/", "")
                     errs.append(ln if len(ln) <= 54 else ln[:53] + "…")
             return None, errs[:2] or ["errore di compilazione"]
         r = subprocess.run(["java", "-cp", d, stem], capture_output=True, text=True,
@@ -125,11 +130,11 @@ def compile_and_run_java(code, filename):
         return out, None
 
 
-def compile_and_run(code, filename):
+def compile_and_run(code, filename, files=None, main_class="Main"):
     """Compila ed esegue davvero il codice.
     Ritorna (stdout, None) se gira, oppure (None, [righe di errore]) se non compila."""
     if filename.endswith(".java"):
-        return compile_and_run_java(code, filename)
+        return compile_and_run_java(code, filename, files, main_class)
     with tempfile.TemporaryDirectory() as d:
         src = Path(d) / filename
         src.write_text(code, encoding="utf-8")
@@ -218,6 +223,17 @@ class Timeline:
     def __init__(self, ep, th, runs):
         self.code = ep["code"].rstrip("\n")
         self.lines = self.code.split("\n")
+        self.file_of, self.local_no, self.tabs, self.nrows = [], [], [], len(self.lines)
+        if ep.get("files"):
+            self.tabs = [f["name"] for f in ep["files"]]
+            for fi, f in enumerate(ep["files"]):
+                m = len(f["code"].rstrip("\n").split("\n"))
+                self.file_of += [fi] * m
+                self.local_no += list(range(m))
+            self.nrows = max(self.local_no) + 1
+        else:
+            self.file_of = [0] * len(self.lines)
+            self.local_no = list(range(len(self.lines)))
         self.line_start = []
         p = 0
         for ln in self.lines:
@@ -297,7 +313,7 @@ class Renderer:
             fixed = apply_fix(tl.code, ep["fix"]).rstrip("\n")
             st = tl.line_start[tl.fix_idx]
             self.fix_colors = char_colors(fixed, th, ep["filename"].endswith(".java"))[st:st + len(tl.fix_new)]
-        n = len(tl.lines)
+        n = tl.nrows
         self._autofit(th, tl, n)
         self.cw = font("DejaVuSansMono.ttf", th["code_font"]).getlength("M")
         self.ide_y1 = th["ide_y0"] + 56 + 24 + n * th["line_h"] + 18
@@ -463,10 +479,15 @@ class Renderer:
         y_top = th["ide_y0"] + 56 + 24
         f = font("DejaVuSansMono.ttf", th["code_font"])
         fn = font("DejaVuSansMono.ttf", th["code_font"] - 6)
+        cf = tl.file_of[cur_line]
+        if tl.tabs:
+            self.draw_tabs(d, cf)
         for i, ln in enumerate(tl.lines):
             if i > cur_line:
                 break
-            ly = y_top + i * th["line_h"]
+            if tl.file_of[i] != cf:
+                continue
+            ly = y_top + tl.local_no[i] * th["line_h"]
             tint = None
             if (i + 1) in hl or (typing and i == cur_line):
                 tint = th["hl"]
@@ -483,7 +504,7 @@ class Renderer:
                     tint = th["hl_bad"]
             if tint:
                 d.rounded_rectangle((self.L + 12, ly - 3, self.R - 12, ly + th["line_h"] - 5), 8, fill=tint)
-            d.text((self.L + 80, ly + 3), str(i + 1), font=fn, fill=th["muted"], anchor="ra")
+            d.text((self.L + 80, ly + 3), str(tl.local_no[i] + 1), font=fn, fill=th["muted"], anchor="ra")
             j = 0
             while j < typed:
                 k = j
@@ -498,8 +519,24 @@ class Renderer:
         if t < tl.run_t0 and int(t * 2) % 2 == 0 or typing:
             col_i = (n - tl.line_start[cur_line]) if n < total else len(tl.lines[-1])
             cx = x_code + col_i * self.cw
-            cy = y_top + cur_line * th["line_h"]
+            cy = y_top + tl.local_no[cur_line] * th["line_h"]
             d.rectangle((cx + 1, cy + 2, cx + 4, cy + th["line_h"] - 10), fill=th["accent2"])
+
+    def draw_tabs(self, d, active):
+        """Schede dei file: la scheda attiva e' evidenziata."""
+        th = self.th
+        y0 = th["ide_y0"]
+        d.rectangle((self.L + 110, y0 + 4, self.R - 20, y0 + 56), fill=th["panel_bar"])
+        f = font("DejaVuSansMono.ttf", 26)
+        x = self.L + 130
+        for i, name in enumerate(self.tl.tabs):
+            w = f.getlength(name)
+            if i == active:
+                d.rounded_rectangle((x - 14, y0 + 8, x + w + 14, y0 + 52), 10, fill=th["panel"])
+                d.text((x, y0 + 30), name, font=f, fill=th["accent2"], anchor="lm")
+            else:
+                d.text((x, y0 + 30), name, font=f, fill=th["muted"], anchor="lm")
+            x += w + 44
 
     def draw_viz(self, d, t):
         th, tl = self.th, self.tl
@@ -689,6 +726,10 @@ def main():
         sys.exit("ffmpeg non trovato. Esegui: python3 render.py --check")
 
     ep = json.loads(Path(args.episode).read_text(encoding="utf-8"))
+    if ep.get("files"):    # Java: una classe per file (schede nell'IDE)
+        ep["code"] = "\n".join(f["code"].rstrip("\n") for f in ep["files"]) + "\n"
+        ep["filename"] = ep["files"][0]["name"]
+        ep.setdefault("theme", {})["cmd_display"] = "javac *.java && java " + ep.get("main_class", "Main")
     if args.solo_testo:
         write_post(ep, args.out or str(Path(args.episode).with_suffix(".mp4")))
         print("Testo del post rigenerato.")
@@ -696,9 +737,9 @@ def main():
     th = build_theme(ep, args.set)
     fix = ep.get("fix")
     runs = []
-    stdout, err = compile_and_run(ep["code"], ep["filename"])
+    stdout, err = compile_and_run(ep["code"], ep["filename"], ep.get("files"), ep.get("main_class", "Main"))
     if stdout is None:
-        if not fix:
+        if not fix and not ep.get("expect_error"):
             sys.exit("ERRORE di compilazione:\n" + "\n".join(err))
         runs.append({"lines": err, "bad": True})
         print("Il codice con il bug NON compila (errore reale):", err)

@@ -1,0 +1,18 @@
+Il costruttore in Java: creare un oggetto già inizializzato.
+
+Richiamo teorico:
+- Il costruttore ha lo stesso nome della classe e nessun tipo di ritorno.
+- Viene eseguito automaticamente a ogni new.
+- Con i parametri inizializza gli attributi: new Conto(200).
+- Così l'oggetto nasce subito in uno stato valido, senza chiamare il set.
+
+English:
+The constructor in Java: creating an already initialised object.
+
+Theory recap:
+- The constructor has the same name as the class and no return type.
+- It runs automatically on every new.
+- With parameters it initialises the attributes: new Conto(200).
+- So the object is born in a valid state, without calling the setter.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

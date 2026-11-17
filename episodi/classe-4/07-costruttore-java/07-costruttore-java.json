@@ -1,0 +1,87 @@
+{
+  "id": "07-costruttore-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Conto.java",
+  "files": [
+    {
+      "name": "Conto.java",
+      "code": "public class Conto {\n    private int saldo;\n\n    public Conto(int saldo) {\n        this.saldo = saldo;\n    }\n\n    public int getSaldo() {\n        return saldo;\n    }\n}\n"
+    },
+    {
+      "name": "Main.java",
+      "code": "public class Main {\n    public static void main(String[] args) {\n        Conto c = new Conto(200);\n        System.out.println(c.getSaldo());\n    }\n}\n"
+    }
+  ],
+  "main_class": "Main",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "oggetto  ·  stato",
+  "hook": [
+    "Come nasce un oggetto?",
+    "Già con i suoi valori.",
+    "Merito del costruttore."
+  ],
+  "steps": [
+    {
+      "after_line": 6,
+      "caption": "1 · Costruttore: nome della classe",
+      "viz": {
+        "op": "label",
+        "text": "Conto(int saldo)"
+      },
+      "highlight_lines": [
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "after_line": 14,
+      "caption": "2 · new Conto(200) lo esegue",
+      "viz": {
+        "op": "init",
+        "values": [
+          200
+        ],
+        "names": [
+          "saldo"
+        ]
+      },
+      "highlight_lines": [
+        14
+      ]
+    }
+  ],
+  "run_caption": "3 · Output: 200",
+  "outro": {
+    "caption": "Prossimo episodio: toString",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Il costruttore in Java: creare un oggetto già inizializzato.",
+    "theory": [
+      "Il costruttore ha lo stesso nome della classe e nessun tipo di ritorno.",
+      "Viene eseguito automaticamente a ogni new.",
+      "Con i parametri inizializza gli attributi: new Conto(200).",
+      "Così l'oggetto nasce subito in uno stato valido, senza chiamare il set."
+    ],
+    "caption_en": "The constructor in Java: creating an already initialised object.",
+    "theory_en": [
+      "The constructor has the same name as the class and no return type.",
+      "It runs automatically on every new.",
+      "With parameters it initialises the attributes: new Conto(200).",
+      "So the object is born in a valid state, without calling the setter."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "id": "05-attributi-privati-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Conto.java",
+  "files": [
+    {
+      "name": "Conto.java",
+      "code": "public class Conto {\n    private int saldo;\n}\n"
+    },
+    {
+      "name": "Main.java",
+      "code": "public class Main {\n    public static void main(String[] args) {\n        Conto c = new Conto();\n        c.saldo = 100;\n    }\n}\n"
+    }
+  ],
+  "main_class": "Main",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "attributo  ·  accesso",
+  "hook": [
+    "Il main può cambiare tutto?",
+    "Con private, no.",
+    "Il compilatore protegge."
+  ],
+  "steps": [
+    {
+      "after_line": 3,
+      "caption": "1 · private: solo Conto vede saldo",
+      "viz": {
+        "op": "label",
+        "text": "saldo: private"
+      },
+      "highlight_lines": [
+        2
+      ]
+    },
+    {
+      "after_line": 7,
+      "caption": "2 · Il main prova a scriverlo",
+      "viz": {
+        "op": "label",
+        "text": "accesso negato"
+      },
+      "highlight_lines": [
+        7
+      ]
+    }
+  ],
+  "run_caption": "3 · Errore vero: private access",
+  "outro": {
+    "caption": "Soluzione: get e set (prossimo episodio)",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Attributi private in Java: il mascheramento dell'informazione.",
+    "theory": [
+      "Un attributo private è visibile solo dentro la sua classe.",
+      "Dal main non si può leggere né scrivere direttamente: il compilatore dà errore.",
+      "Si protegge lo stato dell'oggetto da modifiche incontrollate.",
+      "L'accesso dall'esterno avviene tramite metodi pubblici: get e set."
+    ],
+    "caption_en": "Private attributes in Java: information hiding.",
+    "theory_en": [
+      "A private attribute is visible only inside its own class.",
+      "From main it can be neither read nor written directly: the compiler reports an error.",
+      "This protects the object's state from uncontrolled changes.",
+      "Outside access goes through public methods: getters and setters."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  },
+  "expect_error": true
+}

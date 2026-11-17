@@ -1,0 +1,18 @@
+Getter e setter in Java: accesso controllato agli attributi private.
+
+Richiamo teorico:
+- Il getter (getNome) restituisce il valore di un attributo private.
+- Il setter (setNome) lo modifica e può controllare il valore ricevuto.
+- this.saldo indica l'attributo dell'oggetto, saldo il parametro.
+- Il main usa solo i metodi pubblici, mai l'attributo direttamente.
+
+English:
+Getters and setters in Java: controlled access to private attributes.
+
+Theory recap:
+- The getter (getName) returns the value of a private attribute.
+- The setter (setName) changes it and can validate the received value.
+- this.saldo is the object's attribute, saldo is the parameter.
+- main only uses the public methods, never the attribute directly.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

@@ -2,7 +2,7 @@
 
 Base: programma svolto 4D INF 2025/26. Richiede l'estensione del renderer a Java.
 
-Episodi pianificati: **28**.
+Episodi pianificati: **31**.
 
 Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida guidata. Vedi `../PIANO.md`.
 
@@ -28,22 +28,25 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 | B8 | C | Le eccezioni: try e catch | `ArrayIndexOutOfBoundsException` gestita | da fare |
 | B9 | E | Trova l'errore: eccezione non gestita | `NumberFormatException` sulla conversione | da fare |
 
-**Blocco C - Classi e oggetti**
+**Blocco C - Classi e oggetti** (convenzione della serie: ogni classe in un file separato; il `Main` serve solo a lanciare e a usare le istanze)
 
 | # | Tipo | Titolo | Esempio / idea | Stato |
 |---|------|--------|----------------|-------|
-| C1 | C | Classe e oggetto | Stampo e oggetti `new` | fatto (04) |
-| C2 | C | Attributi e metodi | `Conto` con `saldo` e `versa()` | fatto (05) |
-| C3 | C | Il costruttore | Stesso oggetto creato con e senza costruttore | fatto (06) |
-| C4 | C | Riferimenti: due variabili, un oggetto | `b = a` e modifica visibile da entrambe | da fare |
-| C5 | C | Incapsulamento | `private` con getter e setter | da fare |
-| C6 | I | Indovina l'output: riferimenti | Modifica tramite un alias | da fare |
-| C7 | C | Ereditarietà | `extends` e `super` | da fare |
-| C8 | C | Sottoclassi | `Studente` e `Docente` da `Persona` | da fare |
-| C9 | C | Polimorfismo | Array di `Animale`, `override` di `parla()` | da fare |
-| C10 | C | Le Stringhe | Immutabilità e metodi principali | da fare |
-| C11 | E | Trova l'errore: `==` contro `equals` | Confronto tra stringhe | da fare |
-| C12 | S | Sfida: classe `Rettangolo` | Consegna e soluzione | da fare |
+| C1 | C | Classe e oggetto | `Cane.java` e `Main` con due `new` | fatto (04) |
+| C2 | C | Attributi private | `c.saldo` dal main: errore reale di `private` | fatto (05) |
+| C3 | C | Getter e setter | `getSaldo`, `setSaldo`, `this` | fatto (06) |
+| C4 | C | Il costruttore | `new Conto(200)` | fatto (07) |
+| C5 | C | toString | `println(c)` e `@Override` | fatto (08) |
+| C6 | C | Metodi di una classe | `versa()` e `preleva()` con controllo | da fare |
+| C7 | C | La classe completa | `Persona`: private, costruttore, get/set, toString | da fare |
+| C8 | C | Riferimenti: due variabili, un oggetto | `b = a` e modifica visibile da entrambe | da fare |
+| C9 | I | Indovina l'output: riferimenti | Modifica tramite un alias | da fare |
+| C10 | C | Ereditarietà | `extends` e `super` | da fare |
+| C11 | C | Sottoclassi | `Studente` e `Docente` da `Persona` | da fare |
+| C12 | C | Polimorfismo | Array di `Animale`, `override` di `parla()` | da fare |
+| C13 | C | Le Stringhe | Immutabilità e metodi principali | da fare |
+| C14 | E | Trova l'errore: `==` contro `equals` | Confronto tra stringhe | da fare |
+| C15 | S | Sfida: classe `Rettangolo` | Consegna e soluzione (classe completa) | da fare |
 
 **Blocco D - Strutture dati**
 

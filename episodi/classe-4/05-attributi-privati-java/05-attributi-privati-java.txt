@@ -1,0 +1,18 @@
+Attributi private in Java: il mascheramento dell'informazione.
+
+Richiamo teorico:
+- Un attributo private è visibile solo dentro la sua classe.
+- Dal main non si può leggere né scrivere direttamente: il compilatore dà errore.
+- Si protegge lo stato dell'oggetto da modifiche incontrollate.
+- L'accesso dall'esterno avviene tramite metodi pubblici: get e set.
+
+English:
+Private attributes in Java: information hiding.
+
+Theory recap:
+- A private attribute is visible only inside its own class.
+- From main it can be neither read nor written directly: the compiler reports an error.
+- This protects the object's state from uncontrolled changes.
+- Outside access goes through public methods: getters and setters.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

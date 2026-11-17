@@ -1,0 +1,112 @@
+{
+  "id": "08-tostring-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Conto.java",
+  "files": [
+    {
+      "name": "Conto.java",
+      "code": "public class Conto {\n    private int saldo;\n\n    public Conto(int saldo) {\n        this.saldo = saldo;\n    }\n\n    @Override\n    public String toString() {\n        return \"Conto con saldo \" + saldo;\n    }\n}\n"
+    },
+    {
+      "name": "Main.java",
+      "code": "public class Main {\n    public static void main(String[] args) {\n        Conto c = new Conto(200);\n        System.out.println(c);\n    }\n}\n"
+    }
+  ],
+  "main_class": "Main",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "oggetto  ·  stato",
+  "hook": [
+    "Stampi un oggetto.",
+    "Esce un codice strano.",
+    "Serve toString."
+  ],
+  "steps": [
+    {
+      "after_line": 6,
+      "caption": "1 · Il costruttore imposta il saldo",
+      "viz": {
+        "op": "label",
+        "text": "Conto(int saldo)"
+      },
+      "highlight_lines": [
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "after_line": 11,
+      "caption": "2 · toString: l'oggetto come testo",
+      "viz": {
+        "op": "label",
+        "text": "toString()"
+      },
+      "highlight_lines": [
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "after_line": 15,
+      "caption": "3 · new Conto(200)",
+      "viz": {
+        "op": "init",
+        "values": [
+          200
+        ],
+        "names": [
+          "saldo"
+        ]
+      },
+      "highlight_lines": [
+        15
+      ]
+    },
+    {
+      "after_line": 16,
+      "caption": "4 · println(c) chiama toString()",
+      "viz": {
+        "op": "label",
+        "text": "stampa: Conto con saldo 200"
+      },
+      "highlight_lines": [
+        16
+      ]
+    }
+  ],
+  "run_caption": "5 · Output: il testo di toString",
+  "outro": {
+    "caption": "Senza toString uscirebbe Conto@ e un codice",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "toString in Java: stampare un oggetto in modo leggibile.",
+    "theory": [
+      "toString() restituisce una String che descrive l'oggetto.",
+      "println(c) chiama automaticamente c.toString().",
+      "Senza override stampa il nome della classe e un codice (Conto@1b6d3586).",
+      "@Override segnala che si ridefinisce un metodo ereditato da Object."
+    ],
+    "caption_en": "toString in Java: printing an object in a readable way.",
+    "theory_en": [
+      "toString() returns a String describing the object.",
+      "println(c) automatically calls c.toString().",
+      "Without the override it prints the class name and a code (Conto@1b6d3586).",
+      "@Override marks that a method inherited from Object is being redefined."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

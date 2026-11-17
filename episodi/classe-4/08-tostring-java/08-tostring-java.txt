@@ -1,0 +1,18 @@
+toString in Java: stampare un oggetto in modo leggibile.
+
+Richiamo teorico:
+- toString() restituisce una String che descrive l'oggetto.
+- println(c) chiama automaticamente c.toString().
+- Senza override stampa il nome della classe e un codice (Conto@1b6d3586).
+- @Override segnala che si ridefinisce un metodo ereditato da Object.
+
+English:
+toString in Java: printing an object in a readable way.
+
+Theory recap:
+- toString() returns a String describing the object.
+- println(c) automatically calls c.toString().
+- Without the override it prints the class name and a code (Conto@1b6d3586).
+- @Override marks that a method inherited from Object is being redefined.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

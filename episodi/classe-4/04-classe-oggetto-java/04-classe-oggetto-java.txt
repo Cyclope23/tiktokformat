@@ -1,18 +1,18 @@
-Classe e oggetto in Java: lo stampo e le sue istanze.
+Classe e oggetto in Java: la classe in un file, il main che crea le istanze.
 
 Richiamo teorico:
-- Una classe descrive la struttura: quali attributi e quali metodi avranno gli oggetti.
+- Una classe, in un suo file, descrive la struttura: quali attributi avranno gli oggetti.
+- Il main serve solo a lanciare il programma e a usare gli oggetti.
 - Un oggetto (istanza) si crea con new NomeClasse().
-- Da una sola classe si possono creare tanti oggetti, ognuno con i propri valori.
-- Si accede agli attributi di un oggetto con l'operatore punto: a.nome.
+- Da una classe si creano tanti oggetti, ognuno con i propri valori.
 
 English:
-Class and object in Java: the template and its instances.
+Class and object in Java: the class in its own file, main creating the instances.
 
 Theory recap:
-- A class describes the structure: which attributes and methods its objects will have.
+- A class, in its own file, describes the structure: which attributes its objects will have.
+- main is only used to launch the program and to work with the objects.
 - An object (instance) is created with new ClassName().
 - Many objects can be created from one class, each with its own values.
-- Attributes of an object are accessed with the dot operator: a.nome.
 
 #java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

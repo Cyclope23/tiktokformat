@@ -1,0 +1,101 @@
+{
+  "id": "06-getter-setter-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Conto.java",
+  "files": [
+    {
+      "name": "Conto.java",
+      "code": "public class Conto {\n    private int saldo;\n\n    public int getSaldo() {\n        return saldo;\n    }\n\n    public void setSaldo(int saldo) {\n        this.saldo = saldo;\n    }\n}\n"
+    },
+    {
+      "name": "Main.java",
+      "code": "public class Main {\n    public static void main(String[] args) {\n        Conto c = new Conto();\n        c.setSaldo(100);\n        System.out.println(c.getSaldo());\n    }\n}\n"
+    }
+  ],
+  "main_class": "Main",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "oggetto  ·  stato",
+  "hook": [
+    "Attributo private.",
+    "Come lo leggo?",
+    "Con get e set."
+  ],
+  "steps": [
+    {
+      "after_line": 6,
+      "caption": "1 · get: restituisce il valore",
+      "viz": {
+        "op": "init",
+        "values": [
+          0
+        ],
+        "names": [
+          "saldo"
+        ]
+      },
+      "highlight_lines": [
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "after_line": 10,
+      "caption": "2 · set: lo modifica (this.saldo)",
+      "viz": {
+        "op": "label",
+        "text": "setSaldo(int saldo)"
+      },
+      "highlight_lines": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "after_line": 15,
+      "caption": "3 · Il main usa setSaldo(100)",
+      "viz": {
+        "op": "set",
+        "index": 0,
+        "value": 100
+      },
+      "highlight_lines": [
+        15
+      ]
+    }
+  ],
+  "run_caption": "4 · Output: 100",
+  "outro": {
+    "caption": "Prossimo episodio: il costruttore",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Getter e setter in Java: accesso controllato agli attributi private.",
+    "theory": [
+      "Il getter (getNome) restituisce il valore di un attributo private.",
+      "Il setter (setNome) lo modifica e può controllare il valore ricevuto.",
+      "this.saldo indica l'attributo dell'oggetto, saldo il parametro.",
+      "Il main usa solo i metodi pubblici, mai l'attributo direttamente."
+    ],
+    "caption_en": "Getters and setters in Java: controlled access to private attributes.",
+    "theory_en": [
+      "The getter (getName) returns the value of a private attribute.",
+      "The setter (setName) changes it and can validate the received value.",
+      "this.saldo is the object's attribute, saldo is the parameter.",
+      "main only uses the public methods, never the attribute directly."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}
