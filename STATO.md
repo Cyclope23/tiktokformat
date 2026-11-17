@@ -32,6 +32,7 @@ Ultimo aggiornamento: 2026-11-17 (primo blocco 3D prodotto: episodi 01-05)
 
 - Verifica API Buffer (2026-11-17): chiave API personale gratuita (1 chiave, 3.000 richieste/30 giorni), GraphQL in beta, niente OAuth di terzi; createPost accetta video solo da URL pubblico (nessun upload di file) che deve restare raggiungibile fino alla pubblicazione. Da verificare: modalita' notifica via API per TikTok. Ipotesi: ospitare gli mp4 in una repo pubblica separata (solo video, nessun dato di studenti). Prossimo passo: Daniele crea l'account Buffer Free, collega TikTok e genera la chiave (da non incollare in chat).
 - Hosting video per Buffer (2026-11-17): Daniele ha reso pubblica la repo Cyclope23/tiktokformat (niente repo -media separata) e ha collegato TikTok a Buffer. Gli mp4 sono scaricabili da raw.githubusercontent.com/Cyclope23/tiktokformat/main/episodi/... (verificato: 5 su 5 con HTTP 200). calendario.csv ha ora la colonna video_url (generata da pianifica.py). Dal container api.buffer.com e' bloccato dal proxy: le chiamate Buffer vanno fatte dal PC (device_bash). Attenzione: con la repo pubblica sono visibili a tutti anche .json/.txt/piano e musica/; nessun dato di studenti, ma i video sono online prima della pubblicazione TikTok.
+- Buffer da PC (2026-11-17): chiave API in env.txt (nella cartella progetto, esclusa da git via .gitignore; chiave mostrata per errore nell'output di un controllo: da rigenerare). api.buffer.com e' bloccato dal proxy della sessione sia dal container sia da device_bash (403): servono il dominio consentito in claude.ai (Impostazioni > Capacita') oppure l'esecuzione diretta sul PC. Creato strumenti/buffer_pubblica.py (solo libreria standard; --canali, --prossimi N, --episodio, --invia; senza --invia e' anteprima; dueAt in UTC dagli slot del calendario, testo dal .txt, video da video_url). Anteprima verificata offline; chiamate reali NON ancora provate. Rischi da verificare: schema GraphQL (query canali), modalita' notifica TikTok non esposta nei documenti consultati, TikTok potrebbe richiedere la verifica del dominio per i video da URL.
 
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
@@ -41,7 +42,7 @@ Ultimo aggiornamento: 2026-11-17 (primo blocco 3D prodotto: episodi 01-05)
   L'account e' personale: la programmazione nativa di TikTok Studio non e' disponibile.
 
 ## Da fare
-0a. Buffer: Daniele genera la chiave API in Buffer e la salva in un file locale sul PC (mai in chat); poi prova createPost per l'episodio 01 (slot 2026-11-19 15:30) dal PC e verifica la modalita' notifica per TikTok.
+0a. Buffer: rigenerare la chiave API; sbloccare api.buffer.com o lanciare sul PC `python strumenti/buffer_pubblica.py --canali`, poi `--episodio 01-variabili-costanti-cpp --invia`; verificare la modalita' notifica per TikTok.
 0. Validare il piano di pubblicazione; produrre in anticipo gli episodi dei prossimi slot (3D B1, B6, C1...).
 1. Validare i piani con l'utente e scegliere il primo blocco di episodi da produrre per classe.
 2. Estendere il renderer: formato S, input simulato (cin), Java (4D), SQL con SQLite (5D), grafiche nuove (diagrammi a blocchi, UML, E/R). Vedi PIANO.md.
