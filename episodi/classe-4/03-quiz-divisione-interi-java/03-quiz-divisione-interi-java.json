@@ -1,0 +1,76 @@
+{
+  "id": "03-quiz-divisione-interi-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Main.java",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "indovina  ·  output",
+  "hook": [
+    "Quiz in 10 secondi.",
+    "Cosa stampa questo codice?",
+    "Hai 3 secondi."
+  ],
+  "code": "public class Main {\n    public static void main(String[] args) {\n        int a = 5;\n        double r = a / 2;\n        System.out.println(r);\n    }\n}\n",
+  "steps": [
+    {
+      "after_line": 3,
+      "caption": "1 · a vale 5",
+      "viz": {
+        "op": "push",
+        "value": 5,
+        "name": "a"
+      },
+      "highlight_lines": [
+        3
+      ]
+    },
+    {
+      "after_line": 4,
+      "caption": "2 · Attenzione al tipo di a / 2",
+      "viz": {
+        "op": "push",
+        "value": "?",
+        "name": "r"
+      },
+      "highlight_lines": [
+        4
+      ]
+    }
+  ],
+  "quiz": {
+    "question": "Cosa stampa? 2.5 oppure 2.0?",
+    "seconds": 3
+  },
+  "run_caption": "Risposta: 2.0, non 2.5!",
+  "outro": {
+    "caption": "Perché? 5 / 2 è tra interi: viene 2 e poi diventa 2.0",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Quiz Java: cosa stampa double r = 5 / 2?",
+    "theory": [
+      "Se entrambi gli operandi sono int, / è una divisione intera: la parte decimale è scartata.",
+      "Il risultato 2 viene poi convertito in double solo all'assegnamento: 2.0.",
+      "Per avere 2.5 basta che un operando sia double: 5 / 2.0.",
+      "Il tipo della variabile a sinistra non cambia il tipo dell'operazione."
+    ],
+    "caption_en": "Java quiz: what does double r = 5 / 2 print?",
+    "theory_en": [
+      "If both operands are int, / is integer division: the decimal part is discarded.",
+      "The result 2 is converted to double only on assignment: 2.0.",
+      "To get 2.5 it is enough for one operand to be double: 5 / 2.0.",
+      "The type of the variable on the left does not change the type of the operation."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

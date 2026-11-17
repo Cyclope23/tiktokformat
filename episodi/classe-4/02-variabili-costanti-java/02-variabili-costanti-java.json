@@ -1,0 +1,88 @@
+{
+  "id": "02-variabili-costanti-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Main.java",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "variabile  ·  valore",
+  "hook": [
+    "Una variabile cambia.",
+    "Una costante no.",
+    "In Java: final."
+  ],
+  "code": "public class Main {\n    public static void main(String[] args) {\n        int eta = 16;\n        final int ANNI = 5;\n        eta = eta + 1;\n        System.out.println(eta + \" \" + ANNI);\n    }\n}\n",
+  "steps": [
+    {
+      "after_line": 3,
+      "caption": "1 · Variabile int: eta = 16",
+      "viz": {
+        "op": "init",
+        "values": [
+          16
+        ],
+        "names": [
+          "eta"
+        ]
+      },
+      "highlight_lines": [
+        3
+      ]
+    },
+    {
+      "after_line": 4,
+      "caption": "2 · final: ANNI resta fisso",
+      "viz": {
+        "op": "push",
+        "value": 5,
+        "name": "ANNI"
+      },
+      "highlight_lines": [
+        4
+      ]
+    },
+    {
+      "after_line": 5,
+      "caption": "3 · eta può cambiare: ora vale 17",
+      "viz": {
+        "op": "set",
+        "index": 0,
+        "value": 17
+      },
+      "highlight_lines": [
+        5
+      ]
+    }
+  ],
+  "run_caption": "4 · Output: 17 5",
+  "outro": {
+    "caption": "ANNI = 6; darebbe errore di compilazione",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Variabili e costanti in Java: int e final.",
+    "theory": [
+      "Una variabile ha un tipo, un nome e un valore che può cambiare.",
+      "final dichiara una costante: dopo l'assegnamento il valore non può più cambiare.",
+      "Per convenzione le costanti si scrivono in MAIUSCOLO.",
+      "Riassegnare una variabile final è un errore di compilazione."
+    ],
+    "caption_en": "Variables and constants in Java: int and final.",
+    "theory_en": [
+      "A variable has a type, a name and a value that can change.",
+      "final declares a constant: once assigned, the value can no longer change.",
+      "By convention, constants are written in UPPERCASE.",
+      "Reassigning a final variable is a compile-time error."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

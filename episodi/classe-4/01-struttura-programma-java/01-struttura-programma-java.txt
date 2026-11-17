@@ -1,0 +1,18 @@
+Struttura di un programma Java: class, main e println.
+
+Richiamo teorico:
+- Ogni programma Java è contenuto in una classe; il file si chiama come la classe (Main.java).
+- L'esecuzione parte dal metodo public static void main(String[] args).
+- System.out.println stampa il testo e va a capo.
+- Si compila con javac e si esegue con java.
+
+English:
+Structure of a Java program: class, main and println.
+
+Theory recap:
+- Every Java program lives inside a class; the file is named after the class (Main.java).
+- Execution starts from the method public static void main(String[] args).
+- System.out.println prints the text and moves to a new line.
+- You compile with javac and run with java.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

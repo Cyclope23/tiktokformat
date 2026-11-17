@@ -1,0 +1,97 @@
+{
+  "id": "01-struttura-programma-java",
+  "series": "Java in 30 secondi",
+  "class": "4D INF",
+  "filename": "Main.java",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "memoria  ·  main",
+  "hook": [
+    "Un programma Java",
+    "sono solo 5 righe.",
+    "Ma tutte necessarie."
+  ],
+  "code": "public class Main {\n    public static void main(String[] args) {\n        String nome = \"Java\";\n        System.out.println(\"Ciao \" + nome);\n    }\n}\n",
+  "steps": [
+    {
+      "after_line": 1,
+      "caption": "1 · Tutto il codice vive in una class",
+      "viz": {
+        "op": "label",
+        "text": "class Main"
+      },
+      "highlight_lines": [
+        1
+      ]
+    },
+    {
+      "after_line": 2,
+      "caption": "2 · main è il punto di partenza",
+      "viz": {
+        "op": "label",
+        "text": "main(): si parte da qui"
+      },
+      "highlight_lines": [
+        2
+      ]
+    },
+    {
+      "after_line": 3,
+      "caption": "3 · Una variabile String",
+      "viz": {
+        "op": "init",
+        "values": [
+          "Java"
+        ],
+        "names": [
+          "nome"
+        ]
+      },
+      "highlight_lines": [
+        3
+      ]
+    },
+    {
+      "after_line": 4,
+      "caption": "4 · println stampa e va a capo",
+      "viz": {
+        "op": "label",
+        "text": "stampa: Ciao Java"
+      },
+      "highlight_lines": [
+        4
+      ]
+    }
+  ],
+  "run_caption": "5 · javac compila, java esegue",
+  "outro": {
+    "caption": "Prossimo episodio: variabili e costanti",
+    "cta": "Segui per la serie Java"
+  },
+  "post": {
+    "caption": "Struttura di un programma Java: class, main e println.",
+    "theory": [
+      "Ogni programma Java è contenuto in una classe; il file si chiama come la classe (Main.java).",
+      "L'esecuzione parte dal metodo public static void main(String[] args).",
+      "System.out.println stampa il testo e va a capo.",
+      "Si compila con javac e si esegue con java."
+    ],
+    "caption_en": "Structure of a Java program: class, main and println.",
+    "theory_en": [
+      "Every Java program lives inside a class; the file is named after the class (Main.java).",
+      "Execution starts from the method public static void main(String[] args).",
+      "System.out.println prints the text and moves to a new line.",
+      "You compile with javac and run with java."
+    ],
+    "hashtags": [
+      "#java",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ]
+  }
+}

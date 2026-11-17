@@ -18,11 +18,11 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 
 | # | Tipo | Titolo | Esempio / idea | Stato |
 |---|------|--------|----------------|-------|
-| B1 | C | Struttura di un programma Java | `class`, `main`, `System.out.println` | da fare |
-| B2 | C | Variabili e costanti | `final` e inferenza `var` | da fare |
+| B1 | C | Struttura di un programma Java | `class`, `main`, `System.out.println` | fatto |
+| B2 | C | Variabili e costanti | `final` e inferenza `var` | fatto |
 | B3 | C | Tipi primitivi e `String` | `int`, `double`, `boolean`, `char` | da fare |
 | B4 | C | Il casting | `(int) 3.9`, ampliamento e restringimento | da fare |
-| B5 | I | Indovina l'output: divisione tra interi | `5 / 2` e `5 / 2.0` | da fare |
+| B5 | I | Indovina l'output: divisione tra interi | `5 / 2` e `5 / 2.0` | fatto |
 | B6 | C | Gli operatori | `++`, `+=`, precedenza | da fare |
 | B7 | C | Array in Java | Dichiarazione, `length`, scorrimento | da fare |
 | B8 | C | Le eccezioni: try e catch | `ArrayIndexOutOfBoundsException` gestita | da fare |

@@ -1,0 +1,18 @@
+Variabili e costanti in Java: int e final.
+
+Richiamo teorico:
+- Una variabile ha un tipo, un nome e un valore che può cambiare.
+- final dichiara una costante: dopo l'assegnamento il valore non può più cambiare.
+- Per convenzione le costanti si scrivono in MAIUSCOLO.
+- Riassegnare una variabile final è un errore di compilazione.
+
+English:
+Variables and constants in Java: int and final.
+
+Theory recap:
+- A variable has a type, a name and a value that can change.
+- final declares a constant: once assigned, the value can no longer change.
+- By convention, constants are written in UPPERCASE.
+- Reassigning a final variable is a compile-time error.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

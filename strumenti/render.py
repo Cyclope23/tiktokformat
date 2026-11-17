@@ -17,7 +17,7 @@ from bisect import bisect_right
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
-from pygments.lexers import CppLexer
+from pygments.lexers import CppLexer, JavaLexer
 from pygments.token import Token
 
 HERE = Path(__file__).resolve().parent
@@ -101,9 +101,35 @@ def find_compiler():
     sys.exit("Nessun compilatore C++ trovato (g++ / clang++). Esegui: python3 render.py --check")
 
 
+def compile_and_run_java(code, filename):
+    """Java: javac + java. Gli errori di compilazione e le eccezioni sono quelli reali."""
+    stem = Path(filename).stem
+    with tempfile.TemporaryDirectory() as d:
+        src = Path(d) / filename
+        src.write_text(code, encoding="utf-8")
+        c = subprocess.run(["javac", "-encoding", "UTF-8", "-Xlint:none", str(src)],
+                           capture_output=True, text=True, encoding="utf-8")
+        if c.returncode != 0:
+            errs = []
+            for ln in c.stderr.splitlines():
+                if "error:" in ln:
+                    ln = ln.replace(str(src), filename)
+                    errs.append(ln if len(ln) <= 54 else ln[:53] + "…")
+            return None, errs[:2] or ["errore di compilazione"]
+        r = subprocess.run(["java", "-cp", d, stem], capture_output=True, text=True,
+                           encoding="utf-8", timeout=20)
+        out = r.stdout
+        if r.returncode != 0:
+            ex = [l for l in r.stderr.splitlines() if l.startswith("Exception") or l.startswith("Error")]
+            out += "\n".join(ex[:2]) + "\n"
+        return out, None
+
+
 def compile_and_run(code, filename):
     """Compila ed esegue davvero il codice.
     Ritorna (stdout, None) se gira, oppure (None, [righe di errore]) se non compila."""
+    if filename.endswith(".java"):
+        return compile_and_run_java(code, filename)
     with tempfile.TemporaryDirectory() as d:
         src = Path(d) / filename
         src.write_text(code, encoding="utf-8")
@@ -143,6 +169,8 @@ def check_env():
     comp = next((c for c in ("g++", "clang++", "c++") if shutil.which(c)), None)
     print(f"{'OK ' if comp else 'MANCA'} compilatore C++", comp or "-> macOS: xcode-select --install; Windows: MinGW/MSYS2")
     ok &= bool(comp)
+    jv = shutil.which("javac") and shutil.which("java")
+    print(f"{'OK ' if jv else 'MANCA'} JDK (javac/java, solo per gli episodi Java)", jv or "-> installa un JDK 17+")
     for f in ("DejaVuSans-Bold.ttf", "DejaVuSansMono.ttf", "DejaVuSansMono-Bold.ttf"):
         found = next((d / f for d in FONT_DIRS if (d / f).exists()), None)
         print(f"{'OK ' if found else 'MANCA'} font {f}", found or "")
@@ -152,9 +180,9 @@ def check_env():
     return ok
 
 
-def char_colors(code, th):
+def char_colors(code, th, java=False):
     cols = []
-    toks = list(CppLexer().get_tokens(code))
+    toks = list((JavaLexer() if java else CppLexer()).get_tokens(code))
     flat = "".join(t for _, t in toks)
     for i, (tt, text) in enumerate(toks):
         pos = len(cols) + len(text)
@@ -233,7 +261,7 @@ class Timeline:
         if self.chal:
             self.chal_t0, self.chal_dur = t, float(self.chal.get("seconds", 3.0))
             t += self.chal_dur
-        self.cmd = th.get("cmd_display") or f"g++ {ep['filename']} -o main && ./main"
+        self.cmd = th.get("cmd_display") or (f"javac {ep['filename']} && java {Path(ep['filename']).stem}" if ep["filename"].endswith(".java") else f"g++ {ep['filename']} -o main && ./main")
         self.fix_t0 = self.fix_idx = self.fix_new = None
         self.fix_times = []
         self.runs = []
@@ -263,12 +291,12 @@ class Renderer:
         self.ep, self.th, self.tl = ep, th, tl
         self.W, self.H = th["width"], th["height"]
         self.L, self.R = th["margin_l"], self.W - th["margin_r"]
-        self.colors = char_colors(tl.code, th)
+        self.colors = char_colors(tl.code, th, ep["filename"].endswith(".java"))
         self.fix_colors = []
         if tl.fix_new is not None:
             fixed = apply_fix(tl.code, ep["fix"]).rstrip("\n")
             st = tl.line_start[tl.fix_idx]
-            self.fix_colors = char_colors(fixed, th)[st:st + len(tl.fix_new)]
+            self.fix_colors = char_colors(fixed, th, ep["filename"].endswith(".java"))[st:st + len(tl.fix_new)]
         n = len(tl.lines)
         self._autofit(th, tl, n)
         self.cw = font("DejaVuSansMono.ttf", th["code_font"]).getlength("M")
