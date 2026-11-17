@@ -40,7 +40,13 @@ Nomi: tutto minuscolo, trattini, nessun underscore, numero progressivo per class
    Anteprima fotogrammi: --preview 5,10,20 -o <cartella>
 3. Il renderer compila ed esegue davvero il codice (g++ -std=c++17): l'output nel terminale
    del video e' quello reale. Se non compila, il rendering si ferma.
-4. Controlla i fotogrammi (testo non tagliato, righe non fuori dal pannello) prima di consegnare.
+4. CONTROLLO FOTOGRAMMI OBBLIGATORIO (ogni volta che si genera o rigenera un video, anche per una sola modifica
+   al renderer: si ricontrollano TUTTI i video toccati): python3 strumenti/controlla.py <ep>.json
+   produce un foglio con 12 fotogrammi lungo tutto il video; va guardato per intero. Verificare: ogni file/classe
+   resta visibile abbastanza da essere letto (almeno ~3 s, scheda compresa), il codice completo si vede, testo non
+   tagliato, righe dentro il pannello, caption coerenti con cio' che e' mostrato (numeri di righe, valori), pannello
+   viz utile e non vuoto, output del terminale reale e colore giusto (errori in rosso), CTA e annuncio finali.
+   Nessuna consegna e nessun commit di mp4 senza questo controllo; se emerge un difetto: correggere, rigenerare, ricontrollare.
 5. Salva .mp4, .txt (generato dal renderer) e .json nella cartella episodio.
 
 ## Compatibilita' tra dispositivi
