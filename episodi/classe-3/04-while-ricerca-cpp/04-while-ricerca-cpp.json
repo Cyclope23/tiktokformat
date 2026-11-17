@@ -1,0 +1,28 @@
+{
+  "id": "cpp-while-ricerca-01",
+  "series": "C++ in 30 secondi",
+  "class": "3D INF",
+  "filename": "main.cpp",
+  "theme": {"code_font": 32},
+  "viz_title": "v  ·  vector<int>",
+  "hook": ["Cerchi un numero", "in un vettore?", "Usa il while"],
+  "code": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    vector<int> v = {4, 9, 7, 2};\n    int i = 0;\n\n    while (i < v.size() && v[i] != 7)\n        i++;\n\n    cout << \"Posizione: \" << i;\n}\n",
+  "steps": [
+    {"after_line": 6, "caption": "1 · Un vettore di 4 numeri", "viz": {"op": "init", "values": [4, 9, 7, 2]}},
+    {"after_line": 7, "caption": "2 · i parte dall'indice 0", "viz": {"op": "label", "text": "i = 0"}},
+    {"after_line": 10, "caption": "3 · Avanza finché non lo trovi", "viz": {"op": "iterate", "count": 3, "labels": ["i=0: 4 != 7", "i=1: 9 != 7", "i=2: 7 == 7"]}, "highlight_lines": [9, 10]},
+    {"after_line": 12, "caption": "4 · Trovato all'indice 2", "viz": {"op": "label", "text": "i = 2"}}
+  ],
+  "run_caption": "5 · Compila ed esegui",
+  "outro": {"caption": "Prossimo episodio: funzioni e vettori", "cta": "Segui per la serie C++"},
+  "post": {
+    "caption": "Come cerchi un valore in un vettore? Ricerca lineare con il ciclo while, passo dopo passo.",
+    "theory": [
+      "Il while ripete finché la condizione è vera: si usa quando non sai in anticipo quante iterazioni servono.",
+      "Ricerca lineare: scorri gli elementi uno a uno fino a trovare il valore. Nel caso peggiore controlli tutti gli n elementi: costo O(n).",
+      "Nella condizione prima i < v.size() e poi v[i]: con && la valutazione a corto circuito evita di leggere fuori dal vettore.",
+      "Gli indici partono da 0. Se il valore non c'è, alla fine i vale v.size()."
+    ],
+    "hashtags": ["#cpp", "#programmazione", "#coding", "#imparareacodare", "#informatica", "#scuola", "#learnontiktok"]
+  }
+}

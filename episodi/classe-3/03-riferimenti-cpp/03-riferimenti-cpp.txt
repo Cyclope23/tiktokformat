@@ -1,0 +1,8 @@
+Perché la funzione non cambia la mia variabile? Passaggio per valore contro passaggio per riferimento in 30 secondi.
+
+Richiamo teorico:
+- Per valore (int x): la funzione riceve una copia; le modifiche non toccano la variabile originale.
+- Per riferimento (int& x): la funzione riceve un alias della variabile originale; le modifiche si vedono anche fuori.
+- Il riferimento serve per modificare più valori da una funzione e per evitare copie di oggetti grandi (const T&).
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok

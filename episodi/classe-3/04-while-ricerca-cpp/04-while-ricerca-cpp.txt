@@ -1,0 +1,9 @@
+Come cerchi un valore in un vettore? Ricerca lineare con il ciclo while, passo dopo passo.
+
+Richiamo teorico:
+- Il while ripete finché la condizione è vera: si usa quando non sai in anticipo quante iterazioni servono.
+- Ricerca lineare: scorri gli elementi uno a uno fino a trovare il valore. Nel caso peggiore controlli tutti gli n elementi: costo O(n).
+- Nella condizione prima i < v.size() e poi v[i]: con && la valutazione a corto circuito evita di leggere fuori dal vettore.
+- Gli indici partono da 0. Se il valore non c'è, alla fine i vale v.size().
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok

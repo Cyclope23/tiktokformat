@@ -1,0 +1,9 @@
+Sommare i numeri da 1 a 4 con il ciclo for: guarda come cambia somma a ogni giro. Prossimo episodio: il while.
+
+Richiamo teorico:
+- Il for ripete un blocco con tre parti: inizializzazione (int i = 1), condizione (i <= 4), aggiornamento (i++).
+- Ordine: inizializzazione una sola volta, poi condizione, corpo, aggiornamento, finché la condizione è falsa.
+- Si usa quando il numero di iterazioni è noto in anticipo; altrimenti si preferisce il while.
+- somma += i equivale a somma = somma + i: la variabile somma fa da accumulatore.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok
