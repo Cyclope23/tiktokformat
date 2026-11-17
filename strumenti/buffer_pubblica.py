@@ -15,7 +15,7 @@ Parametri (nessun valore fisso nel codice):
 
 La chiave non viene mai stampata. Solo libreria standard di Python 3.9+.
 """
-import argparse, csv, json, os, re, sys, urllib.request, urllib.error
+import argparse, csv, json, os, re, ssl, sys, urllib.request, urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -33,12 +33,22 @@ def leggi_chiave(p):
     return re.sub(r"^[A-Za-z_]+\s*=\s*", "", t.splitlines()[0]).strip().strip("'\"")
 
 
+def contesto_ssl():
+    """Verifica TLS sempre attiva. Se c'e' certifi usa il suo archivio (evita le catene
+    Let's Encrypt scadute nell'archivio di Windows), altrimenti quello di sistema."""
+    try:
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        return ssl.create_default_context()
+
+
 def gql(chiave, query, variabili=None):
     body = json.dumps({"query": query, "variables": variabili or {}}).encode()
     rq = urllib.request.Request(API, data=body, method="POST", headers={
         "Content-Type": "application/json", "Authorization": f"Bearer {chiave}"})
     try:
-        with urllib.request.urlopen(rq, timeout=60) as r:
+        with urllib.request.urlopen(rq, timeout=60, context=contesto_ssl()) as r:
             return json.loads(r.read())
     except urllib.error.HTTPError as e:
         return {"errors": [{"message": f"HTTP {e.code}: {e.read()[:300].decode(errors='replace')}"}]}
