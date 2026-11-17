@@ -70,6 +70,12 @@ Dove lavorare:
 init (values) | push (value) | set (index, value, label) | iterate (count, labels, var) |
 label (text) | size. Ogni step: after_line, caption, viz, highlight_lines.
 Opzioni episodio: theme (override parametri), viz_title, viz_index (true/false).
+Nomi sotto le caselle: viz init con "names": [...] o push con "name". Con i nomi l'indice [i] non compare.
+Formato I (quiz): "quiz": {"question": "...", "seconds": 3} -> dopo il codice c'e' un conto alla rovescia, poi
+la risposta con l'esecuzione reale (run_caption = didascalia della risposta).
+Formato E (trova l'errore): "fix": {"line": N, "new": "riga corretta", "find_caption", "bug_caption",
+"fix_caption", "run2_caption"} -> il codice dato e' quello con il bug (evidenziato in rosso), viene eseguito
+(o mostrato l'errore reale del compilatore), poi la riga e' riscritta in verde e il programma rieseguito.
 
 ## Descrizione del post (file .txt)
 Riga di apertura + "Richiamo teorico" (3-4 punti brevi, corretti) + hashtag.

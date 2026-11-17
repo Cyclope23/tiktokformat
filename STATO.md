@@ -1,6 +1,6 @@
 # Stato del progetto (aggiornare a fine sessione)
 
-Ultimo aggiornamento: 2026-11-17 (3D azzerata, si riparte da 01)
+Ultimo aggiornamento: 2026-11-17 (primo blocco 3D prodotto: episodi 01-05)
 
 ## Fatto
 - Pipeline di rendering funzionante (strumenti/render.py), stile della serie approvato dall'utente.
@@ -16,7 +16,9 @@ Ultimo aggiornamento: 2026-11-17 (3D azzerata, si riparte da 01)
 
 - DA SINCRONIZZARE su OneDrive (Mac non raggiungibile il 2026-11-17): strumenti/render.py, CLAUDE.md, STATO.md, piani, episodi/classe-3/ (svuotata). Fonte aggiornata: repo GitHub.
 
-- In corso: primo blocco 3D da 01: B2 variabili/costanti, B3 tipi, B5 divisione intera e resto, B7 quiz divisione, B8 errore = / ==.
+- Renderer esteso (2026-11-17): nomi sotto le caselle viz, formato I (quiz con conto alla rovescia), formato E (bug evidenziato, doppia esecuzione, errori reali del compilatore).
+- Prodotto il primo blocco 3D (episodi/classe-3/): 01 variabili e costanti (B2), 02 tipi di dato (B3), 03 divisione intera e resto (B5), 04 quiz divisione (B7), 05 errore = / == (B8). Ognuno con .json, .mp4, .txt; fotogrammi controllati. Da pubblicare a mano (musica da scegliere in TikTok).
+- Anche i nuovi episodi e CLAUDE.md vanno riportati su OneDrive (vedi nota sopra).
 
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
@@ -27,7 +29,7 @@ Ultimo aggiornamento: 2026-11-17 (3D azzerata, si riparte da 01)
 
 ## Da fare
 1. Validare i piani con l'utente e scegliere il primo blocco di episodi da produrre per classe.
-2. Estendere il renderer: formati I/E/S, input simulato (cin), Java (4D), SQL con SQLite (5D), grafiche nuove (diagrammi a blocchi, UML, E/R). Vedi PIANO.md.
+2. Estendere il renderer: formato S, input simulato (cin), Java (4D), SQL con SQLite (5D), grafiche nuove (diagrammi a blocchi, UML, E/R). Vedi PIANO.md.
 3. Scegliere la musica (cartella musica/).
 4. Decidere il metodo di pubblicazione e, se serve, preparare lo script di invio alla bozza TikTok.
 5. Eventuale copia dei materiali nella repo del dipartimento (decisione aperta).

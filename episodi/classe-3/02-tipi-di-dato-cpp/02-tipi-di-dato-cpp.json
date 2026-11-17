@@ -1,0 +1,88 @@
+{
+  "id": "02-tipi-di-dato-cpp",
+  "series": "C++ in 30 secondi",
+  "class": "3D INF",
+  "filename": "main.cpp",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "tipo  ·  valore",
+  "hook": [
+    "Non tutto è un numero.",
+    "int, double, char, bool.",
+    "Quale scegli?"
+  ],
+  "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int n = 42;\n    double d = 3.14;\n    char c = 'A';\n    bool ok = true;\n    cout << n << \" \" << d << \" \" << c << \" \" << ok;\n}\n",
+  "steps": [
+    {
+      "after_line": 5,
+      "caption": "1 · int: numeri interi",
+      "viz": {
+        "op": "push",
+        "value": 42,
+        "name": "int"
+      },
+      "highlight_lines": [
+        5
+      ]
+    },
+    {
+      "after_line": 6,
+      "caption": "2 · double: numeri con la virgola",
+      "viz": {
+        "op": "push",
+        "value": 3.14,
+        "name": "double"
+      },
+      "highlight_lines": [
+        6
+      ]
+    },
+    {
+      "after_line": 7,
+      "caption": "3 · char: un solo carattere",
+      "viz": {
+        "op": "push",
+        "value": "A",
+        "name": "char"
+      },
+      "highlight_lines": [
+        7
+      ]
+    },
+    {
+      "after_line": 8,
+      "caption": "4 · bool: vero o falso",
+      "viz": {
+        "op": "push",
+        "value": "true",
+        "name": "bool"
+      },
+      "highlight_lines": [
+        8
+      ]
+    }
+  ],
+  "run_caption": "5 · true viene stampato come 1",
+  "outro": {
+    "caption": "Prossimo episodio: divisione intera e resto",
+    "cta": "Segui per la serie C++"
+  },
+  "post": {
+    "caption": "I 4 tipi di dato base del C++ in 30 secondi.",
+    "theory": [
+      "int memorizza interi, double numeri reali, char un carattere, bool vero/falso.",
+      "Il tipo decide quanta memoria occupa la variabile e quali operazioni sono valide.",
+      "I caratteri si scrivono tra apici singoli: 'A'.",
+      "cout stampa true come 1 e false come 0."
+    ],
+    "hashtags": [
+      "#cpp",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok"
+    ]
+  }
+}

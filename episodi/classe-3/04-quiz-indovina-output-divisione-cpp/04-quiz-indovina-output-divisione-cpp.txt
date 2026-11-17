@@ -1,0 +1,9 @@
+Quiz: cosa stampa questo codice C++? Rispondi nei commenti!
+
+Richiamo teorico:
+- a / b con due int fa una divisione intera: 7 / 2 = 3.
+- Il risultato viene convertito in double solo dopo: 3.0, stampato 3.
+- Per avere 3.5 scrivi (double)a / b oppure usa 7.0 / 2.
+- Il tipo della variabile che riceve non cambia il modo in cui si calcola l'espressione.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok

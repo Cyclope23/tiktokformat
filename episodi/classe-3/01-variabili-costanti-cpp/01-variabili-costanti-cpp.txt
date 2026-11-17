@@ -1,0 +1,9 @@
+Variabili e costanti in C++: cosa cambia e cosa no.
+
+Richiamo teorico:
+- Una variabile è una zona di memoria con un nome e un tipo.
+- Il valore di una variabile può cambiare durante il programma.
+- const dichiara una costante: il compilatore vieta di modificarla.
+- L'assegnamento = copia il valore a destra nella variabile a sinistra.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok

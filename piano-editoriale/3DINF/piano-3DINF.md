@@ -19,13 +19,13 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 | # | Tipo | Titolo | Esempio / idea | Stato |
 |---|------|--------|----------------|-------|
 | B1 | C | Struttura di un programma | `#include`, `main`, `cout` | da fare |
-| B2 | C | Variabili e costanti | `int eta = 16;` e `const double PI` | da fare |
-| B3 | C | Tipi di dato | `int`, `double`, `char`, `bool` e le loro dimensioni | da fare |
+| B2 | C | Variabili e costanti | `int eta = 16;` e `const double PI` | fatto (01) |
+| B3 | C | Tipi di dato | `int`, `double`, `char`, `bool` e le loro dimensioni | fatto (02) |
 | B4 | C | Input e output | `cin` e `cout` (input simulato nel terminale) | da fare |
-| B5 | C | Divisione intera e resto | `7 / 2` = 3, `7 % 2` = 1 | da fare |
+| B5 | C | Divisione intera e resto | `7 / 2` = 3, `7 % 2` = 1 | fatto (03) |
 | B6 | C | Operatori relazionali e logici | `&&`, `||`, `!` con tabella di verità animata | da fare |
-| B7 | I | Indovina l'output: divisione | `double x = 7 / 2;` stampa 3 | da fare |
-| B8 | E | Trova l'errore: `=` o `==` | `if (x = 5)` assegna, non confronta | da fare |
+| B7 | I | Indovina l'output: divisione | `double x = 7 / 2;` stampa 3 | fatto (04) |
+| B8 | E | Trova l'errore: `=` o `==` | `if (x = 5)` assegna, non confronta | fatto (05) |
 
 **Blocco C - Selezione**
 

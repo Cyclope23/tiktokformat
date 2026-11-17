@@ -1,0 +1,62 @@
+{
+  "id": "05-errore-assegnamento-uguaglianza-cpp",
+  "series": "C++ in 30 secondi",
+  "class": "3D INF",
+  "filename": "main.cpp",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "voto  ·  valore",
+  "hook": [
+    "Voto 4. Dice Sufficiente.",
+    "Il codice compila.",
+    "Trova l'errore."
+  ],
+  "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int voto = 4;\n    if (voto = 6)\n        cout << \"Sufficiente\";\n    else\n        cout << \"Insufficiente\";\n}\n",
+  "steps": [
+    {
+      "after_line": 5,
+      "caption": "1 · voto vale 4",
+      "viz": {
+        "op": "push",
+        "value": 4,
+        "name": "voto"
+      },
+      "highlight_lines": [
+        5
+      ]
+    }
+  ],
+  "fix": {
+    "line": 6,
+    "new": "    if (voto == 6)",
+    "seconds": 3.0,
+    "find_caption": "Trova l'errore",
+    "bug_caption": "Stampa Sufficiente: sbagliato!",
+    "fix_caption": "= assegna, == confronta",
+    "run2_caption": "Ora è corretto"
+  },
+  "quiz": null,
+  "run_caption": "",
+  "outro": {
+    "caption": "Prossimo episodio: if ed else",
+    "cta": "Segui per la serie C++"
+  },
+  "post": {
+    "caption": "Trova l'errore: = oppure == in un if? Succede a tutti.",
+    "theory": [
+      "= assegna un valore, == confronta due valori.",
+      "if (voto = 6) assegna 6 a voto e la condizione diventa vera (6 è diverso da 0).",
+      "Il compilatore non dà errore: è un bug logico, solo con -Wall un avviso.",
+      "Per confrontare si scrive sempre ==."
+    ],
+    "hashtags": [
+      "#cpp",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok"
+    ]
+  }
+}

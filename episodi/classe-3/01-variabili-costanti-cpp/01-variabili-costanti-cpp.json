@@ -1,0 +1,77 @@
+{
+  "id": "01-variabili-costanti-cpp",
+  "series": "C++ in 30 secondi",
+  "class": "3D INF",
+  "filename": "main.cpp",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "memoria  ·  nome",
+  "hook": [
+    "Una variabile cambia.",
+    "Una costante no.",
+    "Sai usarle?"
+  ],
+  "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int eta = 16;\n    const double PI = 3.14;\n    eta = eta + 1;\n    cout << \"Eta: \" << eta << endl;\n    cout << \"PI: \" << PI;\n}\n",
+  "steps": [
+    {
+      "after_line": 5,
+      "caption": "1 · Variabile: contenitore col nome",
+      "viz": {
+        "op": "push",
+        "value": 16,
+        "name": "eta"
+      },
+      "highlight_lines": [
+        5
+      ]
+    },
+    {
+      "after_line": 6,
+      "caption": "2 · const: il valore non cambia",
+      "viz": {
+        "op": "push",
+        "value": 3.14,
+        "name": "PI"
+      },
+      "highlight_lines": [
+        6
+      ]
+    },
+    {
+      "after_line": 7,
+      "caption": "3 · La variabile si può aggiornare",
+      "viz": {
+        "op": "set",
+        "index": 0,
+        "value": 17,
+        "label": "eta + 1"
+      },
+      "highlight_lines": [
+        7
+      ]
+    }
+  ],
+  "run_caption": "4 · Compila ed esegui",
+  "outro": {
+    "caption": "Prossimo episodio: i tipi di dato",
+    "cta": "Segui per la serie C++"
+  },
+  "post": {
+    "caption": "Variabili e costanti in C++: cosa cambia e cosa no.",
+    "theory": [
+      "Una variabile è una zona di memoria con un nome e un tipo.",
+      "Il valore di una variabile può cambiare durante il programma.",
+      "const dichiara una costante: il compilatore vieta di modificarla.",
+      "L'assegnamento = copia il valore a destra nella variabile a sinistra."
+    ],
+    "hashtags": [
+      "#cpp",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok"
+    ]
+  }
+}

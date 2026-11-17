@@ -1,0 +1,80 @@
+{
+  "id": "04-quiz-indovina-output-divisione-cpp",
+  "series": "C++ in 30 secondi",
+  "class": "3D INF",
+  "filename": "main.cpp",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "indovina  ·  output",
+  "hook": [
+    "Quiz in 10 secondi.",
+    "Cosa stampa questo codice?",
+    "Hai 3 secondi."
+  ],
+  "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int a = 7;\n    int b = 2;\n    double r = a / b;\n    cout << r;\n}\n",
+  "steps": [
+    {
+      "after_line": 5,
+      "caption": "1 · a vale 7",
+      "viz": {
+        "op": "push",
+        "value": 7,
+        "name": "a"
+      },
+      "highlight_lines": [
+        5
+      ]
+    },
+    {
+      "after_line": 6,
+      "caption": "2 · b vale 2",
+      "viz": {
+        "op": "push",
+        "value": 2,
+        "name": "b"
+      },
+      "highlight_lines": [
+        6
+      ]
+    },
+    {
+      "after_line": 7,
+      "caption": "3 · Attenzione al tipo di a / b",
+      "viz": {
+        "op": "push",
+        "value": "?",
+        "name": "r"
+      },
+      "highlight_lines": [
+        7
+      ]
+    }
+  ],
+  "quiz": {
+    "question": "Cosa stampa? 3.5 oppure 3?",
+    "seconds": 3
+  },
+  "run_caption": "Risposta: 3, non 3.5!",
+  "outro": {
+    "caption": "Perché? 7 / 2 è tra interi: viene 3 e poi diventa 3.0",
+    "cta": "Segui per la serie C++"
+  },
+  "post": {
+    "caption": "Quiz: cosa stampa questo codice C++? Rispondi nei commenti!",
+    "theory": [
+      "a / b con due int fa una divisione intera: 7 / 2 = 3.",
+      "Il risultato viene convertito in double solo dopo: 3.0, stampato 3.",
+      "Per avere 3.5 scrivi (double)a / b oppure usa 7.0 / 2.",
+      "Il tipo della variabile che riceve non cambia il modo in cui si calcola l'espressione."
+    ],
+    "hashtags": [
+      "#cpp",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok"
+    ]
+  }
+}

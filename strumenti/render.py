@@ -52,6 +52,7 @@ DEFAULTS = dict(
     c_kw=(203, 166, 247), c_type=(249, 226, 175), c_str=(166, 227, 161),
     c_num=(250, 179, 135), c_com=(108, 112, 134), c_pre=(243, 139, 168),
     c_op=(137, 220, 235), c_fn=(137, 180, 250),
+    hl_bad=(86, 38, 56), hl_ok=(34, 74, 52),
 )
 TYPE_NAMES = {"vector", "string", "map", "set", "size_t", "cout", "cin", "endl"}
 
@@ -100,8 +101,9 @@ def find_compiler():
     sys.exit("Nessun compilatore C++ trovato (g++ / clang++). Esegui: python3 render.py --check")
 
 
-def run_cpp(code, filename):
-    """Compila ed esegue davvero il codice; ritorna lo stdout."""
+def compile_and_run(code, filename):
+    """Compila ed esegue davvero il codice.
+    Ritorna (stdout, None) se gira, oppure (None, [righe di errore]) se non compila."""
     with tempfile.TemporaryDirectory() as d:
         src = Path(d) / filename
         src.write_text(code, encoding="utf-8")
@@ -109,9 +111,27 @@ def run_cpp(code, filename):
         c = subprocess.run([find_compiler(), "-std=c++17", "-Wall", str(src), "-o", str(exe)],
                            capture_output=True, text=True, encoding="utf-8")
         if c.returncode != 0:
-            sys.exit("ERRORE di compilazione:\n" + c.stderr)
+            errs = []
+            for ln in c.stderr.splitlines():
+                if "error:" in ln:
+                    ln = ln.replace(str(src), filename)
+                    errs.append(ln if len(ln) <= 54 else ln[:53] + "…")
+            return None, errs[:2] or ["errore di compilazione"]
         r = subprocess.run([str(exe)], capture_output=True, text=True, encoding="utf-8", timeout=10)
-        return r.stdout
+        return r.stdout, None
+
+
+def run_cpp(code, filename):
+    out, err = compile_and_run(code, filename)
+    if out is None:
+        sys.exit("ERRORE di compilazione:\n" + "\n".join(err))
+    return out
+
+
+def apply_fix(code, fix):
+    lines = code.rstrip("\n").split("\n")
+    lines[fix["line"] - 1] = fix["new"]
+    return "\n".join(lines) + "\n"
 
 
 def check_env():
@@ -167,7 +187,7 @@ def char_colors(code, th):
 
 
 class Timeline:
-    def __init__(self, ep, th, out_lines):
+    def __init__(self, ep, th, runs):
         self.code = ep["code"].rstrip("\n")
         self.lines = self.code.split("\n")
         self.line_start = []
@@ -207,13 +227,32 @@ class Timeline:
                 t += pause
         self.code_end = t
         t += 0.6
-        self.run_t0 = t
+        quiz, fix = ep.get("quiz"), ep.get("fix")
+        self.chal = quiz or fix
+        self.chal_t0 = self.chal_dur = None
+        if self.chal:
+            self.chal_t0, self.chal_dur = t, float(self.chal.get("seconds", 3.0))
+            t += self.chal_dur
         self.cmd = th.get("cmd_display") or f"g++ {ep['filename']} -o main && ./main"
-        self.cmd_times = [t + (i + 1) / th["term_cps"] for i in range(len(self.cmd))]
-        t = self.cmd_times[-1] + 0.6
-        self.out_lines = out_lines
-        self.out_times = [t + i * th["out_line_delay"] for i in range(len(out_lines))]
-        t = self.out_times[-1] if out_lines else t
+        self.fix_t0 = self.fix_idx = self.fix_new = None
+        self.fix_times = []
+        self.runs = []
+        for ri, run in enumerate(runs):
+            if ri == 1:   # correzione del codice prima della seconda esecuzione
+                t += 1.6
+                self.fix_t0, self.fix_idx, self.fix_new = t, fix["line"] - 1, fix["new"]
+                self.fix_times = [t + 0.3 + (i + 1) / th["cps"] for i in range(len(self.fix_new))]
+                t = self.fix_times[-1] + 1.0
+            run_t0 = t
+            cmd_times = [t + (i + 1) / th["term_cps"] for i in range(len(self.cmd))]
+            t = cmd_times[-1] + 0.6
+            out_times = [t + i * th["out_line_delay"] for i in range(len(run["lines"]))]
+            if out_times:
+                t = out_times[-1]
+            self.runs.append(dict(t0=run_t0, cmd_times=cmd_times, lines=run["lines"],
+                                  out_times=out_times, bad=run.get("bad", False)))
+        self.run_t0 = self.runs[0]["t0"]
+        self.run2_t0 = self.runs[1]["t0"] if len(self.runs) > 1 else None
         self.outro_t0 = t + 1.4
         self.total = self.outro_t0 + th["outro_seconds"]
         self.max_items = max([e["n_items"] for e in self.events] + [1])
@@ -225,6 +264,11 @@ class Renderer:
         self.W, self.H = th["width"], th["height"]
         self.L, self.R = th["margin_l"], self.W - th["margin_r"]
         self.colors = char_colors(tl.code, th)
+        self.fix_colors = []
+        if tl.fix_new is not None:
+            fixed = apply_fix(tl.code, ep["fix"]).rstrip("\n")
+            st = tl.line_start[tl.fix_idx]
+            self.fix_colors = char_colors(fixed, th)[st:st + len(tl.fix_new)]
         n = len(tl.lines)
         self._autofit(th, tl, n)
         self.cw = font("DejaVuSansMono.ttf", th["code_font"]).getlength("M")
@@ -242,13 +286,14 @@ class Renderer:
         """Sceglie la dimensione massima di codice e terminale che entra nello schermo."""
         ratio = font("DejaVuSansMono.ttf", 100).getlength("M") / 100
         width = self.R - self.L
-        n_out = max(1, len([l for l in tl.out_lines if l != ""]) if tl.out_lines else 1)
+        all_out = [l for r_ in tl.runs for l in r_["lines"]]
+        n_out = max(1, max(len([l for l in r_["lines"] if l != ""]) for r_ in tl.runs))
         if th["term_font"] == "auto":
-            longest = max([len(tl.cmd) + 2] + [len(l) for l in tl.out_lines])
+            longest = max([len(tl.cmd) + 2] + [len(l) for l in all_out])
             th["term_font"] = max(24, min(th["term_max"], int((width - 56) / (ratio * longest))))
         th["term_h"] = max(th["term_h"], 56 + 22 + (th["term_font"] + 12) * (1 + n_out) + 26)
         if th["code_font"] == "auto":
-            maxlen = max(len(l) for l in tl.lines)
+            maxlen = max([len(l) for l in tl.lines] + ([len(tl.fix_new)] if tl.fix_new else []))
             f_w = (width - 100 - 24) / (ratio * maxlen)
             below = th["viz_gap"] + th["viz_h"] + th["term_gap"] + th["term_h"]
             code_h = th["bottom_safe"] - th["ide_y0"] - 56 - 24 - 18 - below
@@ -327,6 +372,8 @@ class Renderer:
         self.draw_code(d, t)
         if t >= tl.outro_t0:
             self.draw_cta(d, t)
+        elif tl.chal_t0 is not None and tl.chal_t0 <= t < tl.run_t0:
+            self.draw_countdown(d, t)
         else:
             self.draw_viz(d, t)
         self.draw_term(d, t)
@@ -341,10 +388,17 @@ class Renderer:
 
     def draw_caption(self, d, t):
         th, tl = self.th, self.tl
+        fix, quiz = self.ep.get("fix"), self.ep.get("quiz")
         if t >= tl.outro_t0:
             text, t0 = self.ep["outro"]["caption"], tl.outro_t0
+        elif tl.run2_t0 is not None and t >= tl.run2_t0:
+            text, t0 = fix["run2_caption"], tl.run2_t0
+        elif tl.fix_t0 is not None and t >= tl.fix_t0:
+            text, t0 = fix["fix_caption"], tl.fix_t0
         elif t >= tl.run_t0:
-            text, t0 = self.ep["run_caption"], tl.run_t0
+            text, t0 = (fix["bug_caption"] if fix else self.ep["run_caption"]), tl.run_t0
+        elif tl.chal_t0 is not None and t >= tl.chal_t0:
+            text, t0 = (quiz["question"] if quiz else fix["find_caption"]), tl.chal_t0
         else:
             ev = self.current_event(t)
             if not ev:
@@ -385,16 +439,28 @@ class Renderer:
             if i > cur_line:
                 break
             ly = y_top + i * th["line_h"]
+            tint = None
             if (i + 1) in hl or (typing and i == cur_line):
-                d.rounded_rectangle((self.L + 12, ly - 3, self.R - 12, ly + th["line_h"] - 5), 8, fill=th["hl"])
-            d.text((self.L + 80, ly + 3), str(i + 1), font=fn, fill=th["muted"], anchor="ra")
+                tint = th["hl"]
             start = tl.line_start[i]
-            typed = max(0, min(len(ln), n - start))
+            fixing = tl.fix_t0 is not None and i == tl.fix_idx and t >= tl.fix_t0
+            if fixing:
+                ln, cols = tl.fix_new, self.fix_colors
+                typed = sum(1 for ft in tl.fix_times if ft <= t)
+                tint = th["hl_ok"]
+            else:
+                cols = self.colors[start:start + len(ln)]
+                typed = max(0, min(len(ln), n - start))
+                if tl.fix_t0 is not None and i == tl.fix_idx and tl.chal_t0 is not None and t >= tl.chal_t0:
+                    tint = th["hl_bad"]
+            if tint:
+                d.rounded_rectangle((self.L + 12, ly - 3, self.R - 12, ly + th["line_h"] - 5), 8, fill=tint)
+            d.text((self.L + 80, ly + 3), str(i + 1), font=fn, fill=th["muted"], anchor="ra")
             j = 0
             while j < typed:
                 k = j
-                col = self.colors[start + j]
-                while k < typed and self.colors[start + k] == col:
+                col = cols[j]
+                while k < typed and cols[k] == col:
                     k += 1
                 seg = ln[j:k]
                 if seg.strip():
@@ -421,9 +487,10 @@ class Renderer:
                 continue
             op = v["op"]
             if op == "init":
-                vals = [[x, ev["t"] + i * 0.12, ev["t"] + i * 0.12] for i, x in enumerate(v["values"])]
+                names = v.get("names") or [None] * len(v["values"])
+                vals = [[x, ev["t"] + i * 0.12, ev["t"] + i * 0.12, names[i]] for i, x in enumerate(v["values"])]
             elif op == "push":
-                vals.append([v["value"], ev["t"], ev["t"]])
+                vals.append([v["value"], ev["t"], ev["t"], v.get("name")])
             elif op == "set":
                 vals[v.get("index", 0)][0] = v["value"]
                 vals[v.get("index", 0)][2] = ev["t"]
@@ -448,7 +515,7 @@ class Renderer:
             k = int((t - ts) / th["iter_per_item"])
             if 0 <= k < cnt:
                 cur = k
-        for i, (val, ta, tf) in enumerate(vals):
+        for i, (val, ta, tf, nm) in enumerate(vals):
             p = clamp((t - ta) / 0.4)
             if p <= 0:
                 continue
@@ -460,9 +527,13 @@ class Renderer:
             if i == cur:
                 fill = th["good"]
             d.rounded_rectangle((cx - half, cy - half, cx + half, cy + half), 16, fill=fill)
-            d.text((cx, cy), str(val), font=font("DejaVuSansMono-Bold.ttf", int(50 * sc)),
+            vfs = min(50, int(bs * 0.84 / (0.602 * max(1, len(str(val))))))
+            d.text((cx, cy), str(val), font=font("DejaVuSansMono-Bold.ttf", max(12, int(vfs * sc))),
                    fill=(24, 24, 37), anchor="mm")
-            if self.ep.get("viz_index", True):
+            if nm:
+                d.text((cx, cy + bs / 2 + 26), nm, font=font("DejaVuSansMono.ttf", 26),
+                       fill=th["text"], anchor="mm")
+            elif self.ep.get("viz_index", True):
                 d.text((cx, cy + bs / 2 + 26), f"[{i}]", font=font("DejaVuSansMono.ttf", 24),
                        fill=th["muted"], anchor="mm")
             if i == cur:
@@ -476,6 +547,17 @@ class Renderer:
         elif label is not None:
             a = clamp((t - label[1]) / 0.3)
             self.text_fade_panel(d, (R - 28, self.viz_y0 + 30), label[0], rf, th["accent2"], a)
+
+    def draw_countdown(self, d, t):
+        th, tl = self.th, self.tl
+        left = tl.chal_t0 + tl.chal_dur - t
+        if left <= 0:
+            return
+        num = max(1, math.ceil(left))
+        frac = 1 - (left - math.floor(left)) if left != math.floor(left) else 0
+        size = int(150 - 30 * clamp(frac))
+        cx, cy = (self.L + self.R) / 2, (self.viz_y0 + self.viz_y1) / 2
+        d.text((cx, cy), str(num), font=font("DejaVuSansMono-Bold.ttf", size), fill=th["accent2"], anchor="mm")
 
     def text_fade_panel(self, d, xy, s, f, fill, a):
         d.text(xy, s, font=f, fill=lerp(self.th["panel_bar"], fill, clamp(a)), anchor="rm")
@@ -491,21 +573,27 @@ class Renderer:
 
     def draw_term(self, d, t):
         th, tl = self.th, self.tl
-        if t < tl.run_t0:
+        run = None
+        for r_ in tl.runs:
+            if r_["t0"] <= t:
+                run = r_
+        if run is None:
             return
         f = font("DejaVuSansMono.ttf", th["term_font"])
         x = self.L + 28
         y = self.term_y0 + 56 + 22
         lh = th["term_font"] + 12
-        n = sum(1 for ct in tl.cmd_times if ct <= t)
+        n = sum(1 for ct in run["cmd_times"] if ct <= t)
         d.text((x, y), "$", font=f, fill=th["good"], anchor="la")
         d.text((x + 2 * f.getlength("M"), y), tl.cmd[:n], font=f, fill=th["text"], anchor="la")
-        if n < len(tl.cmd) or (t < tl.out_times[0] and int(t * 2) % 2 == 0):
+        first_out = run["out_times"][0] if run["out_times"] else float("inf")
+        if n < len(tl.cmd) or (t < first_out and int(t * 2) % 2 == 0):
             cx = x + (2 + n) * f.getlength("M")
             d.rectangle((cx, y + 3, cx + 14, y + th["term_font"] + 2), fill=th["text"])
-        for i, ot in enumerate(tl.out_times):
+        col = th["c_pre"] if run["bad"] else th["good"]
+        for i, ot in enumerate(run["out_times"]):
             if ot <= t:
-                d.text((x, y + lh * (i + 1)), tl.out_lines[i], font=f, fill=th["good"], anchor="la")
+                d.text((x, y + lh * (i + 1)), run["lines"][i], font=f, fill=col, anchor="la")
 
     # ---------- frame ----------
     def frame(self, t):
@@ -555,13 +643,27 @@ def main():
 
     ep = json.loads(Path(args.episode).read_text(encoding="utf-8"))
     th = build_theme(ep, args.set)
-    stdout = run_cpp(ep["code"], ep["filename"])
-    out_lines = stdout.split("\n")
+    fix = ep.get("fix")
+    runs = []
+    stdout, err = compile_and_run(ep["code"], ep["filename"])
+    if stdout is None:
+        if not fix:
+            sys.exit("ERRORE di compilazione:\n" + "\n".join(err))
+        runs.append({"lines": err, "bad": True})
+        print("Il codice con il bug NON compila (errore reale):", err)
+    else:
+        runs.append({"lines": stdout.split("\n")})
+        print("Codice compilato ed eseguito. Output reale:", repr(stdout))
+    if fix:
+        stdout, err = compile_and_run(apply_fix(ep["code"], fix), ep["filename"])
+        if stdout is None:
+            sys.exit("ERRORE: il codice corretto non compila:\n" + "\n".join(err))
+        runs.append({"lines": stdout.split("\n")})
+        print("Codice corretto, output reale:", repr(stdout))
     if "expected_output" in ep and stdout != ep["expected_output"]:
         sys.exit(f"Output diverso dall'atteso: {stdout!r}")
-    print("Codice compilato ed eseguito. Output reale:", repr(stdout))
 
-    tl = Timeline(ep, th, out_lines)
+    tl = Timeline(ep, th, runs)
     r = Renderer(ep, th, tl)
     print(f"Durata video: {tl.total:.1f}s")
 

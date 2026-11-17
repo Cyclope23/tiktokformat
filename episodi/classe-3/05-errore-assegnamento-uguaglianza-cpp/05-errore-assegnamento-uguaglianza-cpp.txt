@@ -1,0 +1,9 @@
+Trova l'errore: = oppure == in un if? Succede a tutti.
+
+Richiamo teorico:
+- = assegna un valore, == confronta due valori.
+- if (voto = 6) assegna 6 a voto e la condizione diventa vera (6 è diverso da 0).
+- Il compilatore non dà errore: è un bug logico, solo con -Wall un avviso.
+- Per confrontare si scrive sempre ==.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok

@@ -1,0 +1,9 @@
+I 4 tipi di dato base del C++ in 30 secondi.
+
+Richiamo teorico:
+- int memorizza interi, double numeri reali, char un carattere, bool vero/falso.
+- Il tipo decide quanta memoria occupa la variabile e quali operazioni sono valide.
+- I caratteri si scrivono tra apici singoli: 'A'.
+- cout stampa true come 1 e false come 0.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok

@@ -1,0 +1,9 @@
+Divisione intera e resto in C++: / e % a confronto.
+
+Richiamo teorico:
+- Se entrambi gli operandi sono int, / restituisce un int: la parte decimale è scartata.
+- L'operatore % restituisce il resto della divisione intera.
+- Vale sempre: a == (a / b) * b + a % b.
+- Per ottenere decimali almeno un operando deve essere double.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok

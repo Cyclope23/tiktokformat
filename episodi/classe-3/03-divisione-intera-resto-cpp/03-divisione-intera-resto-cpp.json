@@ -1,0 +1,83 @@
+{
+  "id": "03-divisione-intera-resto-cpp",
+  "series": "C++ in 30 secondi",
+  "class": "3D INF",
+  "filename": "main.cpp",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "operazione  ·  risultato",
+  "hook": [
+    "17 diviso 5 fa 3?",
+    "Sì, in C++ con gli interi.",
+    "E il resto?"
+  ],
+  "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int a = 17;\n    int b = 5;\n    cout << a / b << endl;\n    cout << a % b;\n}\n",
+  "steps": [
+    {
+      "after_line": 6,
+      "caption": "1 · Due interi: a = 17, b = 5",
+      "viz": {
+        "op": "init",
+        "values": [
+          17,
+          5
+        ],
+        "names": [
+          "a",
+          "b"
+        ]
+      },
+      "highlight_lines": [
+        5,
+        6
+      ]
+    },
+    {
+      "after_line": 7,
+      "caption": "2 · / tra interi scarta i decimali",
+      "viz": {
+        "op": "push",
+        "value": 3,
+        "name": "a / b"
+      },
+      "highlight_lines": [
+        7
+      ]
+    },
+    {
+      "after_line": 8,
+      "caption": "3 · % restituisce il resto",
+      "viz": {
+        "op": "push",
+        "value": 2,
+        "name": "a % b"
+      },
+      "highlight_lines": [
+        8
+      ]
+    }
+  ],
+  "run_caption": "4 · Quoziente 3, resto 2",
+  "outro": {
+    "caption": "Prossimo episodio: quiz, indovina l'output",
+    "cta": "Segui per la serie C++"
+  },
+  "post": {
+    "caption": "Divisione intera e resto in C++: / e % a confronto.",
+    "theory": [
+      "Se entrambi gli operandi sono int, / restituisce un int: la parte decimale è scartata.",
+      "L'operatore % restituisce il resto della divisione intera.",
+      "Vale sempre: a == (a / b) * b + a % b.",
+      "Per ottenere decimali almeno un operando deve essere double."
+    ],
+    "hashtags": [
+      "#cpp",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok"
+    ]
+  }
+}
