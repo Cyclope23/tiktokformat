@@ -21,6 +21,8 @@ Ultimo aggiornamento: 2026-11-17 (primo blocco 3D prodotto: episodi 01-05)
 
 - Qualita' video alzata (2026-11-17): x264 preset slow, CRF 14, colori bt709 con conversione corretta, audio 192k; i 5 episodi 3D rigenerati (~0,7 MB ciascuno). Opzione futura: 60 fps.
 
+- Ricerca orari di pubblicazione (2026-11-17): gli studi (Sprout, Buffer, Hootsuite) non concordano; proposta di piano a slot di test (mar/gio 15:30, dom 20:00 + 2 slot di prova) da verificare con TikTok Studio dopo 4 settimane. Piano non ancora approvato ne' scritto in piano-editoriale/.
+
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
 - Nessuna voce, musica da decidere; account personale TikTok.
