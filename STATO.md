@@ -20,6 +20,8 @@ Ultimo aggiornamento: 2026-11-17 (primo blocco 3D prodotto: episodi 01-05)
 - Prodotto il primo blocco 3D (episodi/classe-3/): 01 variabili e costanti (B2), 02 tipi di dato (B3), 03 divisione intera e resto (B5), 04 quiz divisione (B7), 05 errore = / == (B8). Ognuno con .json, .mp4, .txt; fotogrammi controllati. Da pubblicare a mano (musica da scegliere in TikTok).
 - Anche i nuovi episodi e CLAUDE.md vanno riportati su OneDrive (vedi nota sopra).
 
+- Qualita' video alzata (2026-11-17): x264 preset slow, CRF 14, colori bt709 con conversione corretta, audio 192k; i 5 episodi 3D rigenerati (~0,7 MB ciascuno). Opzione futura: 60 fps.
+
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
 - Nessuna voce, musica da decidere; account personale TikTok.

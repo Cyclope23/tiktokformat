@@ -615,8 +615,10 @@ def encode_cmd(th, total, music, out):
         cmd += ["-stream_loop", "-1", "-i", music]
     else:
         cmd += ["-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo"]
-    cmd += ["-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
-            "-pix_fmt", "yuv420p", "-profile:v", "high", "-r", str(fps), "-c:a", "aac", "-b:a", "128k"]
+    cmd += ["-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-preset", "slow", "-crf", "14",
+            "-vf", "scale=out_color_matrix=bt709:out_range=tv:flags=lanczos+accurate_rnd+full_chroma_int,format=yuv420p",
+            "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-color_range", "tv",
+            "-profile:v", "high", "-r", str(fps), "-c:a", "aac", "-b:a", "192k"]
     if music:
         cmd += ["-af", f"afade=t=out:st={max(0, total - 1.5):.2f}:d=1.5"]
     cmd += ["-t", f"{total:.3f}", "-movflags", "+faststart", out]
