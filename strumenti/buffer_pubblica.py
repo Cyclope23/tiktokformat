@@ -15,7 +15,7 @@ Parametri (nessun valore fisso nel codice):
 
 La chiave non viene mai stampata. Solo libreria standard di Python 3.9+.
 """
-import argparse, csv, json, os, re, ssl, sys, urllib.request, urllib.error
+import argparse, csv, json, os, re, shutil, ssl, subprocess, sys, tempfile, urllib.request, urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -43,6 +43,29 @@ def contesto_ssl():
         return ssl.create_default_context()
 
 
+def gql_curl(chiave, body):
+    """Alternativa quando Python non si fida della catena TLS: curl (usa l'archivio di sistema).
+    La chiave passa da un file temporaneo, non dalla riga di comando."""
+    exe = shutil.which("curl.exe") or shutil.which("curl")
+    if not exe:
+        return {"errors": [{"message": "curl non trovato"}]}
+    with tempfile.NamedTemporaryFile("w", delete=False, suffix=".hdr", encoding="utf-8") as f:
+        f.write(f"Authorization: Bearer {chiave}\n")
+        hdr = f.name
+    try:
+        r = subprocess.run([exe, "-sS", "-m", "60", "-X", "POST", API, "-H", f"@{hdr}",
+                            "-H", "Content-Type: application/json", "--data-binary", "@-"],
+                           input=body, capture_output=True, timeout=90)
+    finally:
+        os.unlink(hdr)
+    if r.returncode != 0:
+        return {"errors": [{"message": "curl: " + r.stderr.decode(errors="replace").strip()[:300]}]}
+    try:
+        return json.loads(r.stdout)
+    except ValueError:
+        return {"errors": [{"message": "risposta non JSON: " + r.stdout[:200].decode(errors="replace")}]}
+
+
 def gql(chiave, query, variabili=None):
     body = json.dumps({"query": query, "variables": variabili or {}}).encode()
     rq = urllib.request.Request(API, data=body, method="POST", headers={
@@ -52,7 +75,11 @@ def gql(chiave, query, variabili=None):
             return json.loads(r.read())
     except urllib.error.HTTPError as e:
         return {"errors": [{"message": f"HTTP {e.code}: {e.read()[:300].decode(errors='replace')}"}]}
-    except Exception as e:                                       # rete, proxy, DNS
+    except urllib.error.URLError as e:
+        if isinstance(e.reason, ssl.SSLError):                    # catena TLS non accettata da Python
+            return gql_curl(chiave, body)
+        return {"errors": [{"message": f"URLError: {e.reason}"}]}
+    except Exception as e:
         return {"errors": [{"message": f"{type(e).__name__}: {e}"}]}
 
 
