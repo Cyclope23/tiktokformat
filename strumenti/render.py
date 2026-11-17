@@ -12,6 +12,7 @@ dal blocco "theme" dell'episodio o da --set chiave=valore.
 Il codice dell'episodio viene compilato ed eseguito davvero: l'output mostrato
 nel terminale del video e' quello reale.
 """
+import re
 import argparse, json, math, os, shutil, subprocess, sys, tempfile
 from bisect import bisect_right
 from pathlib import Path
@@ -794,7 +795,7 @@ def main():
         runs.append({"lines": err, "bad": True})
         print("Il codice con il bug NON compila (errore reale):", err)
     else:
-        runs.append({"lines": stdout.split("\n")})
+        runs.append({"lines": stdout.split("\n"), "bad": any(re.match(r"^[\w.]*(Exception|Error)\b", l) for l in stdout.split("\n"))})
         print("Codice compilato ed eseguito. Output reale:", repr(stdout))
     if fix:
         stdout, err = compile_and_run(apply_fix(ep["code"], fix), ep["filename"])

@@ -8,7 +8,7 @@
   "viz_title": "memoria  ·  main",
   "hook": [
     "Un programma Java",
-    "sono solo 5 righe.",
+    "sono solo 6 righe.",
     "Ma tutte necessarie."
   ],
   "code": "public class Main {\n    public static void main(String[] args) {\n        String nome = \"Java\";\n        System.out.println(\"Ciao \" + nome);\n    }\n}\n",

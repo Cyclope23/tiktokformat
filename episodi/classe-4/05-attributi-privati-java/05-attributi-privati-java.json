@@ -27,8 +27,13 @@
       "after_line": 3,
       "caption": "1 · private: solo Conto vede saldo",
       "viz": {
-        "op": "label",
-        "text": "saldo: private"
+        "op": "init",
+        "values": [
+          0
+        ],
+        "names": [
+          "saldo"
+        ]
       },
       "highlight_lines": [
         2
