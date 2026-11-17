@@ -3,7 +3,7 @@
   "series": "C++ in 30 secondi",
   "class": "3D INF",
   "filename": "main.cpp",
-  "theme": {"code_font": 32},
+  "theme": {},
   "hook": ["Hai un array di 3 posti.", "Ti servono 5 voti?", "Usa std::vector"],
   "code": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    vector<int> voti = {7, 8, 6};\n    voti.push_back(9);\n    voti.push_back(10);\n\n    for (int v : voti)\n        cout << v << \" \";\n\n    cout << \"\\nTotale: \" << voti.size();\n}\n",
   "steps": [

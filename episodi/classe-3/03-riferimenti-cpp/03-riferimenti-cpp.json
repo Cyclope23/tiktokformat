@@ -3,7 +3,7 @@
   "series": "C++ in 30 secondi",
   "class": "3D INF",
   "filename": "main.cpp",
-  "theme": {"code_font": 32},
+  "theme": {},
   "viz_title": "n  ·  int",
   "viz_index": false,
   "hook": ["Chiami una funzione", "ma n non cambia?", "È una copia!"],

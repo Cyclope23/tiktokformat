@@ -39,10 +39,11 @@ DEFAULTS = dict(
     cps=28.0, term_cps=34.0, step_pause=1.1, hook_seconds=3.0, iter_per_item=0.45,
     out_line_delay=0.4, outro_seconds=2.6, xfade=0.4,
     # tipografia
-    code_font=34, line_h=44, caption_font=54, term_font=30,
+    code_font="auto", line_h=44, caption_font=54, term_font="auto",
+    code_max=44, term_max=40, bottom_safe=1650,   # auto: dimensioni adattate a larghezza e altezza disponibili
     # layout (y)
-    tag_y=150, caption_y=205, ide_y0=345, viz_gap=26, term_gap=22, viz_h=240, term_h=250,
-    margin_l=40, margin_r=120,  # margine destro ampio: i pulsanti di TikTok coprono quella fascia
+    tag_y=150, caption_y=205, ide_y0=345, viz_gap=26, term_gap=22, viz_h=230, term_h=250,
+    margin_l=30, margin_r=80,   # margine destro: i pulsanti di TikTok coprono la fascia in basso a destra
     # colori
     bg_top=(11, 16, 32), bg_bottom=(34, 18, 76),
     panel=(30, 30, 46), panel_bar=(24, 24, 37), term_bg=(17, 17, 27),
@@ -207,7 +208,7 @@ class Timeline:
         self.code_end = t
         t += 0.6
         self.run_t0 = t
-        self.cmd = f"g++ -std=c++17 {ep['filename']} -o main && ./main"
+        self.cmd = th.get("cmd_display") or f"g++ {ep['filename']} -o main && ./main"
         self.cmd_times = [t + (i + 1) / th["term_cps"] for i in range(len(self.cmd))]
         t = self.cmd_times[-1] + 0.6
         self.out_lines = out_lines
@@ -224,15 +225,36 @@ class Renderer:
         self.W, self.H = th["width"], th["height"]
         self.L, self.R = th["margin_l"], self.W - th["margin_r"]
         self.colors = char_colors(tl.code, th)
-        self.cw = font("DejaVuSansMono.ttf", th["code_font"]).getlength("M")
         n = len(tl.lines)
+        self._autofit(th, tl, n)
+        self.cw = font("DejaVuSansMono.ttf", th["code_font"]).getlength("M")
         self.ide_y1 = th["ide_y0"] + 56 + 24 + n * th["line_h"] + 18
         self.viz_y0 = self.ide_y1 + th["viz_gap"]
         self.viz_y1 = self.viz_y0 + th["viz_h"]
         self.term_y0 = self.viz_y1 + th["term_gap"]
         self.term_y1 = self.term_y0 + th["term_h"]
+        if self.term_y1 > th["bottom_safe"] + 10:
+            print(f"ATTENZIONE: il layout arriva a y={self.term_y1} (zona coperta dall'interfaccia di TikTok).")
         self.bg = self._gradient()
         self.base_main = self._static_main()
+
+    def _autofit(self, th, tl, n):
+        """Sceglie la dimensione massima di codice e terminale che entra nello schermo."""
+        ratio = font("DejaVuSansMono.ttf", 100).getlength("M") / 100
+        width = self.R - self.L
+        n_out = max(1, len([l for l in tl.out_lines if l != ""]) if tl.out_lines else 1)
+        if th["term_font"] == "auto":
+            longest = max([len(tl.cmd) + 2] + [len(l) for l in tl.out_lines])
+            th["term_font"] = max(24, min(th["term_max"], int((width - 56) / (ratio * longest))))
+        th["term_h"] = max(th["term_h"], 56 + 22 + (th["term_font"] + 12) * (1 + n_out) + 26)
+        if th["code_font"] == "auto":
+            maxlen = max(len(l) for l in tl.lines)
+            f_w = (width - 100 - 24) / (ratio * maxlen)
+            below = th["viz_gap"] + th["viz_h"] + th["term_gap"] + th["term_h"]
+            code_h = th["bottom_safe"] - th["ide_y0"] - 56 - 24 - 18 - below
+            f_h = code_h / (n * 1.375)
+            th["code_font"] = max(24, min(th["code_max"], int(f_w), int(f_h)))
+            th["line_h"] = round(th["code_font"] * 1.375)
 
     # ---------- statico ----------
     def _gradient(self):

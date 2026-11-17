@@ -61,7 +61,7 @@ Dove lavorare:
 - Hook di 3 righe nei primi 3 secondi, poi simulazione IDE scuro: il codice si scrive da solo,
   pannello con visualizzazione (caselle del vettore o variabile), terminale con output reale.
 - Caption numerate in alto ("1 · ..."), chiusura con CTA "Segui per la serie C++" e annuncio
-  del prossimo episodio. Durata 20-30 s. Code font 32. Margini: nessun testo a destra (120 px),
+  del prossimo episodio. Durata 20-30 s. Dimensione di codice e terminale automatica (la piu' grande che entra: codice max 44, terminale max 40). Margini: nessun testo a destra (120 px),
   in alto e in basso (zone coperte dall'interfaccia TikTok).
 - Nessuna voce. Audio muto o musica; la musica si sceglie nell'editor di TikTok alla pubblicazione.
 - Un concetto per episodio; esempi reali, brevi (10-14 righe).

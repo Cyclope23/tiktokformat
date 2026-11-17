@@ -3,7 +3,7 @@
   "series": "C++ in 30 secondi",
   "class": "3D INF",
   "filename": "main.cpp",
-  "theme": {"code_font": 32},
+  "theme": {},
   "viz_title": "v  ·  vector<int>",
   "hook": ["Cerchi un numero", "in un vettore?", "Usa il while"],
   "code": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    vector<int> v = {4, 9, 7, 2};\n    int i = 0;\n\n    while (i < v.size() && v[i] != 7)\n        i++;\n\n    cout << \"Posizione: \" << i;\n}\n",

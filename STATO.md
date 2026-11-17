@@ -1,6 +1,6 @@
 # Stato del progetto (aggiornare a fine sessione)
 
-Ultimo aggiornamento: 2026-11-17 (piani dettagliati per classe)
+Ultimo aggiornamento: 2026-11-17 (codice e terminale ingranditi)
 
 ## Fatto
 - Pipeline di rendering funzionante (strumenti/render.py), stile della serie approvato dall'utente.
@@ -13,6 +13,8 @@ Ultimo aggiornamento: 2026-11-17 (piani dettagliati per classe)
 
 - Ricevuti i programmi di 3D, 4D e 5D (piano-editoriale/).
 - Piani dettagliati per classe scritti: 3D 35 episodi (4 fatti), 4D 28, 5D 27, con formati C/I/E/S (piano-editoriale/PIANO.md). Da validare con l'utente: scelta e ordine degli episodi.
+
+- Layout: codice e terminale adattati automaticamente (piu' grandi); i 4 episodi 3D rigenerati.
 
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
