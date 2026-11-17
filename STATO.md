@@ -26,6 +26,8 @@ Ultimo aggiornamento: 2026-11-17 (primo blocco 3D prodotto: episodi 01-05)
 - Descrizioni dei post bilingui IT + EN (2026-11-17): campi post.caption_en/theory_en, hashtag + #learntocode, render.py --solo-testo rigenera solo il .txt; aggiornati i 5 episodi 3D e il modello.
 - Test pubblicazione (2026-11-17): TikTok Studio funziona sul profilo di Daniele; l'upload del file non e' automatizzabile da Claude (lo fa Daniele), descrizione e impostazioni si compilano da Chrome; Pubblica/Programma solo con ok esplicito. Episodio 01 caricato in Studio per prova e poi cancellato da Daniele (2026-11-17): non pubblicato, resta 'pronto' in calendario per giovedi' 19/11 15:30 (descrizione ora bilingue).
 
+- Verifica pubblicazione automatica (2026-11-17): API ufficiale TikTok in modalita' bozza (scope video.upload) richiede un'app registrata e approvata; le linee guida di revisione escludono app per uso privato/personale, quindi un'app propria per solo uso personale rischia il rifiuto. Strada piu' realistica: servizio terzo gia' approvato da TikTok (Postiz, Buffer, Metricool, Publer, ecc.) collegato al profilo in modalita' bozza/inbox. Da verificare costi e supporto prima di scegliere.
+
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
 - Nessuna voce, musica da decidere; account personale TikTok.
