@@ -1,12 +1,13 @@
 # Stato del progetto (aggiornare a fine sessione)
 
-Ultimo aggiornamento: 2026-11-17 (repo GitHub creata e popolata)
+Ultimo aggiornamento: 2026-11-17 (README di progetto aggiunto)
 
 ## Fatto
 - Pipeline di rendering funzionante (strumenti/render.py), stile della serie approvato dall'utente.
 - 4 episodi per la 3D INF, tutti in episodi/classe-3/:
   01-vettori-cpp, 02-for-cpp, 03-riferimenti-cpp, 04-while-ricerca-cpp
   (durata 21-27 s, con descrizione e richiamo teorico).
+- README di progetto scritto.
 - Struttura cartelle creata su OneDrive e pubblicata nella repo GitHub Cyclope23/tiktokformat (sede principale).
 - Compatibilita' multi-dispositivo: render.py portabile (font inclusi, compilatore e ffmpeg rilevati, --check).
 
