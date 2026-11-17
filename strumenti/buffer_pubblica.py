@@ -158,7 +158,7 @@ def main():
         inp = {"text": testo, "channelId": args.canale, "schedulingType": "automatic",
                "mode": "customScheduled",
                "dueAt": quando.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z"),
-               "assets": {"videos": [{"url": url}]}}
+               "assets": {"video": {"url": url}}}
         res = gql(chiave, MUT, {"i": inp})
         esito = (res.get("data") or {}).get("createPost")
         if res.get("errors") or not esito or "message" in esito:
