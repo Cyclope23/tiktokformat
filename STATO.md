@@ -1,6 +1,6 @@
 # Stato del progetto (aggiornare a fine sessione)
 
-Ultimo aggiornamento: 2026-11-17 (ricevuto programma svolto 3D)
+Ultimo aggiornamento: 2026-11-17 (piani dettagliati per classe)
 
 ## Fatto
 - Pipeline di rendering funzionante (strumenti/render.py), stile della serie approvato dall'utente.
@@ -11,7 +11,8 @@ Ultimo aggiornamento: 2026-11-17 (ricevuto programma svolto 3D)
 - Struttura cartelle creata su OneDrive e pubblicata nella repo GitHub Cyclope23/tiktokformat (sede principale).
 - Compatibilita' multi-dispositivo: render.py portabile (font inclusi, compilatore e ffmpeg rilevati, --check).
 
-- Ricevuto il programma svolto 3D INF 2025/26 (piano-editoriale/3DINF/): in analisi per il piano episodi.
+- Ricevuti i programmi di 3D, 4D e 5D (piano-editoriale/).
+- Piani dettagliati per classe scritti: 3D 35 episodi (4 fatti), 4D 28, 5D 27, con formati C/I/E/S (piano-editoriale/PIANO.md). Da validare con l'utente: scelta e ordine degli episodi.
 
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).
@@ -21,9 +22,8 @@ Ultimo aggiornamento: 2026-11-17 (ricevuto programma svolto 3D)
   L'account e' personale: la programmazione nativa di TikTok Studio non e' disponibile.
 
 ## Da fare
-1. Ricevere la programmazione didattica di 3D, 4D, 5D e creare il piano in piano-editoriale/.
-2. Creare episodi per 4ª e 5ª (Java, SQL, Sistemi e Reti: il renderer oggi compila solo C++,
-   va esteso per Java e SQL).
+1. Validare i piani con l'utente e scegliere il primo blocco di episodi da produrre per classe.
+2. Estendere il renderer: formati I/E/S, input simulato (cin), Java (4D), SQL con SQLite (5D), grafiche nuove (diagrammi a blocchi, UML, E/R). Vedi PIANO.md.
 3. Scegliere la musica (cartella musica/).
 4. Decidere il metodo di pubblicazione e, se serve, preparare lo script di invio alla bozza TikTok.
 5. Eventuale copia dei materiali nella repo del dipartimento (decisione aperta).
