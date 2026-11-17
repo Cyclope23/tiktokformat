@@ -42,7 +42,7 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 | # | Tipo | Titolo | Esempio / idea | Stato |
 |---|------|--------|----------------|-------|
 | D1 | C | while (contatore) | Conto alla rovescia | da fare |
-| D2 | C | for | Somma 1..4 | fatto: `02-for-cpp` |
+| D2 | C | for | Somma 1..4 | da rifare (versione precedente nello storico git, commit 9a4c1d9) |
 | D3 | C | do-while | Menu che si ripete almeno una volta | da fare |
 | D4 | C | Cicli annidati | Tabellina con righe e colonne | da fare |
 | D5 | C | Contatori e accumulatori | Media di 5 voti | da fare |
@@ -55,7 +55,7 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 |---|------|--------|----------------|-------|
 | E1 | C | Funzioni con parametri e return | `int quadrato(int n)` | da fare |
 | E2 | C | Sviluppo top-down | Un problema scomposto in 3 funzioni | da fare |
-| E3 | C | Passaggio per valore e per riferimento | `perValore` contro `perRiferimento` | fatto: `03-riferimenti-cpp` |
+| E3 | C | Passaggio per valore e per riferimento | `perValore` contro `perRiferimento` | da rifare (versione precedente nello storico git, commit 9a4c1d9) |
 | E4 | I | Indovina l'output: quale n stampa? | Due funzioni, una copia e un riferimento | da fare |
 
 **Blocco F - Array**
@@ -65,8 +65,8 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 | F1 | C | Array e indici | `int v[5]`, indici da 0 | da fare |
 | F2 | C | Scorrere un array | `for` su `v[i]` | da fare |
 | F3 | C | Massimo e somma in un array | Accumulatore e confronto | da fare |
-| F4 | C | Ricerca lineare | Cerca un valore con `while` | fatto in versione vector: `04-while-ricerca-cpp` |
+| F4 | C | Ricerca lineare | Cerca un valore con `while` | da rifare (versione precedente nello storico git, commit 9a4c1d9) |
 | F5 | E | Trova l'errore: fuori dall'array | `v[5]` in un array da 5: comportamento indefinito | da fare |
 | F6 | C | Array a due dimensioni | Matrice 3x3 con righe e colonne | da fare |
 | F7 | C | Scorrere una matrice | Due `for` annidati, riga per riga | da fare |
-| F8 | C | `vector`: array dinamico (estensione) | `push_back`, `size` | fatto: `01-vettori-cpp` |
+| F8 | C | `vector`: array dinamico (estensione) | `push_back`, `size` | da rifare (versione precedente nello storico git, commit 9a4c1d9) |

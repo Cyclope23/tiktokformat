@@ -1,12 +1,10 @@
 # Stato del progetto (aggiornare a fine sessione)
 
-Ultimo aggiornamento: 2026-11-17 (sincronizzazione OneDrive in sospeso)
+Ultimo aggiornamento: 2026-11-17 (3D azzerata, si riparte da 01)
 
 ## Fatto
 - Pipeline di rendering funzionante (strumenti/render.py), stile della serie approvato dall'utente.
-- 4 episodi per la 3D INF, tutti in episodi/classe-3/:
-  01-vettori-cpp, 02-for-cpp, 03-riferimenti-cpp, 04-while-ricerca-cpp
-  (durata 21-27 s, con descrizione e richiamo teorico).
+- I 4 episodi di prova della 3D sono stati azzerati il 2026-11-17 (recuperabili dallo storico git, commit 9a4c1d9).
 - README di progetto scritto.
 - Struttura cartelle creata su OneDrive e pubblicata nella repo GitHub Cyclope23/tiktokformat (sede principale).
 - Compatibilita' multi-dispositivo: render.py portabile (font inclusi, compilatore e ffmpeg rilevati, --check).
@@ -16,7 +14,9 @@ Ultimo aggiornamento: 2026-11-17 (sincronizzazione OneDrive in sospeso)
 
 - Layout: codice e terminale adattati automaticamente (piu' grandi); i 4 episodi 3D rigenerati.
 
-- DA SINCRONIZZARE su OneDrive (Mac non raggiungibile il 2026-11-17): i 4 .mp4 e .json rigenerati (episodi/classe-3/), strumenti/render.py, CLAUDE.md, STATO.md. Fonte aggiornata: repo GitHub.
+- DA SINCRONIZZARE su OneDrive (Mac non raggiungibile il 2026-11-17): strumenti/render.py, CLAUDE.md, STATO.md, piani, episodi/classe-3/ (svuotata). Fonte aggiornata: repo GitHub.
+
+- In corso: primo blocco 3D da 01: B2 variabili/costanti, B3 tipi, B5 divisione intera e resto, B7 quiz divisione, B8 errore = / ==.
 
 ## Decisioni
 - Argomenti dei primi episodi scelti da Claude (programmazione di classe non ancora disponibile).

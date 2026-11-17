@@ -1,9 +1,0 @@
-Array fisso o std::vector? In 30 secondi vedi come un vettore cresce da solo con push_back. Prossimo episodio: i cicli.
-
-Richiamo teorico:
-- vector<T> è un array dinamico: la dimensione cambia durante l'esecuzione, a differenza dell'array statico int a[3].
-- push_back(x) aggiunge x in fondo; size() restituisce il numero di elementi.
-- Gli elementi sono contigui in memoria e si leggono con v[i], con indici che partono da 0.
-- Il range-for (for (int x : v)) scorre tutti gli elementi senza usare gli indici.
-
-#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok

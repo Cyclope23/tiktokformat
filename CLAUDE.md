@@ -30,7 +30,7 @@ Aggiorna STATO.md e fai push nella stessa sessione, cosi' repo e OneDrive restan
 - strumenti/render.py -> renderer; strumenti/episodio-modello.json -> modello da copiare
 
 Nomi: tutto minuscolo, trattini, nessun underscore, numero progressivo per classe
-(il prossimo episodio della 3ª e' 05-...). Le cartelle episodio contengono sempre i tre file.
+(numero = ordine di produzione nella classe; la 3ª riparte da 01 dopo l'azzeramento del 2026-11-17). Le cartelle episodio contengono sempre i tre file.
 
 ## Creare un episodio
 1. Copia strumenti/episodio-modello.json nella nuova cartella episodio e compilalo.
@@ -61,8 +61,8 @@ Dove lavorare:
 - Hook di 3 righe nei primi 3 secondi, poi simulazione IDE scuro: il codice si scrive da solo,
   pannello con visualizzazione (caselle del vettore o variabile), terminale con output reale.
 - Caption numerate in alto ("1 · ..."), chiusura con CTA "Segui per la serie C++" e annuncio
-  del prossimo episodio. Durata 20-30 s. Dimensione di codice e terminale automatica (la piu' grande che entra: codice max 44, terminale max 40). Margini: nessun testo a destra (120 px),
-  in alto e in basso (zone coperte dall'interfaccia TikTok).
+  del prossimo episodio. Durata 20-30 s. Dimensione di codice e terminale automatica (la piu' grande che entra: codice max 44, terminale max 40). Margini: 80 px a destra, 30 a sinistra; zona sicura fino a y=1650
+  e in alto oltre y=150 (zone coperte dall'interfaccia TikTok).
 - Nessuna voce. Audio muto o musica; la musica si sceglie nell'editor di TikTok alla pubblicazione.
 - Un concetto per episodio; esempi reali, brevi (10-14 righe).
 
