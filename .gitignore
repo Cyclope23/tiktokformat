@@ -7,3 +7,8 @@ out/
 ~$*
 # Il piano di lavoro 5D contiene dati sulla composizione della classe: tenere solo su OneDrive
 piano-editoriale/5DINF/*.pdf
+
+# chiavi e segreti locali: mai nella repo (pubblica)
+env.txt
+*.env
+.env
