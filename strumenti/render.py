@@ -36,7 +36,7 @@ def find_font(name):
 DEFAULTS = dict(
     width=1080, height=1920, fps=30,
     # ritmo
-    cps=28.0, term_cps=34.0, step_pause=1.1, hook_seconds=3.0, iter_per_item=0.45,
+    cps=20.0, term_cps=30.0, step_pause=1.1, read_per_line=0.3, hook_seconds=3.0, iter_per_item=0.45,
     out_line_delay=0.4, outro_seconds=2.6, xfade=0.4,
     # tipografia
     code_font="auto", line_h=44, caption_font=54, term_font="auto",
@@ -267,11 +267,26 @@ class Timeline:
                     vals += 1
                 elif op == "iterate":
                     pause = v.get("count", vals) * th["iter_per_item"] + 0.7
+                if op != "iterate":   # tempo per leggere le righe appena scritte
+                    pause = max(pause, th["read_per_line"] * len(ev.get("highlight_lines", [])) + 0.7)
                 ev["n_items"] = vals
                 self.events.append(ev)
                 t += pause
+            last_of_file = self.tabs and (k == len(self.lines) or self.file_of[k] != self.file_of[k - 1])
+            if last_of_file:   # il file e' finito: resta visibile il tempo di leggerlo
+                nf = sum(1 for x in self.file_of if x == self.file_of[k - 1])
+                t += th["read_per_line"] * nf + 0.6
         self.code_end = t
         t += 0.6
+        self.views = []   # (t0, t1, file): rilettura di ogni file prima dell'esecuzione
+        if self.tabs:
+            for fi in range(len(self.tabs)):
+                nf = sum(1 for x in self.file_of if x == fi)
+                d_ = th["read_per_line"] * nf + 0.8
+                self.views.append((t, t + d_, fi))
+                t += d_
+        else:
+            t += th["read_per_line"] * len(self.lines) * 0.5   # il codice completo resta fermo prima dell'esecuzione
         quiz, fix = ep.get("quiz"), ep.get("fix")
         self.chal = quiz or fix
         self.chal_t0 = self.chal_dur = None
@@ -301,6 +316,32 @@ class Timeline:
         self.outro_t0 = t + 1.4
         self.total = self.outro_t0 + th["outro_seconds"]
         self.max_items = max([e["n_items"] for e in self.events] + [1])
+
+    def active_file(self, t):
+        n = sum(1 for ct in self.char_times if ct <= t)
+        for t0, t1, fi in self.views:
+            if t0 <= t < t1:
+                return fi, True
+        cur = bisect_right(self.line_start, n) - 1 if n < len(self.code) else len(self.lines) - 1
+        return self.file_of[cur], False
+
+    def check_readable(self, th):
+        """Ogni file deve restare completo e fermo in vista abbastanza a lungo per essere letto."""
+        nfiles = max(1, len(self.tabs))
+        problems = []
+        for fi in range(nfiles):
+            rows = sum(1 for x in self.file_of if x == fi)
+            idx = [i for i, x in enumerate(self.file_of) if x == fi]
+            last = self.char_times[min(idx[-1], len(self.char_times) - 1)]
+            seen, t = 0.0, last
+            while t < self.run_t0 + 1.0:
+                if self.active_file(t)[0] == fi:
+                    seen += 0.1
+                t += 0.1
+            need = th["read_per_line"] * rows + 0.5
+            if seen < need:
+                problems.append((fi, rows, round(seen, 1), round(need, 1)))
+        return problems
 
 
 class Renderer:
@@ -481,6 +522,11 @@ class Renderer:
         f = font("DejaVuSansMono.ttf", th["code_font"])
         fn = font("DejaVuSansMono.ttf", th["code_font"] - 6)
         cf = tl.file_of[cur_line]
+        review = False
+        if tl.tabs:
+            cf, review = tl.active_file(t)
+            if review:
+                cur_line = len(tl.lines) - 1
         if tl.tabs:
             self.draw_tabs(d, cf)
         for i, ln in enumerate(tl.lines):
@@ -517,7 +563,7 @@ class Renderer:
                     d.text((x_code + j * self.cw, ly), seg, font=f, fill=col, anchor="la")
                 j = k
         # cursore
-        if t < tl.run_t0 and int(t * 2) % 2 == 0 or typing:
+        if not review and (t < tl.run_t0 and int(t * 2) % 2 == 0 or typing):
             col_i = (n - tl.line_start[cur_line]) if n < total else len(tl.lines[-1])
             cx = x_code + col_i * self.cw
             cy = y_top + tl.local_no[cur_line] * th["line_h"]
@@ -757,6 +803,8 @@ def main():
         sys.exit(f"Output diverso dall'atteso: {stdout!r}")
 
     tl = Timeline(ep, th, runs)
+    for fi, rows, seen, need in tl.check_readable(th):
+        print(f"ATTENZIONE: file {fi + 1} ({rows} righe) in vista {seen}s, ne servono almeno {need}s per leggerlo.")
     r = Renderer(ep, th, tl)
     print(f"Durata video: {tl.total:.1f}s")
 
