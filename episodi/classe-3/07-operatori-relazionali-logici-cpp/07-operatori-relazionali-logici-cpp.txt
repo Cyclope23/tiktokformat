@@ -1,0 +1,18 @@
+Operatori relazionali e logici in C++: >=, !, &&.
+
+Richiamo teorico:
+- Gli operatori relazionali (==, !=, <, >, <=, >=) confrontano e restituiscono un bool.
+- ! inverte un valore booleano: da vero a falso e viceversa.
+- && è vero solo se entrambe le condizioni sono vere; || se almeno una lo è.
+- cout stampa un bool come 1 (vero) o 0 (falso).
+
+English:
+Relational and logical operators in C++: >=, !, &&.
+
+Theory recap:
+- Relational operators (==, !=, <, >, <=, >=) compare values and return a bool.
+- ! inverts a boolean: true becomes false and vice versa.
+- && is true only if both conditions are true; || if at least one is.
+- cout prints a bool as 1 (true) or 0 (false).
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

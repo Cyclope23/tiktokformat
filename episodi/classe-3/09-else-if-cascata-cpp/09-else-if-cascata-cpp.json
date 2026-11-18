@@ -1,0 +1,100 @@
+{
+  "id": "09-else-if-cascata-cpp",
+  "series": "C++ in 30 secondi",
+  "class": "3D INF",
+  "filename": "main.cpp",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "voto  ·  valore",
+  "hook": [
+    "Voto 8: ottimo o buono?",
+    "Più fasce, un solo codice.",
+    "Else if a cascata."
+  ],
+  "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int voto = 8;\n    if (voto >= 9)\n        cout << \"Ottimo\";\n    else if (voto >= 7)\n        cout << \"Buono\";\n    else if (voto >= 6)\n        cout << \"Sufficiente\";\n    else\n        cout << \"Insufficiente\";\n}\n",
+  "steps": [
+    {
+      "after_line": 5,
+      "caption": "1 · voto vale 8",
+      "viz": {
+        "op": "push",
+        "value": 8,
+        "name": "voto"
+      },
+      "highlight_lines": [
+        5
+      ]
+    },
+    {
+      "after_line": 7,
+      "caption": "2 · voto >= 9 è falso: si passa oltre",
+      "viz": {
+        "op": "push",
+        "value": "falsa",
+        "name": ">= 9"
+      },
+      "highlight_lines": [
+        6,
+        7
+      ]
+    },
+    {
+      "after_line": 9,
+      "caption": "3 · voto >= 7 è vero: si ferma qui",
+      "viz": {
+        "op": "push",
+        "value": "vera",
+        "name": ">= 7"
+      },
+      "highlight_lines": [
+        8,
+        9
+      ]
+    },
+    {
+      "after_line": 13,
+      "caption": "4 · Gli altri rami non vengono controllati",
+      "viz": {
+        "op": "label",
+        "text": "ramo Buono"
+      },
+      "highlight_lines": [
+        10,
+        11,
+        12,
+        13
+      ]
+    }
+  ],
+  "run_caption": "5 · Stampa Buono",
+  "outro": {
+    "caption": "Prossimo episodio: switch e break",
+    "cta": "Segui per la serie C++"
+  },
+  "post": {
+    "caption": "else if a cascata in C++: più fasce con un solo costrutto.",
+    "theory": [
+      "Le condizioni si controllano dall'alto verso il basso.",
+      "Appena una è vera, si esegue il suo ramo e le altre si saltano.",
+      "L'ordine conta: va dalla condizione più restrittiva a quella più ampia.",
+      "else finale gestisce tutti i casi rimasti."
+    ],
+    "hashtags": [
+      "#cpp",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ],
+    "caption_en": "Chained else if in C++: several ranges with one construct.",
+    "theory_en": [
+      "Conditions are checked from top to bottom.",
+      "As soon as one is true, its branch runs and the rest are skipped.",
+      "Order matters: go from the most restrictive condition to the broadest.",
+      "The final else handles all remaining cases."
+    ]
+  }
+}

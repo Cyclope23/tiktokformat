@@ -1,0 +1,95 @@
+{
+  "id": "08-if-else-cpp",
+  "series": "C++ in 30 secondi",
+  "class": "3D INF",
+  "filename": "main.cpp",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "voto  ·  valore",
+  "hook": [
+    "Voto 7: sufficiente o no?",
+    "Il programma decide da solo.",
+    "Ecco if ed else."
+  ],
+  "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int voto = 7;\n    if (voto >= 6)\n        cout << \"Sufficiente\";\n    else\n        cout << \"Insufficiente\";\n}\n",
+  "steps": [
+    {
+      "after_line": 5,
+      "caption": "1 · voto vale 7",
+      "viz": {
+        "op": "push",
+        "value": 7,
+        "name": "voto"
+      },
+      "highlight_lines": [
+        5
+      ]
+    },
+    {
+      "after_line": 6,
+      "caption": "2 · La condizione voto >= 6 è vera",
+      "viz": {
+        "op": "push",
+        "value": "vera",
+        "name": ">= 6"
+      },
+      "highlight_lines": [
+        6
+      ]
+    },
+    {
+      "after_line": 7,
+      "caption": "3 · Si esegue il ramo if",
+      "viz": {
+        "op": "label",
+        "text": "ramo if"
+      },
+      "highlight_lines": [
+        7
+      ]
+    },
+    {
+      "after_line": 9,
+      "caption": "4 · Il ramo else viene saltato",
+      "viz": {
+        "op": "label",
+        "text": "else saltato"
+      },
+      "highlight_lines": [
+        8,
+        9
+      ]
+    }
+  ],
+  "run_caption": "5 · Stampa Sufficiente",
+  "outro": {
+    "caption": "Prossimo episodio: else if a cascata",
+    "cta": "Segui per la serie C++"
+  },
+  "post": {
+    "caption": "if ed else in C++: il programma sceglie tra due strade.",
+    "theory": [
+      "if (condizione) esegue il ramo solo se la condizione è vera.",
+      "else esegue l'alternativa quando la condizione è falsa.",
+      "Viene eseguito uno solo dei due rami.",
+      "La condizione è un'espressione booleana, per esempio voto >= 6."
+    ],
+    "hashtags": [
+      "#cpp",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ],
+    "caption_en": "if and else in C++: the program chooses between two paths.",
+    "theory_en": [
+      "if (condition) runs its branch only when the condition is true.",
+      "else runs the alternative when the condition is false.",
+      "Only one of the two branches is executed.",
+      "The condition is a boolean expression, for example voto >= 6."
+    ]
+  }
+}

@@ -18,12 +18,12 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 
 | # | Tipo | Titolo | Esempio / idea | Stato |
 |---|------|--------|----------------|-------|
-| B1 | C | Struttura di un programma | `#include`, `main`, `cout` | da fare |
+| B1 | C | Struttura di un programma | `#include`, `main`, `cout` | fatto (06) |
 | B2 | C | Variabili e costanti | `int eta = 16;` e `const double PI` | fatto (01) |
 | B3 | C | Tipi di dato | `int`, `double`, `char`, `bool` e le loro dimensioni | fatto (02) |
 | B4 | C | Input e output | `cin` e `cout` (input simulato nel terminale) | da fare |
 | B5 | C | Divisione intera e resto | `7 / 2` = 3, `7 % 2` = 1 | fatto (03) |
-| B6 | C | Operatori relazionali e logici | `&&`, `||`, `!` con tabella di verità animata | da fare |
+| B6 | C | Operatori relazionali e logici | `&&`, `||`, `!` con tabella di verità animata | fatto (07) |
 | B7 | I | Indovina l'output: divisione | `double x = 7 / 2;` stampa 3 | fatto (04) |
 | B8 | E | Trova l'errore: `=` o `==` | `if (x = 5)` assegna, non confronta | fatto (05) |
 
@@ -31,8 +31,8 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 
 | # | Tipo | Titolo | Esempio / idea | Stato |
 |---|------|--------|----------------|-------|
-| C1 | C | if / else | Voto sufficiente o no | da fare |
-| C2 | C | else if a cascata | Fasce di voto | da fare |
+| C1 | C | if / else | Voto sufficiente o no | fatto (08) |
+| C2 | C | else if a cascata | Fasce di voto | fatto (09) |
 | C3 | C | switch e break | Menu a scelta multipla | da fare |
 | C4 | I | Indovina l'output: switch senza break | Il fall-through | da fare |
 | C5 | S | Sfida: massimo di tre numeri | Consegna, poi soluzione | da fare |

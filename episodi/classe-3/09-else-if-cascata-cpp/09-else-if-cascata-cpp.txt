@@ -1,0 +1,18 @@
+else if a cascata in C++: più fasce con un solo costrutto.
+
+Richiamo teorico:
+- Le condizioni si controllano dall'alto verso il basso.
+- Appena una è vera, si esegue il suo ramo e le altre si saltano.
+- L'ordine conta: va dalla condizione più restrittiva a quella più ampia.
+- else finale gestisce tutti i casi rimasti.
+
+English:
+Chained else if in C++: several ranges with one construct.
+
+Theory recap:
+- Conditions are checked from top to bottom.
+- As soon as one is true, its branch runs and the rest are skipped.
+- Order matters: go from the most restrictive condition to the broadest.
+- The final else handles all remaining cases.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

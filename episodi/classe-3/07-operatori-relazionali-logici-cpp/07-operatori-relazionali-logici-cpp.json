@@ -1,0 +1,96 @@
+{
+  "id": "07-operatori-relazionali-logici-cpp",
+  "series": "C++ in 30 secondi",
+  "class": "3D INF",
+  "filename": "main.cpp",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "variabile  ·  valore",
+  "hook": [
+    "17 anni: maggiorenne?",
+    "E adolescente?",
+    "Confronti e logica in C++."
+  ],
+  "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    int eta = 17;\n    bool maggiorenne = eta >= 18;\n    bool minore = !maggiorenne;\n    bool adolescente = eta > 12 && eta < 18;\n    cout << maggiorenne << minore << adolescente;\n}\n",
+  "steps": [
+    {
+      "after_line": 5,
+      "caption": "1 · eta vale 17",
+      "viz": {
+        "op": "push",
+        "value": 17,
+        "name": "eta"
+      },
+      "highlight_lines": [
+        5
+      ]
+    },
+    {
+      "after_line": 6,
+      "caption": "2 · >= confronta: 17 >= 18 è falso",
+      "viz": {
+        "op": "push",
+        "value": "false",
+        "name": ">="
+      },
+      "highlight_lines": [
+        6
+      ]
+    },
+    {
+      "after_line": 7,
+      "caption": "3 · ! inverte: falso diventa vero",
+      "viz": {
+        "op": "push",
+        "value": "true",
+        "name": "!"
+      },
+      "highlight_lines": [
+        7
+      ]
+    },
+    {
+      "after_line": 8,
+      "caption": "4 · && è vero solo se lo sono entrambi",
+      "viz": {
+        "op": "push",
+        "value": "true",
+        "name": "&&"
+      },
+      "highlight_lines": [
+        8
+      ]
+    }
+  ],
+  "run_caption": "5 · Stampa 011: 0 falso, 1 vero",
+  "outro": {
+    "caption": "Prossimo episodio: if ed else",
+    "cta": "Segui per la serie C++"
+  },
+  "post": {
+    "caption": "Operatori relazionali e logici in C++: >=, !, &&.",
+    "theory": [
+      "Gli operatori relazionali (==, !=, <, >, <=, >=) confrontano e restituiscono un bool.",
+      "! inverte un valore booleano: da vero a falso e viceversa.",
+      "&& è vero solo se entrambe le condizioni sono vere; || se almeno una lo è.",
+      "cout stampa un bool come 1 (vero) o 0 (falso)."
+    ],
+    "hashtags": [
+      "#cpp",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ],
+    "caption_en": "Relational and logical operators in C++: >=, !, &&.",
+    "theory_en": [
+      "Relational operators (==, !=, <, >, <=, >=) compare values and return a bool.",
+      "! inverts a boolean: true becomes false and vice versa.",
+      "&& is true only if both conditions are true; || if at least one is.",
+      "cout prints a bool as 1 (true) or 0 (false)."
+    ]
+  }
+}

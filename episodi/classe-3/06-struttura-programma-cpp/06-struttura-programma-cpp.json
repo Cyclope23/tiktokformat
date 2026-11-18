@@ -1,0 +1,97 @@
+{
+  "id": "06-struttura-programma-cpp",
+  "series": "C++ in 30 secondi",
+  "class": "3D INF",
+  "filename": "main.cpp",
+  "theme": {},
+  "viz_index": false,
+  "viz_title": "parte  ·  ruolo",
+  "hook": [
+    "Il tuo primo programma C++.",
+    "Poche righe, ognuna ha un ruolo.",
+    "Quale?"
+  ],
+  "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Ciao, mondo!\" << endl;\n    return 0;\n}\n",
+  "steps": [
+    {
+      "after_line": 2,
+      "caption": "1 · include e using: servono per cout",
+      "viz": {
+        "op": "push",
+        "value": "iostream",
+        "name": "include"
+      },
+      "highlight_lines": [
+        1,
+        2
+      ]
+    },
+    {
+      "after_line": 4,
+      "caption": "2 · main: da qui parte il programma",
+      "viz": {
+        "op": "push",
+        "value": "main",
+        "name": "avvio"
+      },
+      "highlight_lines": [
+        4
+      ]
+    },
+    {
+      "after_line": 5,
+      "caption": "3 · cout stampa a schermo",
+      "viz": {
+        "op": "push",
+        "value": "cout",
+        "name": "output"
+      },
+      "highlight_lines": [
+        5
+      ]
+    },
+    {
+      "after_line": 6,
+      "caption": "4 · return 0: fine senza errori",
+      "viz": {
+        "op": "push",
+        "value": 0,
+        "name": "return"
+      },
+      "highlight_lines": [
+        6
+      ]
+    }
+  ],
+  "run_caption": "5 · Il programma stampa il testo",
+  "outro": {
+    "caption": "Prossimo episodio: operatori relazionali e logici",
+    "cta": "Segui per la serie C++"
+  },
+  "post": {
+    "caption": "La struttura di un programma C++: include, main, cout e return.",
+    "theory": [
+      "#include <iostream> rende disponibile cout per scrivere a schermo.",
+      "using namespace std; permette di scrivere cout invece di std::cout.",
+      "main è la funzione da cui parte l'esecuzione.",
+      "return 0; segnala al sistema che il programma è terminato senza errori."
+    ],
+    "hashtags": [
+      "#cpp",
+      "#programmazione",
+      "#coding",
+      "#imparareacodare",
+      "#informatica",
+      "#scuola",
+      "#learnontiktok",
+      "#learntocode"
+    ],
+    "caption_en": "The structure of a C++ program: include, main, cout and return.",
+    "theory_en": [
+      "#include <iostream> makes cout available for printing to the screen.",
+      "using namespace std; lets you write cout instead of std::cout.",
+      "main is the function where execution starts.",
+      "return 0; tells the system the program ended without errors."
+    ]
+  }
+}

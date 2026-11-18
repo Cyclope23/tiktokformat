@@ -41,6 +41,7 @@ def leggi_piano(classe):
     p = PE / f"{classe}INF" / f"piano-{classe}INF.md"
     righe = []
     for ln in p.read_text(encoding="utf-8").splitlines():
+        ln = re.sub(r"`[^`]*`", lambda mm: mm.group(0).replace("|", "¦"), ln)   # '||' dentro il codice non e' un separatore
         m = re.match(r"\|\s*([A-Z]\d+)\s*\|\s*([CIES])\s*\|\s*(.+?)\s*\|\s*(.*?)\s*\|\s*(.*?)\s*\|\s*$", ln)
         if m:
             cod, tipo, titolo, _, stato = m.groups()

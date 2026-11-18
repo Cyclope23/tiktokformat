@@ -1,0 +1,18 @@
+La struttura di un programma C++: include, main, cout e return.
+
+Richiamo teorico:
+- #include <iostream> rende disponibile cout per scrivere a schermo.
+- using namespace std; permette di scrivere cout invece di std::cout.
+- main è la funzione da cui parte l'esecuzione.
+- return 0; segnala al sistema che il programma è terminato senza errori.
+
+English:
+The structure of a C++ program: include, main, cout and return.
+
+Theory recap:
+- #include <iostream> makes cout available for printing to the screen.
+- using namespace std; lets you write cout instead of std::cout.
+- main is the function where execution starts.
+- return 0; tells the system the program ended without errors.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

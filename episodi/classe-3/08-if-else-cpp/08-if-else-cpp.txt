@@ -1,0 +1,18 @@
+if ed else in C++: il programma sceglie tra due strade.
+
+Richiamo teorico:
+- if (condizione) esegue il ramo solo se la condizione è vera.
+- else esegue l'alternativa quando la condizione è falsa.
+- Viene eseguito uno solo dei due rami.
+- La condizione è un'espressione booleana, per esempio voto >= 6.
+
+English:
+if and else in C++: the program chooses between two paths.
+
+Theory recap:
+- if (condition) runs its branch only when the condition is true.
+- else runs the alternative when the condition is false.
+- Only one of the two branches is executed.
+- The condition is a boolean expression, for example voto >= 6.
+
+#cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode
