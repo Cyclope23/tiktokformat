@@ -242,7 +242,11 @@ class Timeline:
             self.line_start.append(p)
             p += len(ln) + 1
         by_line = {s["after_line"]: s for s in ep["steps"]}
-        t = th["hook_seconds"] + 0.2
+        teo = ep.get("teoria")
+        self.theory_t0 = th["hook_seconds"]
+        self.theory_dur = (0.5 + len(teo["steps"]) * float(teo.get("step_seconds", 2.4)) + 0.9) if teo else 0.0
+        self.main_t0 = self.theory_t0 + self.theory_dur
+        t = self.main_t0 + 0.2
         self.type_t0 = t
         self.char_times = []
         self.events = []
@@ -423,10 +427,10 @@ class Renderer:
         return im
 
     # ---------- testo con dissolvenza ----------
-    def text_fade(self, d, xy, s, f, fill, a, anchor="la"):
+    def text_fade(self, d, xy, s, f, fill, a, anchor="la", bgc=None):
         if a <= 0:
             return
-        col = lerp(self.bg_at(xy[1]), fill, clamp(a))
+        col = lerp(bgc or self.bg_at(xy[1]), fill, clamp(a))
         d.text(xy, s, font=f, fill=col, anchor=anchor)
 
     # ---------- hook ----------
@@ -494,6 +498,10 @@ class Renderer:
             if not ev:
                 return
             text, t0 = ev["caption"], ev["t"]
+        self.caption_text(d, text, t0, t)
+
+    def caption_text(self, d, text, t0, t):
+        th = self.th
         a = clamp((t - t0) / 0.25)
         f = font("DejaVuSans-Bold.ttf", th["caption_font"])
         maxw = self.R - self.L
@@ -714,13 +722,155 @@ class Renderer:
     # ---------- frame ----------
     def frame(self, t):
         th = self.th
+        tl = self.tl
         if t < th["hook_seconds"]:
             return self.render_hook(t)
-        a = (t - th["hook_seconds"]) / th["xfade"]
+        xf = th["xfade"]
+        if tl.theory_dur:
+            if t < tl.main_t0:
+                cur = self.render_theory(t)
+                a = (t - th["hook_seconds"]) / xf
+                if a < 1:
+                    return Image.blend(self.render_hook(th["hook_seconds"] - 0.001), cur, clamp(a))
+                return cur
+            a = (t - tl.main_t0) / xf
+            main = self.render_main(t)
+            if a < 1:
+                return Image.blend(self.render_theory(tl.main_t0 - 0.001), main, clamp(a))
+            return main
+        a = (t - th["hook_seconds"]) / xf
         main = self.render_main(t)
         if a < 1:
             return Image.blend(self.render_hook(th["hook_seconds"] - 0.001), main, clamp(a))
         return main
+
+    # ---------- teoria animata (Vector, Pila, Coda) ----------
+    def _theory_state(self, teo):
+        """Elenco degli elementi con tempi di ingresso/uscita e delle etichette operazione (tempi relativi)."""
+        sec = float(teo.get("step_seconds", 2.4))
+        kind = teo["kind"]
+        items, labels, gets = [], [], []
+        for k, st in enumerate(teo["steps"]):
+            ts = 0.5 + k * sec
+            op = st["op"]
+            present = [it for it in items if it["out"] is None]
+            if op in ("add", "push", "enqueue"):
+                items.append(dict(val=st["value"], t_in=ts, out=None))
+                labels.append((ts, f'{op}({st["value"]})'))
+            elif op in ("pop", "dequeue", "remove"):
+                if op == "pop":
+                    it = present[-1]
+                elif op == "dequeue":
+                    it = present[0]
+                else:
+                    it = present[st["index"]]
+                it["out"] = ts
+                arg = st["index"] if op == "remove" else ""
+                labels.append((ts, f'{op}({arg}) -> {it["val"]}' if op != "remove" else f'remove({arg})'))
+            elif op == "get":
+                it = present[st["index"]]
+                gets.append((ts, ts + sec, it))
+                labels.append((ts, f'get({st["index"]}) -> {it["val"]}'))
+            elif op == "size":
+                labels.append((ts, f"size() = {len(present)}"))
+        return sec, items, labels, gets
+
+    def render_theory(self, t):
+        th, teo = self.th, self.ep["teoria"]
+        tt = t - self.tl.theory_t0
+        kind = teo["kind"]
+        sec, items, labels, gets = self._theory_state(teo)
+        im = self.bg.copy()
+        d = ImageDraw.Draw(im)
+        d.text((self.W // 2, th["tag_y"]), f'{self.ep["series"]}  ·  {self.ep["class"]}',
+               font=font("DejaVuSans-Bold.ttf", 28), fill=th["muted"], anchor="mm")
+        k = min(len(teo["steps"]) - 1, max(0, int((tt - 0.5) / sec))) if tt >= 0.5 else None
+        if k is not None:
+            self.caption_text(d, teo["steps"][k]["caption"], self.tl.theory_t0 + 0.5 + k * sec, t)
+        L, R = self.L, self.R
+        y0, y1 = th["ide_y0"], th["bottom_safe"] - 40
+        d.rounded_rectangle((L, y0, R, y1), 22, fill=th["panel"])
+        d.rounded_rectangle((L, y0, R, y0 + 56), 22, fill=th["panel_bar"])
+        d.rectangle((L, y0 + 34, R, y0 + 56), fill=th["panel_bar"])
+        for i, c in enumerate([(243, 139, 168), (249, 226, 175), (166, 227, 161)]):
+            d.ellipse((L + 24 + i * 30, y0 + 20, L + 40 + i * 30, y0 + 36), fill=c)
+        d.text((L + 130, y0 + 28), teo.get("title", ""), font=font("DejaVuSansMono.ttf", 26), fill=th["muted"], anchor="lm")
+        # etichetta dell'operazione corrente
+        cur = [l for l in labels if l[0] <= tt]
+        if cur:
+            ts_, txt = cur[-1]
+            a = clamp((tt - ts_) / 0.25)
+            self.text_fade(d, ((L + R) // 2, y0 + 110), txt, font("DejaVuSansMono-Bold.ttf", 46), th["accent2"], a, "mm", th["panel"])
+        # posizione fluida: ogni elemento rimosso lascia lo spazio con una transizione
+        def weight(it):
+            return 1.0 if it["out"] is None or tt < it["out"] else 1 - ease_out(clamp((tt - it["out"] - 0.15) / 0.5))
+        def slot(i):
+            return sum(weight(items[j]) for j in range(i))
+        maxn, cnt = 1, 0
+        for st in teo["steps"]:
+            cnt += 1 if st["op"] in ("add", "push", "enqueue") else (-1 if st["op"] in ("pop", "dequeue", "remove") else 0)
+            maxn = max(maxn, cnt)
+        vertical = kind == "stack"
+        cx, cy = (L + R) / 2, (y0 + y1) / 2 + 20
+        if vertical:
+            bh, gap = 96, 14
+            slotp = bh + gap
+            base = (y0 + y1) / 2 + 60 + maxn * slotp / 2
+            bw = 360
+        else:
+            slotp = min(140, (R - L - 70) / (maxn + 0.2))
+            bs = slotp - 16
+            xs0 = cx - (maxn * slotp - 16) / 2
+        vis = []
+        for i, it in enumerate(items):
+            p = clamp((tt - it["t_in"]) / 0.45)
+            if p <= 0:
+                continue
+            sl = slot(i)
+            gone = clamp((tt - it["out"]) / 0.45) if it["out"] is not None and tt >= it["out"] else 0.0
+            alpha = (1 - gone) * clamp(p * 1.5)
+            if vertical:
+                x, y = cx, base - sl * slotp - bh / 2 - (1 - ease_out(p)) * 220 - ease_out(gone) * 170
+                half_w, half_h = bw / 2, bh / 2
+            else:
+                x = xs0 + sl * slotp + bs / 2 + (1 - ease_out(p)) * (260 if kind == "queue" else 0)
+                y = cy - (1 - ease_out(p)) * (0 if kind == "queue" else 170) - ease_out(gone) * (0 if kind == "queue" else 110)
+                if kind == "queue":
+                    x -= ease_out(gone) * 200
+                half_w = half_h = bs / 2
+            flash = clamp(1 - (tt - it["t_in"]) / 0.9)
+            fill = lerp(th["accent"], th["accent2"], flash)
+            for g0, g1, gi in gets:
+                if gi is it and g0 <= tt < g1:
+                    fill = th["good"]
+            if alpha <= 0.02:
+                continue
+            fill = lerp(th["panel"], fill, alpha)
+            d.rounded_rectangle((x - half_w, y - half_h, x + half_w, y + half_h), 16, fill=fill)
+            vs = min(52, int(2 * half_w * 0.84 / (0.602 * max(1, len(str(it["val"]))))))
+            d.text((x, y), str(it["val"]), font=font("DejaVuSansMono-Bold.ttf", vs),
+                   fill=lerp(th["panel"], (24, 24, 37), alpha), anchor="mm")
+            if gone == 0:
+                vis.append((i, it, x, y, half_w, half_h, alpha))
+        if vis:
+            lf = font("DejaVuSansMono-Bold.ttf", 30)
+            if kind == "stack":
+                i, it, x, y, hw, hh, al = vis[-1]
+                d.text((x + hw + 24, y), "<- TOP", font=lf, fill=th["good"], anchor="lm")
+                d.line((x - hw - 30, base + 8, x + hw + 30, base + 8), fill=th["muted"], width=6)
+            elif kind == "queue":
+                i, it, x, y, hw, hh, al = vis[0]
+                d.text((x, y + hh + 40), "FRONT", font=lf, fill=th["good"], anchor="mm")
+                d.polygon([(x - 12, y + hh + 12), (x + 12, y + hh + 12), (x, y + hh + 2)], fill=th["good"])
+                i, it, x, y, hw, hh, al = vis[-1]
+                d.text((x, y - hh - 38), "BACK", font=lf, fill=th["accent2"], anchor="mm")
+            else:
+                for n_, (i, it, x, y, hw, hh, al) in enumerate(vis):
+                    d.text((x, y + hh + 28), f"[{n_}]", font=font("DejaVuSansMono.ttf", 26), fill=th["muted"], anchor="mm")
+        rule = teo.get("rule")
+        if rule:
+            self.text_fade(d, (cx, y1 - 60), rule, font("DejaVuSans-Bold.ttf", 44), th["accent"], clamp((tt - 0.3) / 0.4), "mm", th["panel"])
+        return im
 
 
 def encode_cmd(th, total, music, out):

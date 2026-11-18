@@ -85,6 +85,13 @@ Formato E (trova l'errore): "fix": {"line": N, "new": "riga corretta", "find_cap
 "fix_caption", "run2_caption"} -> il codice dato e' quello con il bug (evidenziato in rosso), viene eseguito
 (o mostrato l'errore reale del compilatore), poi la riga e' riscritta in verde e il programma rieseguito.
 
+Teoria animata (strutture dati, blocco D 4D: Vector, Pila, Coda): "teoria": {"title", "kind": "stack|queue|vector",
+"rule" (frase fissa in basso, es. "LIFO · Last In, First Out"), "step_seconds" (default 2.4),
+"steps": [{"op": "push|pop|enqueue|dequeue|add|remove(index)|get(index)|size", "value", "caption"}]}
+-> dopo l'hook una sezione animata (caselle che entrano/escono, etichette TOP / FRONT / BACK, indici) prima del codice;
+il codice parte alla fine della teoria. Aggiunge ~10-13 s al video (decisione di Daniele 2026-11-18: teoria dentro lo stesso video).
+Teoria: 4-5 passi, stessi numeri del codice che segue.
+
 ## Descrizione del post (file .txt)
 Sempre bilingue, italiano poi inglese: riga di apertura + "Richiamo teorico" (3-4 punti brevi, corretti),
 poi "English:" con la stessa apertura e "Theory recap:" con gli stessi punti, poi gli hashtag.
