@@ -69,7 +69,7 @@ Dove lavorare:
 - Hook di 3 righe nei primi 3 secondi, poi simulazione IDE scuro: il codice si scrive da solo,
   pannello con visualizzazione (caselle del vettore o variabile), terminale con output reale.
 - Caption numerate in alto ("1 · ..."), chiusura con CTA "Segui per la serie C++" e annuncio
-  del prossimo episodio. Durata 20-30 s. Dimensione di codice e terminale automatica (la piu' grande che entra: codice max 44, terminale max 40). Margini: 80 px a destra, 30 a sinistra; zona sicura fino a y=1650
+  del prossimo episodio. Durata 20-30 s per i video semplici; fino a 90 s (1,5 min) ammessi per Java a piu' file e per la teoria animata (decisione di Daniele 2026-11-18). Dimensione di codice e terminale automatica (la piu' grande che entra: codice max 44, terminale max 40). Margini: 80 px a destra, 30 a sinistra; zona sicura fino a y=1650
   e in alto oltre y=150 (zone coperte dall'interfaccia TikTok).
 - Nessuna voce. Audio muto o musica; la musica si sceglie nell'editor di TikTok alla pubblicazione.
 - Un concetto per episodio; esempi reali, brevi (10-14 righe).
@@ -89,7 +89,7 @@ Teoria animata (strutture dati, blocco D 4D: Vector, Pila, Coda): "teoria": {"ti
 "rule" (frase fissa in basso, es. "LIFO · Last In, First Out"), "step_seconds" (default 2.4),
 "steps": [{"op": "push|pop|enqueue|dequeue|add|remove(index)|get(index)|size", "value", "caption"}]}
 -> dopo l'hook una sezione animata (caselle che entrano/escono, etichette TOP / FRONT / BACK, indici) prima del codice;
-il codice parte alla fine della teoria. Aggiunge ~10-13 s al video (decisione di Daniele 2026-11-18: teoria dentro lo stesso video).
+il codice parte alla fine della teoria. Aggiunge ~10-13 s al video, durata massima 90 s (decisione di Daniele 2026-11-18: teoria dentro lo stesso video).
 Teoria: 4-5 passi, stessi numeri del codice che segue.
 
 ## Descrizione del post (file .txt)
