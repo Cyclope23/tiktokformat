@@ -2,7 +2,7 @@
 
 Base: programma svolto 4D INF 2025/26. Richiede l'estensione del renderer a Java.
 
-Episodi pianificati: **31**.
+Episodi pianificati: **46** (aggiornato 2026-11-18: Vector, Pila e Coda anche con Vector, gestione dei file, approfondimento String).
 
 Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida guidata. Vedi `../PIANO.md`.
 
@@ -44,15 +44,35 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 | C10 | C | Ereditarietà | `extends` e `super` | da fare |
 | C11 | C | Sottoclassi | `Studente` e `Docente` da `Persona` | da fare |
 | C12 | C | Polimorfismo | Array di `Animale`, `override` di `parla()` | da fare |
-| C13 | C | Le Stringhe | Immutabilità e metodi principali | da fare |
+| C13 | C | Le Stringhe | Immutabilità e oggetto `String` | da fare |
 | C14 | E | Trova l'errore: `==` contro `equals` | Confronto tra stringhe | da fare |
 | C15 | S | Sfida: classe `Rettangolo` | Consegna e soluzione (classe completa) | da fare |
+| C16 | C | String: length, charAt, substring | Leggere e ritagliare un testo | da fare |
+| C17 | C | String: indexOf, contains, replace | Cercare e sostituire | da fare |
+| C18 | C | String: trim, toUpperCase, split | Pulire e dividere (es. riga `nome;età`) | da fare |
+| C19 | I | Indovina l'output: substring e indici | Estremo finale escluso | da fare |
+| C20 | S | Sfida: parola palindroma | Consegna e soluzione con i metodi di String | da fare |
 
-**Blocco D - Strutture dati**
+**Blocco D - Strutture dati** (Pila e Coda realizzate sia con `ArrayList` sia con `Vector`)
 
 | # | Tipo | Titolo | Esempio / idea | Stato |
 |---|------|--------|----------------|-------|
 | D1 | C | Array dinamico (`ArrayList`) | `add`, `get`, `size` | da fare |
-| D2 | C | La pila (LIFO) | `push` e `pop` animati | da fare |
-| D3 | C | La coda (FIFO) | `enqueue` e `dequeue` animati | da fare |
-| D4 | S | Sfida: parentesi bilanciate con la pila | Consegna e soluzione | da fare |
+| D2 | C | La classe `Vector` | `add`, `get`, `size`, `remove`, `elementAt` | da fare |
+| D3 | C | `ArrayList` e `Vector` a confronto | Stessa interfaccia, `Vector` sincronizzato | da fare |
+| D4 | C | `Vector<Punto>` | Vettore di oggetti: ricerca e rimozione | da fare |
+| D5 | C | La pila (LIFO) con `ArrayList` | `push` e `pop` animati | da fare |
+| D6 | C | La pila (LIFO) con `Vector` | Stessa classe `Pila`, contenitore diverso | da fare |
+| D7 | C | La coda (FIFO) con `ArrayList` | `enqueue` e `dequeue` animati | da fare |
+| D8 | C | La coda (FIFO) con `Vector` | Stessa classe `Coda`, contenitore diverso | da fare |
+| D9 | S | Sfida: parentesi bilanciate con la pila | Consegna e soluzione | da fare |
+
+**Blocco E - Gestione dei file**
+
+| # | Tipo | Titolo | Esempio / idea | Stato |
+|---|------|--------|----------------|-------|
+| E1 | C | Leggere un file di testo | `Scanner` su `File`, riga per riga | da fare |
+| E2 | C | Scrivere su un file | `PrintWriter` / `FileWriter` | da fare |
+| E3 | E | Trova l'errore: file inesistente | `FileNotFoundException` gestita con `try`/`catch` | da fare |
+| E4 | C | Salvare e caricare un `Vector` di oggetti | `Vector<Punto>` su file, una riga per oggetto | da fare |
+| E5 | S | Sfida: rubrica su file | Consegna e soluzione | da fare |
