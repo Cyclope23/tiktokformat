@@ -1,0 +1,165 @@
+{
+ "id": "17-classe-vector-java",
+ "series": "Java in 30 secondi",
+ "class": "4D INF",
+ "filename": "Voti.java",
+ "files": [
+  {
+   "name": "Voti.java",
+   "code": "import java.util.Vector;\n\npublic class Voti {\n    private Vector<Integer> v = new Vector<>();\n\n    public void aggiungi(int x) {\n        v.add(x);\n    }\n\n    public int quanti() {\n        return v.size();\n    }\n\n    public int leggi(int i) {\n        return v.get(i);\n    }\n}\n"
+  },
+  {
+   "name": "Main.java",
+   "code": "public class Main {\n    public static void main(String[] args) {\n        Voti voti = new Voti();\n        voti.aggiungi(7);\n        voti.aggiungi(9);\n        System.out.println(voti.quanti());\n        System.out.println(voti.leggi(1));\n    }\n}\n"
+  }
+ ],
+ "main_class": "Main",
+ "theme": {},
+ "viz_index": true,
+ "viz_title": "voti  ·  Vector<Integer>",
+ "hook": [
+  "Un array che cresce.",
+  "Si chiama Vector.",
+  "add, get, size."
+ ],
+ "teoria": {
+  "title": "Vector  ·  array dinamico",
+  "kind": "vector",
+  "rule": "Cresce da solo: add() in fondo",
+  "step_seconds": 2.0,
+  "steps": [
+   {
+    "op": "add",
+    "value": 7,
+    "caption": "Teoria · add: aggiunge in fondo"
+   },
+   {
+    "op": "add",
+    "value": 9,
+    "caption": "Ogni add occupa il posto dopo"
+   },
+   {
+    "op": "get",
+    "index": 1,
+    "caption": "get(1): legge per indice"
+   },
+   {
+    "op": "size",
+    "caption": "size(): quanti elementi"
+   },
+   {
+    "op": "remove",
+    "index": 0,
+    "caption": "remove(0): gli altri scalano"
+   }
+  ]
+ },
+ "steps": [
+  {
+   "after_line": 4,
+   "caption": "1 · Il Vector sta nella classe",
+   "highlight_lines": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "after_line": 8,
+   "caption": "2 · add: aggiunge in fondo",
+   "highlight_lines": [
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "after_line": 12,
+   "caption": "3 · size: quanti elementi",
+   "highlight_lines": [
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "after_line": 16,
+   "caption": "4 · get: legge per indice",
+   "highlight_lines": [
+    14,
+    15,
+    16
+   ]
+  },
+  {
+   "after_line": 22,
+   "caption": "5 · Due add: 7 e 9",
+   "viz": {
+    "op": "init",
+    "values": [
+     7,
+     9
+    ]
+   },
+   "highlight_lines": [
+    21,
+    22
+   ]
+  },
+  {
+   "after_line": 23,
+   "caption": "6 · size = 2",
+   "viz": {
+    "op": "size"
+   },
+   "highlight_lines": [
+    23
+   ]
+  },
+  {
+   "after_line": 24,
+   "caption": "7 · get(1) = 9",
+   "viz": {
+    "op": "set",
+    "index": 1,
+    "value": 9,
+    "label": "get(1) = 9"
+   },
+   "highlight_lines": [
+    24
+   ]
+  }
+ ],
+ "run_caption": "8 · Output: 2 e 9",
+ "outro": {
+  "caption": "Prossimo episodio: la pila",
+  "cta": "Segui per la serie Java"
+ },
+ "post": {
+  "caption": "La classe Vector in Java: un array dinamico con add, get e size.",
+  "theory": [
+   "Vector<Integer> è un array dinamico: cresce da solo con add().",
+   "get(i) legge l'elemento in posizione i (si parte da 0).",
+   "size() restituisce quanti elementi contiene.",
+   "remove(i) toglie un elemento e fa scalare gli altri."
+  ],
+  "caption_en": "The Vector class in Java: a dynamic array with add, get and size.",
+  "theory_en": [
+   "Vector<Integer> is a dynamic array: it grows by itself with add().",
+   "get(i) reads the element at position i (counting from 0).",
+   "size() returns how many elements it holds.",
+   "remove(i) deletes an element and shifts the others."
+  ],
+  "hashtags": [
+   "#java",
+   "#programmazione",
+   "#coding",
+   "#imparareacodare",
+   "#informatica",
+   "#scuola",
+   "#learnontiktok",
+   "#learntocode"
+  ]
+ }
+}

@@ -1,0 +1,144 @@
+{
+ "id": "16-classe-completa-java",
+ "series": "Java in 30 secondi",
+ "class": "4D INF",
+ "filename": "Persona.java",
+ "files": [
+  {
+   "name": "Persona.java",
+   "code": "public class Persona {\n    private String nome;\n    private int eta;\n\n    public Persona(String nome, int eta) {\n        this.nome = nome;\n        this.eta = eta;\n    }\n\n    public void setEta(int eta) {\n        if (eta >= 0) this.eta = eta;\n    }\n\n    public String toString() {\n        return nome + \" \" + eta;\n    }\n}\n"
+  },
+  {
+   "name": "Main.java",
+   "code": "public class Main {\n    public static void main(String[] args) {\n        Persona p = new Persona(\"Anna\", 16);\n        p.setEta(-5);\n        System.out.println(p);\n    }\n}\n"
+  }
+ ],
+ "main_class": "Main",
+ "theme": {},
+ "viz_index": false,
+ "viz_title": "oggetto  ·  stato",
+ "hook": [
+  "Una classe, quattro pezzi.",
+  "Attributi, costruttore, setter...",
+  "Ecco la classe completa."
+ ],
+ "steps": [
+  {
+   "after_line": 8,
+   "caption": "1 · Private + costruttore",
+   "viz": {
+    "op": "init",
+    "values": [
+     "?",
+     "?"
+    ],
+    "names": [
+     "nome",
+     "eta"
+    ]
+   },
+   "highlight_lines": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "after_line": 12,
+   "caption": "2 · Il setter controlla il valore",
+   "viz": {
+    "op": "label",
+    "text": "eta >= 0"
+   },
+   "highlight_lines": [
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "after_line": 16,
+   "caption": "3 · toString: il testo",
+   "highlight_lines": [
+    14,
+    15,
+    16
+   ]
+  },
+  {
+   "after_line": 20,
+   "caption": "4 · Il main crea l'oggetto",
+   "viz": {
+    "op": "init",
+    "values": [
+     "Anna",
+     16
+    ],
+    "names": [
+     "nome",
+     "eta"
+    ]
+   },
+   "highlight_lines": [
+    20
+   ]
+  },
+  {
+   "after_line": 21,
+   "caption": "5 · -5 è ignorato",
+   "viz": {
+    "op": "label",
+    "text": "eta resta 16"
+   },
+   "highlight_lines": [
+    21
+   ]
+  },
+  {
+   "after_line": 22,
+   "caption": "6 · println usa toString",
+   "viz": {
+    "op": "label",
+    "text": "toString() -> Anna 16"
+   },
+   "highlight_lines": [
+    22
+   ]
+  }
+ ],
+ "run_caption": "7 · Output: Anna 16",
+ "outro": {
+  "caption": "Prossimo episodio: la classe Vector",
+  "cta": "Segui per la serie Java"
+ },
+ "post": {
+  "caption": "La classe completa in Java: attributi private, costruttore, setter con controllo e toString.",
+  "theory": [
+   "Gli attributi sono private: si accede solo con i metodi.",
+   "Il costruttore assegna i valori iniziali (this.nome = nome).",
+   "Il setter può rifiutare valori non validi, come un'età negativa.",
+   "toString() restituisce il testo usato da println(oggetto)."
+  ],
+  "caption_en": "The complete class in Java: private attributes, constructor, validating setter and toString.",
+  "theory_en": [
+   "Attributes are private: access goes through methods only.",
+   "The constructor sets the initial values (this.nome = nome).",
+   "The setter can reject invalid values, like a negative age.",
+   "toString() returns the text used by println(object)."
+  ],
+  "hashtags": [
+   "#java",
+   "#programmazione",
+   "#coding",
+   "#imparareacodare",
+   "#informatica",
+   "#scuola",
+   "#learnontiktok",
+   "#learntocode"
+  ]
+ }
+}

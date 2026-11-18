@@ -271,6 +271,8 @@ class Timeline:
                     vals = len(v["values"])
                 elif op == "push":
                     vals += 1
+                elif op in ("pop", "shift"):
+                    vals = max(0, vals - 1)
                 elif op == "iterate":
                     pause = v.get("count", vals) * th["iter_per_item"] + 0.7
                 if op != "iterate":   # tempo per leggere le righe appena scritte
@@ -615,6 +617,14 @@ class Renderer:
                 vals = [[x, ev["t"] + i * 0.12, ev["t"] + i * 0.12, names[i]] for i, x in enumerate(v["values"])]
             elif op == "push":
                 vals.append([v["value"], ev["t"], ev["t"], v.get("name")])
+            elif op == "pop" and vals:
+                vals.pop()
+                if "label" in v:
+                    label = (v["label"], ev["t"])
+            elif op == "shift" and vals:
+                vals.pop(0)
+                if "label" in v:
+                    label = (v["label"], ev["t"])
             elif op == "set":
                 vals[v.get("index", 0)][0] = v["value"]
                 vals[v.get("index", 0)][2] = ev["t"]
@@ -627,6 +637,10 @@ class Renderer:
             elif op == "size":
                 label = (f"size() = {len(vals)}", ev["t"])
         if not vals:
+            if label is not None:   # struttura svuotata (es. dopo l'ultimo pop): resta l'etichetta e l'avviso
+                rf0 = font("DejaVuSansMono-Bold.ttf", 28)
+                d.text(((L + R) / 2, self.viz_y0 + 135), "vuota", font=rf0, fill=th["muted"], anchor="mm")
+                self.text_fade_panel(d, (R - 28, self.viz_y0 + 30), label[0], rf0, th["accent2"], clamp((t - label[1]) / 0.3))
             return
         m = tl.max_items
         slot = min(128, (R - L - 60) // m)

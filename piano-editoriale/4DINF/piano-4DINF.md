@@ -37,8 +37,8 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 | C3 | C | Getter e setter | `getSaldo`, `setSaldo`, `this` | fatto (06) |
 | C4 | C | Il costruttore | `new Conto(200)` | fatto (07) |
 | C5 | C | toString | `println(c)` e `@Override` | fatto (08) |
-| C6 | C | Metodi di una classe | `versa()` e `preleva()` con controllo | da fare |
-| C7 | C | La classe completa | `Persona`: private, costruttore, get/set, toString | da fare |
+| C6 | C | Metodi di una classe | `versa()` e `preleva()` con controllo | fatto (15) |
+| C7 | C | La classe completa | `Persona`: private, costruttore, setter con controllo, toString | fatto (16) |
 | C8 | C | Riferimenti: due variabili, un oggetto | `b = a` e modifica visibile da entrambe | da fare |
 | C9 | I | Indovina l'output: riferimenti | Modifica tramite un alias | da fare |
 | C10 | C | Ereditarietà | `extends` e `super` | da fare |
@@ -58,11 +58,11 @@ Tipo: **C** concetto, **I** indovina l'output, **E** trova l'errore, **S** sfida
 | # | Tipo | Titolo | Esempio / idea | Stato |
 |---|------|--------|----------------|-------|
 | D1 | C | Array dinamico (`ArrayList`) | `add`, `get`, `size` | da fare |
-| D2 | C | La classe `Vector` | `add`, `get`, `size`, `remove`, `elementAt` | da fare |
+| D2 | C | La classe `Vector` | `add`, `get`, `size`, `remove`, `elementAt` | fatto (17) |
 | D3 | C | `ArrayList` e `Vector` a confronto | Stessa interfaccia, `Vector` sincronizzato | da fare |
 | D4 | C | `Vector<Punto>` | Vettore di oggetti: ricerca e rimozione | da fare |
-| D5 | C | La pila (LIFO) con `ArrayList` | `push` e `pop` animati | da fare |
-| D6 | C | La pila (LIFO) con `Vector` | Stessa classe `Pila`, contenitore diverso | da fare |
+| D5 | C | La pila (LIFO) con `ArrayList` | `push` e `pop` animati | fatto (18) |
+| D6 | C | La pila (LIFO) con `Vector` | Stessa classe `Pila`, contenitore diverso | fatto (19) |
 | D7 | C | La coda (FIFO) con `ArrayList` | `enqueue` e `dequeue` animati | da fare |
 | D8 | C | La coda (FIFO) con `Vector` | Stessa classe `Coda`, contenitore diverso | da fare |
 | D9 | S | Sfida: parentesi bilanciate con la pila | Consegna e soluzione | da fare |

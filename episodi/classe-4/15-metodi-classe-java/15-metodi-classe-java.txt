@@ -1,0 +1,18 @@
+I metodi di una classe in Java: il comportamento dell'oggetto, con controlli.
+
+Richiamo teorico:
+- Un metodo è il comportamento di una classe: versa(), preleva().
+- Può restituire un valore (boolean, int) o niente (void).
+- Il metodo controlla lo stato prima di modificarlo: preleva rifiuta se manca saldo.
+- La classe modello è nel suo file; il Main crea l'oggetto e chiama i metodi.
+
+English:
+Class methods in Java: the object's behavior, with checks.
+
+Theory recap:
+- A method is a class's behavior: versa(), preleva().
+- It can return a value (boolean, int) or nothing (void).
+- The method checks the state before changing it: preleva refuses if funds are short.
+- The model class lives in its own file; Main creates the object and calls its methods.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

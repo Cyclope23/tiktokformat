@@ -1,0 +1,151 @@
+{
+ "id": "19-pila-vector-java",
+ "series": "Java in 30 secondi",
+ "class": "4D INF",
+ "filename": "Pila.java",
+ "files": [
+  {
+   "name": "Pila.java",
+   "code": "import java.util.Vector;\n\npublic class Pila {\n    private Vector<Integer> dati = new Vector<>();\n\n    public void push(int x) {\n        dati.add(x);\n    }\n\n    public int pop() {\n        return dati.remove(dati.size() - 1);\n    }\n}\n"
+  },
+  {
+   "name": "Main.java",
+   "code": "public class Main {\n    public static void main(String[] args) {\n        Pila p = new Pila();\n        p.push(3);\n        p.push(6);\n        System.out.println(p.pop());\n        System.out.println(p.pop());\n    }\n}\n"
+  }
+ ],
+ "main_class": "Main",
+ "theme": {},
+ "viz_index": false,
+ "viz_title": "pila  ·  Vector",
+ "hook": [
+  "Stessa pila.",
+  "Contenitore diverso.",
+  "Ora usa Vector."
+ ],
+ "teoria": {
+  "title": "Pila su Vector",
+  "kind": "vector",
+  "rule": "push = add · pop = remove dell'ultimo",
+  "step_seconds": 2.0,
+  "steps": [
+   {
+    "op": "add",
+    "value": 3,
+    "caption": "Teoria · push 3: add in fondo"
+   },
+   {
+    "op": "add",
+    "value": 6,
+    "caption": "push 6: ora in fondo c'è il 6"
+   },
+   {
+    "op": "remove",
+    "index": 1,
+    "caption": "pop: remove dell'ultimo indice"
+   },
+   {
+    "op": "remove",
+    "index": 0,
+    "caption": "Poi il 3: sempre l'ultimo"
+   }
+  ]
+ },
+ "steps": [
+  {
+   "after_line": 4,
+   "caption": "1 · Stessa pila, ma con Vector",
+   "highlight_lines": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "after_line": 8,
+   "caption": "2 · push: add in fondo",
+   "highlight_lines": [
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "after_line": 12,
+   "caption": "3 · pop: remove dell'ultimo",
+   "highlight_lines": [
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "after_line": 18,
+   "caption": "4 · Due push: 3 e 6",
+   "viz": {
+    "op": "init",
+    "values": [
+     3,
+     6
+    ]
+   },
+   "highlight_lines": [
+    17,
+    18
+   ]
+  },
+  {
+   "after_line": 19,
+   "caption": "5 · pop: esce il 6",
+   "viz": {
+    "op": "pop",
+    "label": "pop() -> 6"
+   },
+   "highlight_lines": [
+    19
+   ]
+  },
+  {
+   "after_line": 20,
+   "caption": "6 · poi il 3: LIFO",
+   "viz": {
+    "op": "pop",
+    "label": "pop() -> 3"
+   },
+   "highlight_lines": [
+    20
+   ]
+  }
+ ],
+ "run_caption": "7 · Output: 6 e 3",
+ "outro": {
+  "caption": "Prossimo episodio: la coda",
+  "cta": "Segui per la serie Java"
+ },
+ "post": {
+  "caption": "La pila (LIFO) in Java con Vector: push e pop, la classe modello e il Main che la prova.",
+  "theory": [
+   "La pila è LIFO: l'ultimo che entra è il primo a uscire.",
+   "push aggiunge in cima, pop toglie dalla cima.",
+   "Qui la pila è una classe che usa un Vector come contenitore.",
+   "Il Main crea la Pila e prova push e pop."
+  ],
+  "caption_en": "The stack (LIFO) in Java with Vector: push and pop, the model class and the Main that tries it.",
+  "theory_en": [
+   "The stack is LIFO: the last one in is the first one out.",
+   "push adds on top, pop removes from the top.",
+   "Here the stack is a class using a Vector as container.",
+   "Main creates the Pila and tries push and pop."
+  ],
+  "hashtags": [
+   "#java",
+   "#programmazione",
+   "#coding",
+   "#imparareacodare",
+   "#informatica",
+   "#scuola",
+   "#learnontiktok",
+   "#learntocode"
+  ]
+ }
+}

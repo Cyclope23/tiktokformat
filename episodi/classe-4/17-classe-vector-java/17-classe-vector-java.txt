@@ -1,0 +1,18 @@
+La classe Vector in Java: un array dinamico con add, get e size.
+
+Richiamo teorico:
+- Vector<Integer> è un array dinamico: cresce da solo con add().
+- get(i) legge l'elemento in posizione i (si parte da 0).
+- size() restituisce quanti elementi contiene.
+- remove(i) toglie un elemento e fa scalare gli altri.
+
+English:
+The Vector class in Java: a dynamic array with add, get and size.
+
+Theory recap:
+- Vector<Integer> is a dynamic array: it grows by itself with add().
+- get(i) reads the element at position i (counting from 0).
+- size() returns how many elements it holds.
+- remove(i) deletes an element and shifts the others.
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

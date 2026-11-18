@@ -1,0 +1,18 @@
+La classe completa in Java: attributi private, costruttore, setter con controllo e toString.
+
+Richiamo teorico:
+- Gli attributi sono private: si accede solo con i metodi.
+- Il costruttore assegna i valori iniziali (this.nome = nome).
+- Il setter può rifiutare valori non validi, come un'età negativa.
+- toString() restituisce il testo usato da println(oggetto).
+
+English:
+The complete class in Java: private attributes, constructor, validating setter and toString.
+
+Theory recap:
+- Attributes are private: access goes through methods only.
+- The constructor sets the initial values (this.nome = nome).
+- The setter can reject invalid values, like a negative age.
+- toString() returns the text used by println(object).
+
+#java #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode

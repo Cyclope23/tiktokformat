@@ -82,7 +82,7 @@ Vale anche per Vector, Pila, Coda, String e file (es. classe Rubrica che legge/s
 (Indicazione di Daniele, 2026-11-18, da ricordare sempre.)
 
 ## Operazioni "viz" disponibili nel JSON
-init (values) | push (value) | set (index, value, label) | iterate (count, labels, var) |
+init (values) | push (value) | pop | shift (tolgono l'ultima/prima casella, con label) | set (index, value, label) | iterate (count, labels, var) |
 label (text) | size. Ogni step: after_line, caption, viz, highlight_lines.
 Opzioni episodio: theme (override parametri), viz_title, viz_index (true/false).
 Nomi sotto le caselle: viz init con "names": [...] o push con "name". Con i nomi l'indice [i] non compare.
