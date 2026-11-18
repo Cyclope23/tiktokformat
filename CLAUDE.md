@@ -74,6 +74,13 @@ Dove lavorare:
 - Nessuna voce. Audio muto o musica; la musica si sceglie nell'editor di TikTok alla pubblicazione.
 - Un concetto per episodio; esempi reali, brevi (10-14 righe).
 
+## REGOLA DIDATTICA 4D (Java): classe modello separata dal Main
+Per ogni episodio della 4D, anche strutture dati e file: la classe modello sta in un file proprio (es. Pila.java,
+Coda.java, Punto.java) e il Main (classe applicativa) serve solo a istanziarla e provarla. Mai tutta la logica dentro il Main.
+Si usa "files" nel JSON (una scheda per classe, Main per ultimo), come negli esempi Televisore e Punto/Grafico/Avvio.
+Vale anche per Vector, Pila, Coda, String e file (es. classe Rubrica che legge/scrive, il Main la prova).
+(Indicazione di Daniele, 2026-11-18, da ricordare sempre.)
+
 ## Operazioni "viz" disponibili nel JSON
 init (values) | push (value) | set (index, value, label) | iterate (count, labels, var) |
 label (text) | size. Ogni step: after_line, caption, viz, highlight_lines.
