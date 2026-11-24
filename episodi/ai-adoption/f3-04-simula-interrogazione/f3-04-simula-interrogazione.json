@@ -1,0 +1,93 @@
+{
+  "id": "f3-04-simula-interrogazione",
+  "format": "A",
+  "series": "AI Adoption",
+  "class": "Usa l'AI, non farti usare",
+  "tool": "Claude",
+  "model": "Claude Sonnet 5.5",
+  "registrato": "2026-11-24",
+  "theme": {
+    "bubble_font": 34,
+    "user_cps": 60,
+    "read_wps": 4.2
+  },
+  "hook": [
+    "Interrogazione domani.",
+    "Con chi ti alleni?",
+    "Fatti interrogare"
+  ],
+  "scenes": [
+    {
+      "kind": "chat",
+      "caption": "1 · L'AI fa il docente",
+      "title": "Interrogazione di Java",
+      "tone": "good",
+      "messages": [
+        {
+          "role": "user",
+          "text": "Fai da **docente di Informatica** di quarta e interrogami su **ereditarietà e polimorfismo in Java.**\nRegole: **una domanda alla volta,** anche di tracciamento oltre alle definizioni, nessuna correzione finché non ho risposto. Dopo due domande dammi un **voto in decimi motivato,** con punti forti e lacune."
+        },
+        {
+          "role": "ai",
+          "text": "Iniziamo. Qual è la differenza tra **overloading** e **overriding?** Fammi un esempio per ciascuno."
+        },
+        {
+          "role": "user",
+          "text": "Overloading: stesso nome, parametri diversi, nella stessa classe. Overriding: la sottoclasse ridefinisce un metodo della superclasse con la stessa firma."
+        },
+        {
+          "role": "ai",
+          "text": "Ora traccia: Animale a = new Cane(); Cane ridefinisce verso() e ha un metodo static tipo(), come Animale. Cosa stampano a.verso() e a.tipo()? Motiva."
+        },
+        {
+          "role": "user",
+          "text": "a.verso() stampa Bau: binding dinamico sul tipo reale. a.tipo() stampa Animale: gli static si risolvono sul tipo della variabile."
+        },
+        {
+          "role": "ai",
+          "text": "Voto **8,5.** Risposte esatte. Lacuna: il caso static è **hiding,** non overriding. Ripassa anche @Override e super."
+        }
+      ],
+      "badge": {
+        "text": "✓ Voto motivato",
+        "tone": "good"
+      }
+    },
+    {
+      "kind": "rule",
+      "text": "Chiedi un **voto motivato,** non solo le **domande.**"
+    }
+  ],
+  "outro": {
+    "caption": "Prossimo episodio: come dichiarare l'uso dell'AI",
+    "cta": "Segui per la serie AI Adoption"
+  },
+  "post": {
+    "caption": "Come prepararti a un'interrogazione di Java con l'AI nel ruolo del docente: domande una alla volta, tracciamento del codice e voto motivato. Prova reale con Claude.",
+    "theory": [
+      "Dai all'AI un ruolo (docente), il programma e le regole (una domanda alla volta, nessuna correzione prima della risposta).",
+      "Chiedi anche domande di tracciamento: spiegare cosa stampa il codice vale più di una definizione.",
+      "Binding dinamico: con l'overriding si esegue il metodo del tipo reale dell'oggetto.",
+      "I metodi static non si ridefiniscono ma si nascondono (hiding): si risolvono sul tipo della variabile."
+    ],
+    "caption_en": "How to prepare for a Java oral exam with AI playing the teacher: one question at a time, code tracing and a justified grade. Real test with Claude.",
+    "theory_en": [
+      "Give the AI a role (teacher), the syllabus and the rules (one question at a time, no correction before you answer).",
+      "Ask for tracing questions too: explaining what the code prints is worth more than a definition.",
+      "Dynamic binding: with overriding, the method of the object's real type runs.",
+      "Static methods are not overridden but hidden: they resolve on the variable's type."
+    ],
+    "hashtags": [
+      "#aiadoption",
+      "#intelligenzaartificiale",
+      "#ai",
+      "#studiare",
+      "#scuola",
+      "#studytok",
+      "#learnontiktok",
+      "#java",
+      "#programmazione",
+      "#oop"
+    ]
+  }
+}

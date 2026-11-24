@@ -1,0 +1,18 @@
+Come prepararti a un'interrogazione di Java con l'AI nel ruolo del docente: domande una alla volta, tracciamento del codice e voto motivato. Prova reale con Claude.
+
+Richiamo teorico:
+- Dai all'AI un ruolo (docente), il programma e le regole (una domanda alla volta, nessuna correzione prima della risposta).
+- Chiedi anche domande di tracciamento: spiegare cosa stampa il codice vale più di una definizione.
+- Binding dinamico: con l'overriding si esegue il metodo del tipo reale dell'oggetto.
+- I metodi static non si ridefiniscono ma si nascondono (hiding): si risolvono sul tipo della variabile.
+
+English:
+How to prepare for a Java oral exam with AI playing the teacher: one question at a time, code tracing and a justified grade. Real test with Claude.
+
+Theory recap:
+- Give the AI a role (teacher), the syllabus and the rules (one question at a time, no correction before you answer).
+- Ask for tracing questions too: explaining what the code prints is worth more than a definition.
+- Dynamic binding: with overriding, the method of the object's real type runs.
+- Static methods are not overridden but hidden: they resolve on the variable's type.
+
+#aiadoption #intelligenzaartificiale #ai #studiare #scuola #studytok #learnontiktok #java #programmazione #oop

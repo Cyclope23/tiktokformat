@@ -60,7 +60,7 @@ Tutti gli episodi: hook di 3 righe, barra di avanzamento, caption numerata, badg
 | 3.1 | Il tutor che fa domande (ricerca binaria) | `chat` (tutor, 3 giri) + `rule` | prodotto: f3-01-tutor-che-fa-domande (40 s) |
 | 3.2 | Dai tuoi appunti a un quiz (puntatori e array) | `chat` (incolla appunti, chiede 5 domande) + `cards` (domanda, risposta, esito) + `rule` | da fare (serve `cards`) |
 | 3.3 | Flashcard in 20 secondi (JOIN SQL) | `chat` (appunti → carte) + `cards` in modalità flashcard + `rule` | da fare (serve `cards`) |
-| 3.4 | Simula l'interrogazione (Java: ereditarietà) | `chat` con ruoli (AI docente, tu rispondi) + voto motivato + `rule` | da fare (solo `chat`) |
+| 3.4 | Simula l'interrogazione (Java: ereditarietà) | `chat` con ruoli (AI docente, tu rispondi) + voto motivato + `rule` | prodotto: f3-04-simula-interrogazione (57 s) |
 | 3.5 | Copiato vs capito (rimuovi duplicati) | `versus` + `rule` | prodotto: f3-05-copiato-vs-capito (30 s) |
 | 3.6 | Come dichiarare l'uso dell'AI | `chat` (chiedi la formula) + `note` (riga pronta) + `rule` | da fare (serve `note`) |
 | 3.7 | Mappa concettuale dagli appunti | `chat` + `tree` (mappa che si costruisce) + correzione a mano + `rule` | da fare (serve `tree`) |
