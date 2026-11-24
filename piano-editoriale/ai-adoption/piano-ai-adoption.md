@@ -50,6 +50,23 @@ Formato: modo giusto vs modo sbagliato, con il risultato a confronto.
 | 7 | Mappa concettuale dagli appunti | Struttura gerarchica generata, poi corretta a mano |
 | 8 | Il riassunto è fedele? | Controllo di un riassunto AI contro il testo originale |
 
+## Tipi di scena (formato "A", strumenti/render_chat.py)
+Un video è una sequenza di scene; ogni episodio sceglie quelle che servono. Scene disponibili: `chat` (chat singola), `versus` (due chat impilate, sbagliato/giusto, con badge), `rule` (regola finale). Da implementare: `cards` (quiz e flashcard con rivelazione), `textdiff` (testo originale e riassunto con evidenziazioni), `tree` (mappa concettuale che si costruisce), `note` (riga di trasparenza da copiare).
+Tutti gli episodi: hook di 3 righe, barra di avanzamento, caption numerata, badge a timbro, regola finale, CTA. Output dell'AI generati da Claude e registrati con modello e data nel .json.
+
+### Filone 3: mappa episodi e scene
+| # | Episodio | Scene | Stato |
+|---|----------|-------|-------|
+| 3.1 | Il tutor che fa domande | `chat` (tutor, 3 giri) + `rule` | prodotto: f3-01-tutor-che-fa-domande (40 s) |
+| 3.2 | Dai tuoi appunti a un quiz | `chat` (incolla appunti, chiede 5 domande) + `cards` (domanda, risposta, esito) + `rule` | da fare (serve `cards`) |
+| 3.3 | Flashcard in 20 secondi | `chat` (appunti → carte) + `cards` in modalità flashcard + `rule` | da fare (serve `cards`) |
+| 3.4 | Simula l'interrogazione | `chat` con ruoli (AI docente, tu rispondi) + voto motivato + `rule` | da fare (solo `chat`) |
+| 3.5 | Copiato vs capito | `versus` + `rule` | prodotto: f3-05-copiato-vs-capito (30 s) |
+| 3.6 | Come dichiarare l'uso dell'AI | `chat` (chiedi la formula) + `note` (riga pronta) + `rule` | da fare (serve `note`) |
+| 3.7 | Mappa concettuale dagli appunti | `chat` + `tree` (mappa che si costruisce) + correzione a mano + `rule` | da fare (serve `tree`) |
+| 3.8 | Il riassunto è fedele? | `textdiff` (frasi evidenziate: fedele / aggiunta / omessa) + `rule` | da fare (serve `textdiff`) |
+Ordine di produzione consigliato: 3.4 (solo chat) → 3.2 e 3.3 (stesse `cards`) → 3.8 → 3.7 → 3.6.
+
 ## Filone 4: Debug con l'AI, senza farsi scrivere il codice (Fase 2, linguaggi delle tue classi)
 Formato: codice con errore → si chiede una spiegazione, non la correzione → si corregge a mano.
 

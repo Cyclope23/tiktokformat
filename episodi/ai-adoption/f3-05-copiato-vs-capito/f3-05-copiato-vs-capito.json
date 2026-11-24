@@ -1,0 +1,95 @@
+{
+  "id": "f3-05-copiato-vs-capito",
+  "format": "A",
+  "series": "AI Adoption",
+  "class": "Usa l'AI, non farti usare",
+  "tool": "Claude",
+  "model": "Claude Sonnet 5.5",
+  "registrato": "2026-11-24",
+  "hook": [
+    "Copiare è facile.",
+    "Ma all'interrogazione?",
+    "Copiato o capito?"
+  ],
+  "scenes": [
+    {
+      "kind": "versus",
+      "caption": "1 · Stesso esercizio, due modi",
+      "panels": [
+        {
+          "title": "✗ Incolli la risposta",
+          "tone": "bad",
+          "messages": [
+            {
+              "role": "user",
+              "text": "Risolvi: 2x + 6 = 14"
+            },
+            {
+              "role": "ai",
+              "text": "x = 4"
+            }
+          ],
+          "badge": {
+            "text": "✗ Solo risposta",
+            "tone": "bad"
+          }
+        },
+        {
+          "title": "✓ La spieghi tu",
+          "tone": "good",
+          "messages": [
+            {
+              "role": "user",
+              "text": "Io ho tolto 6 e diviso per 2: x = 4. Il ragionamento regge?"
+            },
+            {
+              "role": "ai",
+              "text": "Regge. Hai usato le operazioni inverse. Un dubbio: perché togli 6 da **entrambi** i lati?"
+            }
+          ],
+          "badge": {
+            "text": "✓ Lo sai rifare",
+            "tone": "good"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "rule",
+      "text": "La risposta è tua solo se la sai **rifare da solo.**"
+    }
+  ],
+  "outro": {
+    "caption": "Prossimo episodio: come dichiarare l'uso dell'AI",
+    "cta": "Segui per la serie AI Adoption"
+  },
+  "post": {
+    "caption": "Copiato o capito? Stesso esercizio, due modi di usare l'AI: incollare la risposta o spiegarla con parole tue. Prova reale con Claude.",
+    "theory": [
+      "Una risposta copiata non dimostra che hai capito.",
+      "Spiega all'AI il tuo ragionamento e chiedi se regge.",
+      "Rispondi ai suoi dubbi: è il modo di accorgerti dei buchi.",
+      "Il test: sai rifare l'esercizio da solo?"
+    ],
+    "caption_en": "Copied or understood? Same exercise, two ways to use AI: paste the answer, or explain it in your own words. Real test with Claude.",
+    "theory_en": [
+      "A copied answer doesn't prove you understood.",
+      "Explain your reasoning to the AI and ask if it holds up.",
+      "Answer its doubts: that's how you spot your gaps.",
+      "The test: can you redo the exercise on your own?"
+    ],
+    "hashtags": [
+      "#aiadoption",
+      "#intelligenzaartificiale",
+      "#ai",
+      "#studiare",
+      "#scuola",
+      "#imparareacodare",
+      "#studytok",
+      "#learnontiktok"
+    ]
+  },
+  "theme": {
+    "bubble_font": 38
+  }
+}

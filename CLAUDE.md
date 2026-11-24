@@ -107,6 +107,16 @@ Rigenera solo il testo senza rifare il video: python3 strumenti/render.py <ep>.j
 Hashtag base: #cpp #programmazione #coding #imparareacodare #informatica #scuola #learnontiktok #learntocode
 (adattare per Java, SQL, Sistemi e Reti).
 
+## Serie AI Adoption (formato "A")
+Episodi in episodi/ai-adoption/<filone>-<nn>-<titolo>/ (es. f3-01-tutor-che-fa-domande) con .mp4, .txt, .json.
+JSON con "format": "A" -> render.py delega a strumenti/render_chat.py (stesso comando e stesso controllo fotogrammi
+con controlla.py). Struttura: hook[3], scenes[] ("kind": chat | versus | rule), outro, post (bilingue come sempre),
+tool/model/registrato. Messaggi: {"role": "user|ai", "text"}; **parola** = evidenziata (la punteggiatura va dentro i **).
+Badge: {"text", "tone": "good|bad"}. Opzioni tema utili: bubble_font (38), read_wps (3.4), user_cps, ai_cps.
+Regole: le risposte dell'AI sono generate da Claude al momento (nessun testo scritto a priori come se fosse un output);
+dati e nomi inventati, mai dati personali; strumento citato in descrizione; durata 30-60 s.
+Piano: piano-editoriale/ai-adoption/piano-ai-adoption.md (6 filoni, 44 episodi, mappa scene del filone 3).
+
 ## Regole
 - Account: profilo personale di Daniele. Non mostrare nomi, volti o dati di studenti.
 - Il codice mostrato deve essere corretto e di livello adatto alla classe.

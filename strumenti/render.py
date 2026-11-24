@@ -941,6 +941,14 @@ def main():
         sys.exit("ffmpeg non trovato. Esegui: python3 render.py --check")
 
     ep = json.loads(Path(args.episode).read_text(encoding="utf-8"))
+    if ep.get("format") == "A":   # AI Adoption: scene di tipo diverso (render_chat.py)
+        if args.solo_testo:
+            write_post(ep, args.out or str(Path(args.episode).with_suffix(".mp4")))
+            print("Testo del post rigenerato.")
+            return
+        import render_chat
+        render_chat.run(ep, args)
+        return
     if ep.get("files"):    # Java: una classe per file (schede nell'IDE)
         ep["code"] = "\n".join(f["code"].rstrip("\n") for f in ep["files"]) + "\n"
         ep["filename"] = ep["files"][0]["name"]
