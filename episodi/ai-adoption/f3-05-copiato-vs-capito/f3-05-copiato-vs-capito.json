@@ -6,6 +6,11 @@
   "tool": "Claude",
   "model": "Claude Sonnet 5.5",
   "registrato": "2026-11-24",
+  "theme": {
+    "bubble_font": 30,
+    "user_cps": 60,
+    "read_wps": 4.2
+  },
   "hook": [
     "Copiare è facile.",
     "Ma all'interrogazione?",
@@ -17,46 +22,50 @@
       "caption": "1 · Stesso esercizio, due modi",
       "panels": [
         {
-          "title": "✗ Incolli la risposta",
+          "title": "✗ Chiedi il codice",
           "tone": "bad",
           "messages": [
             {
               "role": "user",
-              "text": "Risolvi: 2x + 6 = 14"
+              "text": "Scrivi in C++ il massimo di un array di interi."
             },
             {
               "role": "ai",
-              "text": "x = 4"
+              "text": "Ecco la funzione:\nint massimo(int a[], int n) {\n  int m = a[0];\n  for (int i = 1; i < n; i++)\n    if (a[i] > m) m = a[i];\n  return m;\n}"
             }
           ],
           "badge": {
-            "text": "✗ Solo risposta",
+            "text": "✗ Copiato",
             "tone": "bad"
           }
         },
         {
-          "title": "✓ La spieghi tu",
+          "title": "✓ La scrivi tu, l'AI la rivede",
           "tone": "good",
           "messages": [
             {
               "role": "user",
-              "text": "Io ho tolto 6 e diviso per 2: x = 4. Il ragionamento regge?"
+              "text": "La mia funzione, **non riscriverla.** Con quali input fallisce?\nint massimo(int a[], int n) {\n  int m = 0;\n  for (int i = 0; i < n; i++)\n    if (a[i] > m) m = a[i];\n  return m;\n}"
             },
             {
               "role": "ai",
-              "text": "Regge. Hai usato le operazioni inverse. Un dubbio: perché togli 6 da **entrambi** i lati?"
+              "text": "Con {-5, -2, -9} restituisce **0,** che non è nell'array. Come inizializzeresti m? E con n = 0?"
             }
           ],
           "badge": {
-            "text": "✓ Lo sai rifare",
+            "text": "✓ Capito",
             "tone": "good"
           }
         }
+      ],
+      "heights": [
+        600,
+        700
       ]
     },
     {
       "kind": "rule",
-      "text": "La risposta è tua solo se la sai **rifare da solo.**"
+      "text": "Fatti **criticare** il codice, non **scrivere.**"
     }
   ],
   "outro": {
@@ -64,19 +73,19 @@
     "cta": "Segui per la serie AI Adoption"
   },
   "post": {
-    "caption": "Copiato o capito? Stesso esercizio, due modi di usare l'AI: incollare la risposta o spiegarla con parole tue. Prova reale con Claude.",
+    "caption": "Copiato o capito? Stesso esercizio in C++: farsi scrivere il codice oppure scriverlo e farselo criticare dall'AI. Prova reale con Claude.",
     "theory": [
-      "Una risposta copiata non dimostra che hai capito.",
-      "Spiega all'AI il tuo ragionamento e chiedi se regge.",
-      "Rispondi ai suoi dubbi: è il modo di accorgerti dei buchi.",
-      "Il test: sai rifare l'esercizio da solo?"
+      "Il codice copiato funziona nel caso comune, ma non sai dove si rompe.",
+      "Scrivi tu la funzione e chiedi all'AI con quali input può fallire, senza riscriverla.",
+      "Qui il bug era l'inizializzazione di m a 0: sbaglia con numeri tutti negativi.",
+      "Prima di consegnare, prova sempre i casi limite (valori negativi, array vuoto)."
     ],
-    "caption_en": "Copied or understood? Same exercise, two ways to use AI: paste the answer, or explain it in your own words. Real test with Claude.",
+    "caption_en": "Copied or understood? Same C++ exercise: have the AI write the code, or write it yourself and let the AI critique it. Real test with Claude.",
     "theory_en": [
-      "A copied answer doesn't prove you understood.",
-      "Explain your reasoning to the AI and ask if it holds up.",
-      "Answer its doubts: that's how you spot your gaps.",
-      "The test: can you redo the exercise on your own?"
+      "Copied code works in the common case, but you don't know where it breaks.",
+      "Write the function yourself and ask the AI which inputs can break it, without rewriting it.",
+      "Here the bug was initialising m to 0: it fails with all-negative numbers.",
+      "Before handing in, always test edge cases (negative values, empty array)."
     ],
     "hashtags": [
       "#aiadoption",
@@ -84,12 +93,10 @@
       "#ai",
       "#studiare",
       "#scuola",
-      "#imparareacodare",
       "#studytok",
-      "#learnontiktok"
+      "#learnontiktok",
+      "#cpp",
+      "#programmazione"
     ]
-  },
-  "theme": {
-    "bubble_font": 38
   }
 }

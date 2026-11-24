@@ -42,6 +42,9 @@ def words_of(text):
             if part == "\n":
                 out.append(("\n", False))
             else:
+                lead = len(part) - len(part.lstrip(" "))
+                if lead >= 2 and (not out or out[-1][0] == "\n"):   # indentazione del codice
+                    out.append(("\u00a0" * (lead - 1), False))
                 out += [(w, i % 2 == 1) for w in part.split(" ") if w]
     return out
 
@@ -100,7 +103,7 @@ class Chat:
             m["t"] = t
             if m["role"] == "user":
                 m["dots"], m["typ"] = 0.0, m["nch"] / th["user_cps"] + 0.25
-                t += m["typ"] + th["msg_gap"]
+                t += m["typ"] + max(th["msg_gap"], m["nwords"] / th["read_wps"] - m["typ"])   # tempo per leggere
             else:
                 m["dots"], m["typ"] = th["dots_seconds"], m["nch"] / th["ai_cps"]
                 t += m["dots"] + m["typ"] + max(1.0, m["nwords"] / th["read_wps"])
@@ -198,10 +201,12 @@ class ChatRenderer:
             else:
                 panels = sc["panels"] if kind == "versus" else [sc]
                 s["chats"], tl = [], 0.4
+                hs = sc.get("heights") or [th["versus_h"]] * len(panels)   # altezze dei pannelli (px)
+                y0 = th["versus_y0"]
                 for i, p in enumerate(panels):
                     if kind == "versus":
-                        y0 = th["versus_y0"] + i * (th["versus_h"] + th["versus_gap"])
-                        c = Chat(th, p, self.L, y0, self.R, y0 + th["versus_h"])
+                        c = Chat(th, p, self.L, y0, self.R, y0 + hs[i])
+                        y0 += hs[i] + th["versus_gap"]
                     else:
                         c = Chat(th, sc, self.L, th["panel_y0"], self.R, th["panel_y1"])
                     c.appear = tl

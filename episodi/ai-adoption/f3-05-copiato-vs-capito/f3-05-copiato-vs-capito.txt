@@ -1,18 +1,18 @@
-Copiato o capito? Stesso esercizio, due modi di usare l'AI: incollare la risposta o spiegarla con parole tue. Prova reale con Claude.
+Copiato o capito? Stesso esercizio in C++: farsi scrivere il codice oppure scriverlo e farselo criticare dall'AI. Prova reale con Claude.
 
 Richiamo teorico:
-- Una risposta copiata non dimostra che hai capito.
-- Spiega all'AI il tuo ragionamento e chiedi se regge.
-- Rispondi ai suoi dubbi: è il modo di accorgerti dei buchi.
-- Il test: sai rifare l'esercizio da solo?
+- Il codice copiato funziona nel caso comune, ma non sai dove si rompe.
+- Scrivi tu la funzione e chiedi all'AI con quali input può fallire, senza riscriverla.
+- Qui il bug era l'inizializzazione di m a 0: sbaglia con numeri tutti negativi.
+- Prima di consegnare, prova sempre i casi limite (valori negativi, array vuoto).
 
 English:
-Copied or understood? Same exercise, two ways to use AI: paste the answer, or explain it in your own words. Real test with Claude.
+Copied or understood? Same C++ exercise: have the AI write the code, or write it yourself and let the AI critique it. Real test with Claude.
 
 Theory recap:
-- A copied answer doesn't prove you understood.
-- Explain your reasoning to the AI and ask if it holds up.
-- Answer its doubts: that's how you spot your gaps.
-- The test: can you redo the exercise on your own?
+- Copied code works in the common case, but you don't know where it breaks.
+- Write the function yourself and ask the AI which inputs can break it, without rewriting it.
+- Here the bug was initialising m to 0: it fails with all-negative numbers.
+- Before handing in, always test edge cases (negative values, empty array).
 
-#aiadoption #intelligenzaartificiale #ai #studiare #scuola #imparareacodare #studytok #learnontiktok
+#aiadoption #intelligenzaartificiale #ai #studiare #scuola #studytok #learnontiktok #cpp #programmazione

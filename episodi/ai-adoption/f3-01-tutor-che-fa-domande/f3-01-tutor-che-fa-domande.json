@@ -6,6 +6,11 @@
   "tool": "Claude",
   "model": "Claude Sonnet 5.5",
   "registrato": "2026-11-24",
+  "theme": {
+    "bubble_font": 34,
+    "user_cps": 60,
+    "read_wps": 4.2
+  },
   "hook": [
     "L'AI ti risolve il compito.",
     "E tu cosa impari?",
@@ -14,33 +19,33 @@
   "scenes": [
     {
       "kind": "chat",
-      "caption": "1 · Chiedi domande, non soluzioni",
-      "title": "Tutor di matematica",
+      "caption": "1 · Un prompt con le regole",
+      "title": "Tutor di fisica",
       "tone": "good",
       "messages": [
         {
           "role": "user",
-          "text": "Aiutami con 2x + 6 = 14. Non darmi la soluzione: guidami con domande, una alla volta."
+          "text": "Fai da **tutor di fisica** per uno studente di terza superiore. Problema: un'auto parte da ferma e accelera a 2 m/s² per 8 s. Che distanza percorre?\nRegole: **una domanda alla volta,** niente formule né risultati, se sbaglio dammi un **indizio** e non la correzione. Alla fine fammi controllare unità e ordine di grandezza."
         },
         {
           "role": "ai",
-          "text": "Va bene! Prima domanda: per trovare x, cosa vuoi far sparire a sinistra, il **+ 6** o il **2?**"
+          "text": "Partiamo dai dati. Che tipo di moto è e quali valori conosci? Attenzione a cosa significa \"parte da ferma\"."
         },
         {
           "role": "user",
-          "text": "Prima il + 6?"
+          "text": "Moto uniformemente accelerato: a = 2, t = 8 e v0 = 0."
         },
         {
           "role": "ai",
-          "text": "Esatto. Come lo fai sparire senza rompere l'equazione?"
+          "text": "Ottimo. Quale legge collega spazio, accelerazione e tempo quando v0 = 0? Scrivila prima di sostituire."
         },
         {
           "role": "user",
-          "text": "Tolgo 6 da entrambi i lati: 2x = 8. Poi divido per 2: x = 4"
+          "text": "s = 1/2 · a · t² = 1/2 · 2 · 64 = 64 m"
         },
         {
           "role": "ai",
-          "text": "Ci sei arrivato da solo. Ultima mossa: **verifica** mettendo 4 al posto di x. **Torna?**"
+          "text": "Torna. Ultimo controllo: che **velocità** ha l'auto dopo 8 s? Ti sembra coerente con 64 m?"
         }
       ],
       "badge": {
@@ -50,7 +55,7 @@
     },
     {
       "kind": "rule",
-      "text": "Chiedi **domande,** non **soluzioni.**"
+      "text": "Un buon prompt dà **ruolo,** **regole** e cosa **non** fare."
     }
   ],
   "outro": {
@@ -58,19 +63,19 @@
     "cta": "Segui per la serie AI Adoption"
   },
   "post": {
-    "caption": "Il modo giusto di usare l'AI per un esercizio: farti guidare con domande, senza farti dare la soluzione. Prova reale con Claude.",
+    "caption": "Come farsi guidare dall'AI su un problema di fisica senza farsi dare la soluzione: un prompt con ruolo, regole e controllo finale. Prova reale con Claude.",
     "theory": [
-      "Se chiedi la soluzione, hai il risultato ma non il metodo.",
-      "Chiedi all'AI di fare una domanda alla volta e rispondi tu.",
-      "Alla fine verifica sempre il risultato da solo.",
-      "Il prompt chiave: \"Guidami con domande, non darmi la soluzione\"."
+      "Un buon prompt dà un ruolo (tutor), delle regole (una domanda alla volta) e cosa NON fare (niente formule né risultati).",
+      "Se sbagli, chiedi un indizio e non la correzione.",
+      "Chiudi chiedendo un controllo di unità e ordine di grandezza.",
+      "Il risultato è tuo solo se lo hai ricavato tu."
     ],
-    "caption_en": "The right way to use AI on an exercise: let it guide you with questions instead of handing you the solution. Real test with Claude.",
+    "caption_en": "How to let AI guide you through a physics problem without handing you the solution: a prompt with a role, rules and a final check. Real test with Claude.",
     "theory_en": [
-      "Ask for the solution and you get the answer, not the method.",
-      "Ask the AI for one question at a time and answer it yourself.",
-      "Always check the result on your own at the end.",
-      "The key prompt: \"Guide me with questions, don't give me the solution\"."
+      "A good prompt sets a role (tutor), rules (one question at a time) and what NOT to do (no formulas or results).",
+      "If you get it wrong, ask for a hint, not the correction.",
+      "Finish by asking for a check of units and order of magnitude.",
+      "The result is yours only if you worked it out yourself."
     ],
     "hashtags": [
       "#aiadoption",
@@ -78,12 +83,9 @@
       "#ai",
       "#studiare",
       "#scuola",
-      "#imparareacodare",
       "#studytok",
-      "#learnontiktok"
+      "#learnontiktok",
+      "#fisica"
     ]
-  },
-  "theme": {
-    "bubble_font": 38
   }
 }

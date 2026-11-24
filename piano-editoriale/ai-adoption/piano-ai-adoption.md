@@ -3,6 +3,7 @@
 Obiettivo: contenuto didattico a sé, pubblico generico, stesso formato dei video di programmazione (senza voce, musica, tutto a schermo, descrizione bilingue IT/EN con richiamo teorico).
 
 Regole comuni
+- Prompt ed esempi sempre realistici e non banali (Daniele, 2026-11-24): prompt strutturati (ruolo, contesto, vincoli, formato), problemi veri, casi limite; esempi verificati prima del video.
 - Ogni episodio mostra un prova reale: l'output va registrato al momento e verificato, non scritto a priori (i modelli cambiano, un esempio che oggi fallisce può non fallire domani).
 - Nessun dato personale nei prompt; dati e nomi inventati.
 - Durata 30-60 s. Hook nei primi 2 secondi (la domanda o l'errore già a schermo). Ultimo frame: la regola in una riga.

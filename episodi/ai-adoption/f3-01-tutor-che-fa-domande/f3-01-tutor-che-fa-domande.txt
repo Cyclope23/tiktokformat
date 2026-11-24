@@ -1,18 +1,18 @@
-Il modo giusto di usare l'AI per un esercizio: farti guidare con domande, senza farti dare la soluzione. Prova reale con Claude.
+Come farsi guidare dall'AI su un problema di fisica senza farsi dare la soluzione: un prompt con ruolo, regole e controllo finale. Prova reale con Claude.
 
 Richiamo teorico:
-- Se chiedi la soluzione, hai il risultato ma non il metodo.
-- Chiedi all'AI di fare una domanda alla volta e rispondi tu.
-- Alla fine verifica sempre il risultato da solo.
-- Il prompt chiave: "Guidami con domande, non darmi la soluzione".
+- Un buon prompt dà un ruolo (tutor), delle regole (una domanda alla volta) e cosa NON fare (niente formule né risultati).
+- Se sbagli, chiedi un indizio e non la correzione.
+- Chiudi chiedendo un controllo di unità e ordine di grandezza.
+- Il risultato è tuo solo se lo hai ricavato tu.
 
 English:
-The right way to use AI on an exercise: let it guide you with questions instead of handing you the solution. Real test with Claude.
+How to let AI guide you through a physics problem without handing you the solution: a prompt with a role, rules and a final check. Real test with Claude.
 
 Theory recap:
-- Ask for the solution and you get the answer, not the method.
-- Ask the AI for one question at a time and answer it yourself.
-- Always check the result on your own at the end.
-- The key prompt: "Guide me with questions, don't give me the solution".
+- A good prompt sets a role (tutor), rules (one question at a time) and what NOT to do (no formulas or results).
+- If you get it wrong, ask for a hint, not the correction.
+- Finish by asking for a check of units and order of magnitude.
+- The result is yours only if you worked it out yourself.
 
-#aiadoption #intelligenzaartificiale #ai #studiare #scuola #imparareacodare #studytok #learnontiktok
+#aiadoption #intelligenzaartificiale #ai #studiare #scuola #studytok #learnontiktok #fisica

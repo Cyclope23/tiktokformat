@@ -123,4 +123,7 @@ Piano: piano-editoriale/ai-adoption/piano-ai-adoption.md (6 filoni, 44 episodi, 
 - Pubblicazione: Claude non pubblica da solo. Percorso scelto: bozza nella posta in arrivo di
   TikTok (API Content Posting, modalita' upload) o caricamento manuale; Daniele rivede, sceglie
   la musica e pubblica. La pubblicazione diretta pubblica richiede audit dell'app TikTok.
+- Prompt ed esempi sempre realistici e non banali (indicazione di Daniele, 2026-11-24): prompt strutturati come li scriverebbe
+  chi sa usare l'AI (ruolo, contesto, vincoli, formato), problemi e codice di livello adatto alla classe o al pubblico, casi
+  limite veri; mai esempi giocattolo. Il codice e i numeri mostrati vanno verificati (compilati/calcolati) prima del video.
 - Scrivere solo nella repo e nella cartella OneDrive indicata sopra.
