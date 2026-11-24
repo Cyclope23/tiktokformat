@@ -1,18 +1,18 @@
-Come farsi guidare dall'AI su un problema di fisica senza farsi dare la soluzione: un prompt con ruolo, regole e controllo finale. Prova reale con Claude.
+Come farsi guidare dall'AI nella ricerca binaria in C++ senza farsi dare il codice: un prompt con ruolo, regole e casi limite finali. Prova reale con Claude.
 
 Richiamo teorico:
-- Un buon prompt dà un ruolo (tutor), delle regole (una domanda alla volta) e cosa NON fare (niente formule né risultati).
-- Se sbagli, chiedi un indizio e non la correzione.
-- Chiudi chiedendo un controllo di unità e ordine di grandezza.
-- Il risultato è tuo solo se lo hai ricavato tu.
+- Un buon prompt dà un ruolo (tutor), regole (una domanda alla volta) e cosa NON fare (niente codice).
+- Si parte dall'invariante: in quale porzione dell'array può stare il valore cercato.
+- mid = lo + (hi - lo) / 2 evita l'overflow di lo + hi con array molto grandi.
+- Chiudi sempre con i casi limite: array vuoto, un elemento, target assente.
 
 English:
-How to let AI guide you through a physics problem without handing you the solution: a prompt with a role, rules and a final check. Real test with Claude.
+How to let AI guide you through binary search in C++ without handing you the code: a prompt with a role, rules and a final edge-case check. Real test with Claude.
 
 Theory recap:
-- A good prompt sets a role (tutor), rules (one question at a time) and what NOT to do (no formulas or results).
-- If you get it wrong, ask for a hint, not the correction.
-- Finish by asking for a check of units and order of magnitude.
-- The result is yours only if you worked it out yourself.
+- A good prompt sets a role (tutor), rules (one question at a time) and what NOT to do (no code).
+- Start from the invariant: which part of the array can still hold the value you look for.
+- mid = lo + (hi - lo) / 2 avoids the overflow of lo + hi on very large arrays.
+- Always finish with edge cases: empty array, one element, missing target.
 
-#aiadoption #intelligenzaartificiale #ai #studiare #scuola #studytok #learnontiktok #fisica
+#aiadoption #intelligenzaartificiale #ai #studiare #scuola #studytok #learnontiktok #cpp #programmazione #algoritmi

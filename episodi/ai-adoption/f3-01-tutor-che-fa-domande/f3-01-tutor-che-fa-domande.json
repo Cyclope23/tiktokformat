@@ -12,7 +12,7 @@
     "read_wps": 4.2
   },
   "hook": [
-    "L'AI ti risolve il compito.",
+    "L'AI ti scrive l'algoritmo.",
     "E tu cosa impari?",
     "Fatti guidare"
   ],
@@ -20,36 +20,36 @@
     {
       "kind": "chat",
       "caption": "1 · Un prompt con le regole",
-      "title": "Tutor di fisica",
+      "title": "Tutor di algoritmi",
       "tone": "good",
       "messages": [
         {
           "role": "user",
-          "text": "Fai da **tutor di fisica** per uno studente di terza superiore. Problema: un'auto parte da ferma e accelera a 2 m/s² per 8 s. Che distanza percorre?\nRegole: **una domanda alla volta,** niente formule né risultati, se sbaglio dammi un **indizio** e non la correzione. Alla fine fammi controllare unità e ordine di grandezza."
+          "text": "Fai da **tutor di algoritmi** per uno studente di terza. Devo scrivere in C++ la **ricerca binaria** su un array ordinato di int (restituisce l'indice o -1).\n**Non darmi codice:** una domanda alla volta, se sbaglio dammi un indizio. Alla fine fammi **provare i casi limite.**"
         },
         {
           "role": "ai",
-          "text": "Partiamo dai dati. Che tipo di moto è e quali valori conosci? Attenzione a cosa significa \"parte da ferma\"."
+          "text": "Partiamo dall'invariante: a ogni passo, in quale porzione dell'array può trovarsi il valore cercato? Come la rappresenti?"
         },
         {
           "role": "user",
-          "text": "Moto uniformemente accelerato: a = 2, t = 8 e v0 = 0."
+          "text": "Con due indici: lo = 0 e hi = n - 1. Il centro è mid = lo + (hi - lo) / 2. Se a[mid] < target: lo = mid + 1, altrimenti hi = mid - 1."
         },
         {
           "role": "ai",
-          "text": "Ottimo. Quale legge collega spazio, accelerazione e tempo quando v0 = 0? Scrivila prima di sostituire."
+          "text": "Ti manca un caso: e se a[mid] è **uguale** al target? E quando deve fermarsi il ciclo?"
         },
         {
           "role": "user",
-          "text": "s = 1/2 · a · t² = 1/2 · 2 · 64 = 64 m"
+          "text": "Se è uguale restituisco mid. Il ciclo continua finché lo <= hi, poi restituisco -1."
         },
         {
           "role": "ai",
-          "text": "Torna. Ultimo controllo: che **velocità** ha l'auto dopo 8 s? Ti sembra coerente con 64 m?"
+          "text": "Torna. Ora **provalo:** array vuoto, un solo elemento, target più grande di tutti. Cosa succede a hi?"
         }
       ],
       "badge": {
-        "text": "✓ Lo risolvi tu",
+        "text": "✓ L'algoritmo è tuo",
         "tone": "good"
       }
     },
@@ -63,19 +63,19 @@
     "cta": "Segui per la serie AI Adoption"
   },
   "post": {
-    "caption": "Come farsi guidare dall'AI su un problema di fisica senza farsi dare la soluzione: un prompt con ruolo, regole e controllo finale. Prova reale con Claude.",
+    "caption": "Come farsi guidare dall'AI nella ricerca binaria in C++ senza farsi dare il codice: un prompt con ruolo, regole e casi limite finali. Prova reale con Claude.",
     "theory": [
-      "Un buon prompt dà un ruolo (tutor), delle regole (una domanda alla volta) e cosa NON fare (niente formule né risultati).",
-      "Se sbagli, chiedi un indizio e non la correzione.",
-      "Chiudi chiedendo un controllo di unità e ordine di grandezza.",
-      "Il risultato è tuo solo se lo hai ricavato tu."
+      "Un buon prompt dà un ruolo (tutor), regole (una domanda alla volta) e cosa NON fare (niente codice).",
+      "Si parte dall'invariante: in quale porzione dell'array può stare il valore cercato.",
+      "mid = lo + (hi - lo) / 2 evita l'overflow di lo + hi con array molto grandi.",
+      "Chiudi sempre con i casi limite: array vuoto, un elemento, target assente."
     ],
-    "caption_en": "How to let AI guide you through a physics problem without handing you the solution: a prompt with a role, rules and a final check. Real test with Claude.",
+    "caption_en": "How to let AI guide you through binary search in C++ without handing you the code: a prompt with a role, rules and a final edge-case check. Real test with Claude.",
     "theory_en": [
-      "A good prompt sets a role (tutor), rules (one question at a time) and what NOT to do (no formulas or results).",
-      "If you get it wrong, ask for a hint, not the correction.",
-      "Finish by asking for a check of units and order of magnitude.",
-      "The result is yours only if you worked it out yourself."
+      "A good prompt sets a role (tutor), rules (one question at a time) and what NOT to do (no code).",
+      "Start from the invariant: which part of the array can still hold the value you look for.",
+      "mid = lo + (hi - lo) / 2 avoids the overflow of lo + hi on very large arrays.",
+      "Always finish with edge cases: empty array, one element, missing target."
     ],
     "hashtags": [
       "#aiadoption",
@@ -85,7 +85,9 @@
       "#scuola",
       "#studytok",
       "#learnontiktok",
-      "#fisica"
+      "#cpp",
+      "#programmazione",
+      "#algoritmi"
     ]
   }
 }

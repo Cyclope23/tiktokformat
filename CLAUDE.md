@@ -125,5 +125,6 @@ Piano: piano-editoriale/ai-adoption/piano-ai-adoption.md (6 filoni, 44 episodi, 
   la musica e pubblica. La pubblicazione diretta pubblica richiede audit dell'app TikTok.
 - Prompt ed esempi sempre realistici e non banali (indicazione di Daniele, 2026-11-24): prompt strutturati come li scriverebbe
   chi sa usare l'AI (ruolo, contesto, vincoli, formato), problemi e codice di livello adatto alla classe o al pubblico, casi
-  limite veri; mai esempi giocattolo. Il codice e i numeri mostrati vanno verificati (compilati/calcolati) prima del video.
+  limite veri; mai esempi giocattolo. Gli esempi sono SEMPRE di risoluzione di algoritmi o programmazione (C++, Java, SQL), complessi
+  (Daniele insegna informatica): niente fisica, matematica generica, email o altre materie. Il codice e i numeri mostrati vanno verificati (compilati/calcolati) prima del video.
 - Scrivere solo nella repo e nella cartella OneDrive indicata sopra.
